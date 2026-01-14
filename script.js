@@ -194,10 +194,6 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '› Acceso completo a Java  & Bedrock Permanente.',
-        '› Rango **HERO** Global Minebosh.',
-        '› Rango **MASTER** Global MineFun.',
-        '› Rango **HERO** Global Minebosh.',
-
         '› Cambio de nombre disponible.',
         '› Capes: Pan & Common',
         '› Garantía incluida.'
@@ -210,7 +206,15 @@ const descripcionesProductos = {
     ],
     'MC STOCK | RANKS': [
         '› Acceso completo a Java Edition & Bedrock Edition.',
+        '› Baneado Temporalmente de Minesplash por 1 día.',
+        '› Baneado Temporalmente de ElectroMC por 1 día.',
         '› Cambio de nombre disponible en 24 días.',
+        '› Rango MASTER Global MineFun.',
+        '› Rango Soul MarioBox SpookMC.',
+        '› Rango HERO Global Minebosh.',
+        '› Rango VIP+ ClashBox Tilted.',
+        '› Rango VIP+ LatamBox Tilted.',
+        '› Rango VIP Global Tilted.',
         '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
@@ -918,4 +922,5 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
