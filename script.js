@@ -192,22 +192,26 @@ const productoModal = document.getElementById('producto-modal');
 // Descripciones personalizadas por producto
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
-    'MC STOCK | Premium Account': [
-        '› Cuenta Minecraft Premium.',
-        '› Acceso completo a Java & Bedrock.',
-        '› Cambio de skin disponible.',
+    'MC STOCK | CAPES': [
+        '› Acceso completo a Java  & Bedrock Permanente.',
+        '› Rango **HERO** Global Minebosh.',
+        '› Rango **MASTER** Global MineFun.',
+        '› Rango **HERO** Global Minebosh.',
+
+        '› Cambio de nombre disponible.',
+        '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Java Edition': [
-        '› Cuenta Minecraft Java Edition.',
-        '› Acceso completo al juego.',
-        '› Cambio de skin disponible.',
+    'MC STOCK | CAPES 2': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible.',
+        '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Bedrock Edition': [
-        '› Cuenta Minecraft Bedrock Edition.',
-        '› Compatible con Windows 10/11.',
-        '› Juega en PC, consolas y móvil.',
+    'MC STOCK | RANKS': [
+        '› Acceso completo a Java Edition & Bedrock Edition.',
+        '› Cambio de nombre disponible en 24 días.',
+        '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
     'MC STOCK | Full Access': [
@@ -914,3 +918,4 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
