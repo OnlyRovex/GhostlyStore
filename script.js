@@ -191,6 +191,79 @@ const productoModal = document.getElementById('producto-modal');
 
 // Descripciones personalizadas por producto
 const descripcionesProductos = {
+    // ========== MINECRAFT PRODUCTS ==========
+    'MC STOCK | Premium Account': [
+        '› Cuenta Minecraft Premium.',
+        '› Acceso completo a Java & Bedrock.',
+        '› Cambio de skin disponible.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Java Edition': [
+        '› Cuenta Minecraft Java Edition.',
+        '› Acceso completo al juego.',
+        '› Cambio de skin disponible.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Bedrock Edition': [
+        '› Cuenta Minecraft Bedrock Edition.',
+        '› Compatible con Windows 10/11.',
+        '› Juega en PC, consolas y móvil.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Full Access': [
+        '› Cuenta con acceso completo.',
+        '› Cambio de email y contraseña.',
+        '› Java & Bedrock incluidos.',
+        '› Garantía permanente.'
+    ],
+    'MC STOCK | Hypixel Rank': [
+        '› Cuenta con rango en Hypixel.',
+        '› Acceso a beneficios exclusivos.',
+        '› Sin baneo garantizado.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Capa Migrator': [
+        '› Cuenta con capa de migración.',
+        '› Capa exclusiva y permanente.',
+        '› Full acceso a la cuenta.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Optifine Cape': [
+        '› Cuenta con capa de Optifine.',
+        '› Capa personalizable.',
+        '› Full acceso a la cuenta.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | NFA Account': [
+        '› Cuenta NFA (No Full Access).',
+        '› Ideal para servidores.',
+        '› Precio económico.',
+        '› Garantía de funcionamiento.'
+    ],
+    'MC STOCK | SFA Account': [
+        '› Cuenta SFA (Semi Full Access).',
+        '› Cambio de skin disponible.',
+        '› Acceso estable.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Realms Plus': [
+        '› Cuenta con Realms Plus activo.',
+        '› Servidor privado incluido.',
+        '› Juega con hasta 10 amigos.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Minecoins 1000': [
+        '› 1000 Minecoins incluidos.',
+        '› Compra skins y mundos.',
+        '› Entrega inmediata.',
+        '› Garantía incluida.'
+    ],
+    'MC STOCK | Bundle Pack': [
+        '› Pack completo de cuentas.',
+        '› Incluye múltiples cuentas.',
+        '› Mejor precio por unidad.',
+        '› Garantía en todas.'
+    ],
     // Minecraft Premium Method
     'Minecraft Premium Method': [
         '› Ghostly Store | Minecraft Premium Method',
