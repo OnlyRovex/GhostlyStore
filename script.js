@@ -192,49 +192,34 @@ const productoModal = document.getElementById('producto-modal');
 // Descripciones personalizadas por producto
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
-    'MC STOCK | CAPES': [
-        '› Acceso completo a Java  & Bedrock Permanente.',
-        '› Cambio de nombre disponible.',
-        '› Capes: Pan & Common',
+    'MC STOCK | Premium Account': [
+        '› **Cuenta perma.**',
+        '› Acceso completo a Java & Bedrock.',
+        '› Cambio de skin disponible.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | CAPES 2': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible.',
-        '› Capes: Pan & Common',
+    'MC STOCK | Java Edition': [
+        '› **Cuenta perma.**',
+        '› **Acceso completo al juego.**',
+        '› Cambio de skin disponible.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | RANKS': [
-        '› Acceso completo a Java Edition & Bedrock Edition.',
-        '› Baneado Temporalmente de Minesplash por 1 día.',
-        '› Baneado Temporalmente de ElectroMC por 1 día.',
-        '› Cambio de nombre disponible en 24 días.',
-        '› Rango MASTER Global MineFun.',
-        '› Rango Soul MarioBox SpookMC.',
-        '› Rango HERO Global Minebosh.',
-        '› Rango VIP+ ClashBox Tilted.',
-        '› Rango VIP+ LatamBox Tilted.',
-        '› Rango VIP Global Tilted.',
-        '› Capes: Pan & Common',
+    'MC STOCK | Bedrock Edition': [
+        '› Cuenta Minecraft Bedrock Edition.',
+        '› Compatible con Windows 10/11.',
+        '› Juega en PC, consolas y móvil.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | RANKS GAMES': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 11 días.',
-        '› Rango NOVA WorldBox Minebosh.',
-        '› Rango NOVA Pokebox Minebosh.',
-        '› Rango MASTER Global MineFun.',
-        '› Juego Among Us comprado.',
-        '› Juego Cuphead comprado.',
-        '› Capes: Pan & Common',
-        '› Garantía incluida.'
+    'MC STOCK | Full Access': [
+        '› Cuenta con acceso completo.',
+        '› Cambio de email y contraseña.',
+        '› Java & Bedrock incluidos.',
+        '› Garantía permanente.'
     ],
-    'MC STOCK | RANK GHOST': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 29 días.',
-        '› Rango GHOST SpookyBox SpookMC.',
-        '› Rango VIP+ ClashBox Tilted.',
-        '› Capes: Pan & Common',
+    'MC STOCK | Hypixel Rank': [
+        '› Cuenta con rango en Hypixel.',
+        '› Acceso a beneficios exclusivos.',
+        '› Sin baneo garantizado.',
         '› Garantía incluida.'
     ],
     'MC STOCK | Capa Migrator': [
@@ -665,7 +650,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     '› Compra segura y confiable.'
                 ];
                 
-                featuresList.innerHTML = descripcion.map(item => `<li>${item}</li>`).join('');
+                // Convertir **texto** a negrita
+                featuresList.innerHTML = descripcion.map(item => {
+                    return `<li>${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>`;
+                }).join('');
             }
             
             // Mostrar modal
@@ -929,6 +917,3 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
-
-
-
