@@ -45,6 +45,82 @@ function typeWriter() {
 document.addEventListener('DOMContentLoaded', typeWriter);
 
 // ============================================
+// CARRUSEL DE IMÁGENES EN PRODUCTOS
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselImages = document.querySelectorAll('.carousel-img');
+    
+    carouselImages.forEach(img => {
+        const imagesData = img.getAttribute('data-images');
+        if (!imagesData) return;
+        
+        const allImages = imagesData.split(',').map(s => s.trim());
+        let validImages = [];
+        const container = img.parentElement;
+        
+        // Verificar qué imágenes existen
+        let checkedCount = 0;
+        allImages.forEach((imgSrc, index) => {
+            const testImg = new Image();
+            testImg.onload = function() {
+                validImages.push({ src: imgSrc, index: index });
+                checkedCount++;
+                if (checkedCount === allImages.length) {
+                    validImages.sort((a, b) => a.index - b.index);
+                    setupCarousel();
+                }
+            };
+            testImg.onerror = function() {
+                checkedCount++;
+                if (checkedCount === allImages.length) {
+                    validImages.sort((a, b) => a.index - b.index);
+                    setupCarousel();
+                }
+            };
+            testImg.src = imgSrc;
+        });
+        
+        function setupCarousel() {
+            if (validImages.length <= 1) return;
+            
+            let currentIndex = 0;
+            let interval = null;
+            const images = validImages.map(v => v.src);
+            
+            function changeImage() {
+                img.style.opacity = '0';
+                img.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    img.src = images[currentIndex];
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1)';
+                }, 300);
+            }
+            
+            container.addEventListener('mouseenter', () => {
+                changeImage();
+                interval = setInterval(changeImage, 1500);
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                clearInterval(interval);
+                img.style.opacity = '0';
+                img.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    currentIndex = 0;
+                    img.src = images[0];
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1)';
+                }, 300);
+            });
+        }
+    });
+});
+
+// ============================================
 // MODAL SOBRE NOSOTROS
 // ============================================
 const aboutModal = document.getElementById('about-modal');
@@ -115,6 +191,19 @@ const productoModal = document.getElementById('producto-modal');
 
 // Descripciones personalizadas por producto
 const descripcionesProductos = {
+    // Minecraft Premium Method
+    'Minecraft Premium Method': [
+        '› Ghostly Store | Minecraft Premium Method',
+        '› $10 USD',
+        '› Accede al método más rentable del mercado para obtener cuentas Minecraft Premium de forma constante.',
+        '',
+        '¿Qué incluye?',
+        '› Acceso mensual con MFAs nuevas todos los días',
+        '› Posibilidad de uso en grupo para aumentar ganancias',
+        '› Método activo y funcional en el mercado actual',
+        '› Revende tus cuentas y genera ingresos constantes',
+        '› Acceso a servidor privado exclusivo con espacio propio'
+    ],
     // Crunchyroll Planes
     'PLAN MENSUAL MEGAFAN (Perfil privado)': [
         '› 1 mes de duración.',
@@ -422,37 +511,61 @@ document.addEventListener('DOMContentLoaded', function() {
                 thumb.src = imagen;
             }
             
-            // Verificar si tiene imagen hover
+            // Verificar si tiene múltiples imágenes (carrusel)
             const imgElement = card.querySelector('.skin-img');
             const modalImg = document.getElementById('modal-imagen-principal');
-            const modalThumb = document.querySelector('.thumb-img');
+            const thumbsContainer = document.querySelector('.producto-modal-thumbs');
             
-            if (imgElement.dataset.hover) {
-                // Añadir segunda thumbnail
-                const thumbsContainer = document.querySelector('.producto-modal-thumbs');
-                thumbsContainer.innerHTML = `
-                    <img src="${imgElement.dataset.original}" alt="Thumb 1" class="thumb-img active" data-img="${imgElement.dataset.original}">
-                    <img src="${imgElement.dataset.hover}" alt="Thumb 2" class="thumb-img" data-img="${imgElement.dataset.hover}">
-                `;
+            // Obtener las imágenes del data-images
+            const imagesData = imgElement.getAttribute('data-images');
+            thumbsContainer.innerHTML = '';
+            
+            if (imagesData) {
+                const images = imagesData.split(',').map(s => s.trim()).filter(s => s);
+                let validImages = [];
+                let checkedCount = 0;
                 
-                // Event listeners para thumbnails
-                const thumbs = thumbsContainer.querySelectorAll('.thumb-img');
-                thumbs.forEach(t => {
-                    t.addEventListener('click', function() {
-                        thumbs.forEach(th => th.classList.remove('active'));
-                        this.classList.add('active');
-                        modalImg.style.transition = 'opacity 0.3s ease';
-                        modalImg.style.opacity = '0';
-                        setTimeout(() => {
-                            modalImg.src = this.dataset.img;
-                            modalImg.style.opacity = '1';
-                        }, 150);
-                    });
+                images.forEach((imgSrc, index) => {
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        validImages.push({ src: imgSrc, index: index });
+                        checkedCount++;
+                        checkComplete();
+                    };
+                    testImg.onerror = function() {
+                        checkedCount++;
+                        checkComplete();
+                    };
+                    testImg.src = imgSrc;
                 });
-            } else {
-                // Resetear a una sola thumbnail
-                const thumbsContainer = document.querySelector('.producto-modal-thumbs');
-                thumbsContainer.innerHTML = `<img src="${imagen}" alt="Thumb 1" class="thumb-img active">`;
+                
+                function checkComplete() {
+                    if (checkedCount === images.length) {
+                        validImages.sort((a, b) => a.index - b.index);
+                        
+                        if (validImages.length > 1) {
+                            validImages.forEach((img, i) => {
+                                const thumb = document.createElement('img');
+                                thumb.src = img.src;
+                                thumb.alt = 'Thumb ' + (i + 1);
+                                thumb.className = 'thumb-img' + (i === 0 ? ' active' : '');
+                                thumb.dataset.img = img.src;
+                                
+                                thumb.addEventListener('click', function() {
+                                    thumbsContainer.querySelectorAll('.thumb-img').forEach(th => th.classList.remove('active'));
+                                    this.classList.add('active');
+                                    modalImg.style.opacity = '0';
+                                    setTimeout(() => {
+                                        modalImg.src = this.dataset.img;
+                                        modalImg.style.opacity = '1';
+                                    }, 150);
+                                });
+                                
+                                thumbsContainer.appendChild(thumb);
+                            });
+                        }
+                    }
+                }
             }
             
             // Actualizar descripción según el producto
