@@ -218,16 +218,23 @@ const descripcionesProductos = {
         '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Full Access': [
-        '› Cuenta con acceso completo.',
-        '› Cambio de email y contraseña.',
-        '› Java & Bedrock incluidos.',
-        '› Garantía permanente.'
+    'MC STOCK | RANKS GAMES': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible en 11 días.',
+        '› Rango NOVA WorldBox Minebosh.',
+        '› Rango NOVA Pokebox Minebosh.',
+        '› Rango MASTER Global MineFun.',
+        '› Juego Among Us comprado.',
+        '› Juego Cuphead comprado.',
+        '› Capes: Pan & Common',
+        '› Garantía incluida.'
     ],
-    'MC STOCK | Hypixel Rank': [
-        '› Cuenta con rango en Hypixel.',
-        '› Acceso a beneficios exclusivos.',
-        '› Sin baneo garantizado.',
+    'MC STOCK | RANK GHOST': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible en 29 días.',
+        '› Rango GHOST SpookyBox SpookMC.',
+        '› Rango VIP+ ClashBox Tilted.',
+        '› Capes: Pan & Common',
         '› Garantía incluida.'
     ],
     'MC STOCK | Capa Migrator': [
@@ -922,5 +929,6 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
 
