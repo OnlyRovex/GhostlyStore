@@ -192,31 +192,31 @@ const productoModal = document.getElementById('producto-modal');
 // Descripciones personalizadas por producto
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
-    'MC STOCK | Premium Account': [
+    'MC STOCK | CAPES': [
         '› **Cuenta perma.**',
         '› Acceso completo a Java & Bedrock.',
         '› Cambio de skin disponible.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Java Edition': [
+    'MC STOCK | CAPES': [
         '› **Cuenta perma.**',
         '› **Acceso completo al juego.**',
         '› Cambio de skin disponible.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Bedrock Edition': [
+    'MC STOCK | RANKS COSMETICS': [
         '› Cuenta Minecraft Bedrock Edition.',
         '› Compatible con Windows 10/11.',
         '› Juega en PC, consolas y móvil.',
         '› Garantía incluida.'
     ],
-    'MC STOCK | Full Access': [
+    'MC STOCK | RANKS GAMES': [
         '› Cuenta con acceso completo.',
         '› Cambio de email y contraseña.',
         '› Java & Bedrock incluidos.',
         '› Garantía permanente.'
     ],
-    'MC STOCK | Hypixel Rank': [
+    'MC STOCK | RANK GHOST': [
         '› Cuenta con rango en Hypixel.',
         '› Acceso a beneficios exclusivos.',
         '› Sin baneo garantizado.',
@@ -917,3 +917,4 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
