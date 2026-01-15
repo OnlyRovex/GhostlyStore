@@ -207,16 +207,28 @@ const descripcionesProductos = {
         '› Unban all'
     ],
     'MC STOCK | RANKS COSMETICS': [
-        '› Cuenta Minecraft Bedrock Edition.',
-        '› Compatible con Windows 10/11.',
-        '› Juega en PC, consolas y móvil.',
-        '› Garantía incluida.'
+        '› Contiene Rango **VIP+** en el ClashBox de Tilted.',
+        '› Contiene Rango **VIP+** en el LatamBox de Tilted.',
+        '› Contiene Rango **SOUL** en el SpookyBox de Spook.',
+        '› Baneado temporalmente de MineSplash por 1 día',
+        '› Baneado temporalmente de ElectroMC por 1 día',
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene Rango **MASTER** Global en MineFun.',
+        '› Contiene Rango **HERO** Global en MineBosh.',
+        '› Cambio de nombre disponible en 30 días.',
+        '› Contiene Rango **VIP** Global en Tilted.',
+        '› Contiene las capas Pan & Common.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | RANKS GAMES': [
-        '› Cuenta con acceso completo.',
-        '› Cambio de email y contraseña.',
-        '› Java & Bedrock incluidos.',
-        '› Garantía permanente.'
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene Rango **GHOST** en SpookyBox SpookMC.',
+        '› Contiene Rango **VIP+** en ClashBox TilTed.',
+        '› Cambio de nombre disponible en 30 días.',
+        '› Contiene las capas Pan & Common.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | RANK GHOST': [
         '› Acceso completo a Java & Bedrock Permanente.',
@@ -922,6 +934,7 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
 
 
