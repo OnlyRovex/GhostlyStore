@@ -193,16 +193,18 @@ const productoModal = document.getElementById('producto-modal');
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
-        '› **Cuenta perma.**',
-        '› Acceso completo a Java & Bedrock.',
-        '› Cambio de skin disponible.',
-        '› Garantía incluida.'
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene las capas Pan & Common.',
+        '› Cambio de nombre disponible.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | CAPES': [
-        '› **Cuenta perma.**',
-        '› **Acceso completo al juego.**',
-        '› Cambio de skin disponible.',
-        '› Garantía incluida.'
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene las capas Pan & Common.',
+        '› Cambio de nombre disponible.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | RANKS COSMETICS': [
         '› Cuenta Minecraft Bedrock Edition.',
@@ -917,4 +919,5 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
