@@ -215,17 +215,18 @@ const descripcionesProductos = {
         '› Acceso completo a Java & Bedrock Permanente.',
         '› Contiene Rango **MASTER** Global en MineFun.',
         '› Contiene Rango **HERO** Global en MineBosh.',
-        '› Cambio de nombre disponible en 30 días.',
+        '› Cambio de nombre disponible en 23 días.',
         '› Contiene Rango **VIP** Global en Tilted.',
         '› Contiene las capas Pan & Common.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '› Garantía incluida.'
     ],
     'MC STOCK | RANKS GAMES': [
+        '› Contiene Rango **NOVA** en el WorldBox de MineBosh.',
+        '› Contiene Rango **NOVA** en el PokeBox de MineBosh.',
         '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Rango **GHOST** en SpookyBox SpookMC.',
-        '› Contiene Rango **VIP+** en ClashBox TilTed.',
-        '› Cambio de nombre disponible en 30 días.',
+        '› Contiene Rango **MASTER** Global en MineFun.',
+        '› Contiene los juegos de Cuphead y Among US',
+        '› Cambio de nombre disponible en 11 días.',
         '› Contiene las capas Pan & Common.',
         '› Garantía incluida.',
         '› Unban all'
@@ -934,6 +935,7 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
 
 
