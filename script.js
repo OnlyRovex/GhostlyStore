@@ -219,10 +219,13 @@ const descripcionesProductos = {
         '› Garantía permanente.'
     ],
     'MC STOCK | RANK GHOST': [
-        '› Cuenta con rango en Hypixel.',
-        '› Acceso a beneficios exclusivos.',
-        '› Sin baneo garantizado.',
-        '› Garantía incluida.'
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene Rango **GHOST** en SpookyBox SpookMC.',
+        '› Contiene Rango **VIP+** en ClashBox TilTed.',
+        '› Cambio de nombre disponible en 30 días.',
+        '› Contiene las capas Pan & Common.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | Capa Migrator': [
         '› Cuenta con capa de migración.',
@@ -919,5 +922,6 @@ function createParticles() {
 
 // Iniciar partículas cuando cargue la página
 document.addEventListener('DOMContentLoaded', createParticles);
+
 
 
