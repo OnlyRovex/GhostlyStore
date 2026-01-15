@@ -1,11 +1,102 @@
 // ============================================
+// CURSOR PERSONALIZADO (OPTIMIZADO)
+// ============================================
+const cursor = document.querySelector('.custom-cursor');
+const follower = document.querySelector('.cursor-follower');
+
+if (cursor && follower) {
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Usar requestAnimationFrame para animación suave
+    function animateCursor() {
+        // Cursor principal - sigue inmediatamente
+        cursorX = mouseX;
+        cursorY = mouseY;
+        cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+        
+        // Follower - sigue con suavidad
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
+        
+        requestAnimationFrame(animateCursor);
+    }
+    
+    animateCursor();
+
+    // Efecto hover en elementos clickeables
+    document.querySelectorAll('a, button, .producto-card, .categoria-btn').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            follower.classList.add('hover');
+            cursor.style.width = '18px';
+            cursor.style.height = '18px';
+        });
+        el.addEventListener('mouseleave', () => {
+            follower.classList.remove('hover');
+            cursor.style.width = '12px';
+            cursor.style.height = '12px';
+        });
+    });
+}
+
+// ============================================
+// CONTADOR ANIMADO DE ESTADÍSTICAS
+// ============================================
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Observador para iniciar animación cuando sea visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) {
+        statsObserver.observe(heroStats);
+    }
+});
+
+// ============================================
 // TYPEWRITER EFFECT
 // ============================================
 const typewriterPhrases = [
     "Cuentas premium al mejor precio 👻",
     "Juegos originales y garantizados 🎮",
     "Entregas inmediatas 24/7 ⚡",
-    "Más de 180 clientes satisfechos ⭐",
+    "Más de 500 clientes satisfechos ⭐",
     "Tu tienda de confianza 🛡️"
 ];
 
@@ -207,29 +298,16 @@ const descripcionesProductos = {
         '› Unban all'
     ],
     'MC STOCK | RANKS COSMETICS': [
-        '› Contiene Rango **VIP+** en el ClashBox de Tilted.',
-        '› Contiene Rango **VIP+** en el LatamBox de Tilted.',
-        '› Contiene Rango **SOUL** en el SpookyBox de Spook.',
-        '› Baneado temporalmente de MineSplash por 1 día',
-        '› Baneado temporalmente de ElectroMC por 1 día',
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Rango **MASTER** Global en MineFun.',
-        '› Contiene Rango **HERO** Global en MineBosh.',
-        '› Cambio de nombre disponible en 23 días.',
-        '› Contiene Rango **VIP** Global en Tilted.',
-        '› Contiene las capas Pan & Common.',
+        '› Cuenta Minecraft Bedrock Edition.',
+        '› Compatible con Windows 10/11.',
+        '› Juega en PC, consolas y móvil.',
         '› Garantía incluida.'
     ],
     'MC STOCK | RANKS GAMES': [
-        '› Contiene Rango **NOVA** en el WorldBox de MineBosh.',
-        '› Contiene Rango **NOVA** en el PokeBox de MineBosh.',
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Rango **MASTER** Global en MineFun.',
-        '› Contiene los juegos de Cuphead y Among US',
-        '› Cambio de nombre disponible en 11 días.',
-        '› Contiene las capas Pan & Common.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '› Cuenta con acceso completo.',
+        '› Cambio de email y contraseña.',
+        '› Java & Bedrock incluidos.',
+        '› Garantía permanente.'
     ],
     'MC STOCK | RANK GHOST': [
         '› Acceso completo a Java & Bedrock Permanente.',
@@ -933,10 +1011,54 @@ function createParticles() {
     setInterval(createFloatingParticle, 500);
 }
 
+// PARTÍCULAS PARA SECCIÓN DE PRODUCTOS
+// ============================================
+function createProductosParticles() {
+    const container = document.getElementById('particles-productos');
+    if (!container) return;
+    
+    const colors = ['white', 'purple', 'blue', 'violet'];
+    
+    // Crear muchas estrellas fijas que parpadean
+    for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.className = 'star ' + colors[Math.floor(Math.random() * colors.length)];
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = (Math.random() * 3 + 1) + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(star);
+    }
+    
+    // Crear partículas flotantes
+    function createFloatingParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle ' + colors[Math.floor(Math.random() * colors.length)];
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = (Math.random() * 5 + 2) + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, parseFloat(particle.style.animationDuration) * 1000);
+    }
+    
+    // Crear muchas partículas iniciales
+    for (let i = 0; i < 50; i++) {
+        setTimeout(() => createFloatingParticle(), i * 100);
+    }
+    
+    // Crear nuevas partículas continuamente (más frecuente)
+    setInterval(createFloatingParticle, 300);
+}
+
 // Iniciar partículas cuando cargue la página
-document.addEventListener('DOMContentLoaded', createParticles);
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    createProductosParticles();
+});
