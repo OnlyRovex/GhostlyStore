@@ -290,7 +290,7 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | CAPES': [
+    'MC STOCK | CAPES 2': [
         '› Acceso completo a Java & Bedrock Permanente.',
         '› Contiene las capas Pan & Common.',
         '› Cambio de nombre disponible.',
@@ -1062,4 +1062,5 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
