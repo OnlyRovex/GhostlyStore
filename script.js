@@ -290,9 +290,10 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | CAPES 2': [
+    'MC STOCK | RANK': [
         '› Acceso completo a Java & Bedrock Permanente.',
         '› Contiene las capas Pan & Common.',
+        '› Contiene Rango VIP+ en Hypixel.',
         '› Cambio de nombre disponible.',
         '› Garantía incluida.',
         '› Unban all'
@@ -1062,5 +1063,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
