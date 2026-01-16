@@ -285,8 +285,8 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene las capas Pan & Common.',
-        '› Cambio de nombre disponible.',
+        '› Cambio de nombre disponible en 9 días.',
+        '› Contiene la capa Pan.',
         '› Garantía incluida.',
         '› Unban all'
     ],
@@ -1062,3 +1062,4 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
