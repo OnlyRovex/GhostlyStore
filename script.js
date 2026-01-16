@@ -290,7 +290,7 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANK': [
+    'MC STOCK | RANK VIP+': [
         '› Acceso completo a Java & Bedrock Permanente.',
         '› Contiene las capas Pan & Common.',
         '› Contiene Rango VIP+ en Hypixel.',
@@ -298,11 +298,12 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANKS COSMETICS': [
-        '› Cuenta Minecraft Bedrock Edition.',
-        '› Compatible con Windows 10/11.',
-        '› Juega en PC, consolas y móvil.',
-        '› Garantía incluida.'
+    'MC STOCK | CAPES 2': [
+        '› Contiene la capa Pan, Common, 15TH y Followers.',
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible en 25 días.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | RANKS GAMES': [
         '› Cuenta con acceso completo.',
@@ -1063,6 +1064,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
