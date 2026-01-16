@@ -292,10 +292,10 @@ const descripcionesProductos = {
     ],
     'MC STOCK | FEATHER COSMETICS': [
         '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Cosmeticos Feather Client (**465**).',
         '› Contiene Puntos en Feather Client (**489**).',
         '› Contiene las capas Pan, Common & Menace.',
         '› Cambio de nombre disponible en 14 días.',
+        '› Contiene Cosmeticos Feather Client.',
         '› Garantía incluida.',
         '› Unban all'
     ],
@@ -1072,6 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
