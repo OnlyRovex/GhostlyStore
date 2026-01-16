@@ -305,7 +305,7 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANKS VIP': [
+    'MC STOCK | RANK VIP': [
         '› Acceso completo a Java & Bedrock Permanente.',
         '› Cambio de nombre disponible en 17 días.',
         '› Cosmetico Lunar Client School Backpack',
@@ -1071,6 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
