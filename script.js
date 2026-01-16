@@ -290,11 +290,12 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANK CAPES POINTS': [
+    'MC STOCK | FEATHER COSMETICS': [
         '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Puntos en Feather Client (**465**).',
-        '› Contiene las capas Pan & Common.',
-        '› Cambio de nombre disponible.',
+        '› Contiene Cosmeticos Feather Client (**465**).',
+        '› Contiene Puntos en Feather Client (**489**).',
+        '› Contiene las capas Pan, Common & Menace.',
+        '› Cambio de nombre disponible en 14 días.',
         '› Garantía incluida.',
         '› Unban all'
     ],
@@ -1071,6 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
