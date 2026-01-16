@@ -290,10 +290,10 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANK VIP+': [
+    'MC STOCK | RANK CAPES POINTS': [
         '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene Puntos en Feather Client (**465**).',
         '› Contiene las capas Pan & Common.',
-        '› Contiene Rango VIP+ en Hypixel.',
         '› Cambio de nombre disponible.',
         '› Garantía incluida.',
         '› Unban all'
@@ -1071,6 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
