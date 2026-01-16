@@ -305,11 +305,14 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | RANKS GAMES': [
-        '› Cuenta con acceso completo.',
-        '› Cambio de email y contraseña.',
-        '› Java & Bedrock incluidos.',
-        '› Garantía permanente.'
+    'MC STOCK | RANKS VIP': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible en 17 días.',
+        '› Cosmetico Lunar Client School Backpack',
+        '› Contiene las capas Pan & Common.',
+        '› Contiene Rango VIP en Hypixel.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | RANK GHOST': [
         '› Acceso completo a Java & Bedrock Permanente.',
@@ -320,17 +323,21 @@ const descripcionesProductos = {
         '› Garantía incluida.',
         '› Unban all'
     ],
-    'MC STOCK | Capa Migrator': [
-        '› Cuenta con capa de migración.',
-        '› Capa exclusiva y permanente.',
-        '› Full acceso a la cuenta.',
-        '› Garantía incluida.'
+    'MC STOCK | CAPE CHERRY': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Cambio de nombre disponible en 17 días.',
+        '› Contiene la capa Pan, Common & Cherry',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
-    'MC STOCK | Optifine Cape': [
-        '› Cuenta con capa de Optifine.',
-        '› Capa personalizable.',
-        '› Full acceso a la cuenta.',
-        '› Garantía incluida.'
+    'MC STOCK | CAPES GAMES': [
+        '› Acceso completo a Java & Bedrock Permanente.',
+        '› Contiene la capa Pan, Common, Menace & Home',
+        '› Contiene capas en Feather Client Decoradas',
+        '› Contiene el juego: Deluxe Collection',
+        '› Cambio de nombre disponible.',
+        '› Garantía incluida.',
+        '› Unban all'
     ],
     'MC STOCK | NFA Account': [
         '› Cuenta NFA (No Full Access).',
@@ -1064,6 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
