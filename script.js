@@ -1,50 +1,7 @@
 // ============================================
-// CURSOR PERSONALIZADO (OPTIMIZADO)
+// CURSOR PERSONALIZADO (DESACTIVADO)
 // ============================================
-const cursor = document.querySelector('.custom-cursor');
-const follower = document.querySelector('.cursor-follower');
-
-if (cursor && follower) {
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let followerX = 0, followerY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Usar requestAnimationFrame para animación suave
-    function animateCursor() {
-        // Cursor principal - sigue inmediatamente
-        cursorX = mouseX;
-        cursorY = mouseY;
-        cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
-        
-        // Follower - sigue con suavidad
-        followerX += (mouseX - followerX) * 0.15;
-        followerY += (mouseY - followerY) * 0.15;
-        follower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
-        
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-
-    // Efecto hover en elementos clickeables
-    document.querySelectorAll('a, button, .producto-card, .categoria-btn').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            follower.classList.add('hover');
-            cursor.style.width = '18px';
-            cursor.style.height = '18px';
-        });
-        el.addEventListener('mouseleave', () => {
-            follower.classList.remove('hover');
-            cursor.style.width = '12px';
-            cursor.style.height = '12px';
-        });
-    });
-}
+// Cursor personalizado desactivado - usando cursor normal del navegador
 
 // ============================================
 // CONTADOR ANIMADO DE ESTADÍSTICAS
@@ -97,7 +54,7 @@ const typewriterPhrases = [
     "Juegos originales y garantizados 🎮",
     "Entregas inmediatas 24/7 ⚡",
     "Más de 500 clientes satisfechos ⭐",
-    "Tu tienda de confianza 🛡️"
+    "Tu tienda de confianza  ? ️"
 ];
 
 let phraseIndex = 0;
@@ -140,6 +97,7 @@ document.addEventListener('DOMContentLoaded', typeWriter);
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const carouselImages = document.querySelectorAll('.carousel-img');
+    const carouselIntervals = new Map(); // Guardar intervalos por elemento
     
     carouselImages.forEach(img => {
         const imagesData = img.getAttribute('data-images');
@@ -148,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const allImages = imagesData.split(',').map(s => s.trim());
         let validImages = [];
         const container = img.parentElement;
+        let currentIndex = 0;
         
         // Verificar qué imágenes existen
         let checkedCount = 0;
@@ -174,8 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function setupCarousel() {
             if (validImages.length <= 1) return;
             
-            let currentIndex = 0;
-            let interval = null;
             const images = validImages.map(v => v.src);
             
             function changeImage() {
@@ -190,25 +147,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 300);
             }
             
+            function resetImage() {
+                const interval = carouselIntervals.get(container);
+                if (interval) {
+                    clearInterval(interval);
+                    carouselIntervals.delete(container);
+                }
+                currentIndex = 0;
+                img.src = images[0];
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+            }
+            
             container.addEventListener('mouseenter', () => {
+                // Limpiar intervalo anterior si existe
+                const oldInterval = carouselIntervals.get(container);
+                if (oldInterval) clearInterval(oldInterval);
+                
                 changeImage();
-                interval = setInterval(changeImage, 1500);
+                const newInterval = setInterval(changeImage, 1500);
+                carouselIntervals.set(container, newInterval);
             });
             
             container.addEventListener('mouseleave', () => {
-                clearInterval(interval);
-                img.style.opacity = '0';
-                img.style.transform = 'scale(0.95)';
-                
-                setTimeout(() => {
-                    currentIndex = 0;
-                    img.src = images[0];
-                    img.style.opacity = '1';
-                    img.style.transform = 'scale(1)';
-                }, 300);
+                resetImage();
             });
         }
     });
+    
+    // Función global para resetear todos los carruseles
+    window.resetAllCarousels = function() {
+        carouselIntervals.forEach((interval, container) => {
+            clearInterval(interval);
+        });
+        carouselIntervals.clear();
+        
+        document.querySelectorAll('.carousel-img').forEach(img => {
+            const imagesData = img.getAttribute('data-images');
+            if (imagesData) {
+                const firstImage = imagesData.split(',')[0].trim();
+                img.src = firstImage;
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+                img.style.display = 'block';
+            }
+        });
+    };
 });
 
 // ============================================
@@ -284,385 +268,422 @@ const productoModal = document.getElementById('producto-modal');
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 9 días.',
-        '› Contiene la capa Pan.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de nombre disponible en 9 días.',
+        '❯ Contiene la capa Pan.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | FEATHER COSMETICS': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Puntos en Feather Client (**489**).',
-        '› Contiene las capas Pan, Common & Menace.',
-        '› Cambio de nombre disponible en 14 días.',
-        '› Contiene Cosmeticos Feather Client.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Puntos en Feather Client (**489**).',
+        '❯ Contiene las capas Pan, Common & Menace.',
+        '❯ Cambio de nombre disponible en 14 días.',
+        '❯ Contiene Cosmeticos Feather Client.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | CAPES 2': [
-        '› Contiene la capa Pan, Common, 15TH y Followers.',
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 25 días.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Contiene la capa Pan, Common, 15TH y Followers.',
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de nombre disponible en 25 días.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | RANK VIP': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 17 días.',
-        '› Cosmetico Lunar Client School Backpack',
-        '› Contiene las capas Pan & Common.',
-        '› Contiene Rango VIP en Hypixel.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de nombre disponible en 17 días.',
+        '❯ Cosmetico Lunar Client School Backpack',
+        '❯ Contiene las capas Pan & Common.',
+        '❯ Contiene Rango VIP en Hypixel.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | RANK GHOST': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene Rango **GHOST** en SpookyBox SpookMC.',
-        '› Contiene Rango **VIP+** en ClashBox TilTed.',
-        '› Cambio de nombre disponible en 30 días.',
-        '› Contiene las capas Pan & Common.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango **GHOST** en SpookyBox SpookMC.',
+        '❯ Contiene Rango **VIP+** en ClashBox TilTed.',
+        '❯ Cambio de nombre disponible en 30 días.',
+        '❯ Contiene las capas Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | CAPE CHERRY': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Cambio de nombre disponible en 17 días.',
-        '› Contiene la capa Pan, Common & Cherry',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de nombre disponible en 17 días.',
+        '❯ Contiene la capa Pan, Common & Cherry',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | CAPES GAMES': [
-        '› Acceso completo a Java & Bedrock Permanente.',
-        '› Contiene la capa Pan, Common, Menace & Home',
-        '› Contiene capas en Feather Client Decoradas',
-        '› Contiene el juego: Deluxe Collection',
-        '› Cambio de nombre disponible.',
-        '› Garantía incluida.',
-        '› Unban all'
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Menace & Home',
+        '❯ Contiene capas en Feather Client Decoradas',
+        '❯ Contiene el juego: Deluxe Collection',
+        '❯ Cambio de nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     'MC STOCK | NFA Account': [
-        '› Cuenta NFA (No Full Access).',
-        '› Ideal para servidores.',
-        '› Precio económico.',
-        '› Garantía de funcionamiento.'
+        '❯ Cuenta NFA (No Full Access).',
+        '❯ Ideal para servidores.',
+        '❯ Precio económico.',
+        '❯ Garantía de funcionamiento.'
     ],
     'MC STOCK | SFA Account': [
-        '› Cuenta SFA (Semi Full Access).',
-        '› Cambio de skin disponible.',
-        '› Acceso estable.',
-        '› Garantía incluida.'
+        '❯ Cuenta SFA (Semi Full Access).',
+        '❯ Cambio de skin disponible.',
+        '❯ Acceso estable.',
+        '❯ Garantía incluida.'
     ],
     'MC STOCK | Realms Plus': [
-        '› Cuenta con Realms Plus activo.',
-        '› Servidor privado incluido.',
-        '› Juega con hasta 10 amigos.',
-        '› Garantía incluida.'
+        '❯ Cuenta con Realms Plus activo.',
+        '❯ Servidor privado incluido.',
+        '❯ Juega con hasta 10 amigos.',
+        '❯ Garantía incluida.'
     ],
     'MC STOCK | Minecoins 1000': [
-        '› 1000 Minecoins incluidos.',
-        '› Compra skins y mundos.',
-        '› Entrega inmediata.',
-        '› Garantía incluida.'
+        '❯ 1000 Minecoins incluidos.',
+        '❯ Compra skins y mundos.',
+        '❯ Entrega inmediata.',
+        '❯ Garantía incluida.'
     ],
     'MC STOCK | Bundle Pack': [
-        '› Pack completo de cuentas.',
-        '› Incluye múltiples cuentas.',
-        '› Mejor precio por unidad.',
-        '› Garantía en todas.'
+        '❯ Pack completo de cuentas.',
+        '❯ Incluye múltiples cuentas.',
+        '❯ Mejor precio por unidad.',
+        '❯ Garantía en todas.'
     ],
     // Minecraft Premium Method
     'Minecraft Premium Method': [
-        '› Ghostly Store | Minecraft Premium Method',
-        '› $10 USD',
-        '› Accede al método más rentable del mercado para obtener cuentas Minecraft Premium de forma constante.',
+        '❯ Ghostly Store | Minecraft Premium Method',
+        '❯ $10 USD',
+        '❯ Accede al método más rentable del mercado para obtener cuentas Minecraft Premium de forma constante.',
         '',
         '¿Qué incluye?',
-        '› Acceso mensual con MFAs nuevas todos los días',
-        '› Posibilidad de uso en grupo para aumentar ganancias',
-        '› Método activo y funcional en el mercado actual',
-        '› Revende tus cuentas y genera ingresos constantes',
-        '› Acceso a servidor privado exclusivo con espacio propio'
+        '❯ Acceso mensual con MFAs nuevas todos los días',
+        '❯ Posibilidad de uso en grupo para aumentar ganancias',
+        '❯ Método activo y funcional en el mercado actual',
+        '❯ Revende tus cuentas y genera ingresos constantes',
+        '❯ Acceso a servidor privado exclusivo con espacio propio'
     ],
     // Crunchyroll Planes
     'PLAN MENSUAL MEGAFAN (Perfil privado)': [
-        '› 1 mes de duración.',
-        '› Acceso ilimitado a todo el catálogo.',
-        '› Calidad Full HD.',
-        '› 1 dispositivo simultáneo.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso ilimitado a todo el catálogo.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Sin anuncios.'
     ],
     'PLAN MENSUAL MEGAFAN – CUENTA COMPLETA': [
-        '› 1 mes de duración.',
-        '› Acceso completo sin límites.',
-        '› Full HD / 4K Ultra HD.',
-        '› 4 dispositivos simultáneos.',
-        '› Descargas sin conexión.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo sin límites.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Sin anuncios.'
     ],
     'PLAN ANUAL MEGAFAN – CUENTA COMPLETA': [
-        '› 12 meses de duración (Garantía 3 meses).',
-        '› Todos los beneficios del plan mensual completo.',
-        '› Mejor precio anual.',
-        '› Mayor estabilidad y garantía prolongada.',
-        '› Full HD / 4K Ultra HD.',
-        '› 4 dispositivos simultáneos.',
-        '› Descargas sin conexión.',
-        '› Sin anuncios.'
+        '❯ 12 meses de duración (Garantía 3 meses).',
+        '❯ Todos los beneficios del plan mensual completo.',
+        '❯ Mejor precio anual.',
+        '❯ Mayor estabilidad y garantía prolongada.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Sin anuncios.'
     ],
     // Spotify Planes
     'Spotify Premium – PLAN 1 MES': [
-        '› 1 mes de duración (Garantía total).',
-        '› Música sin anuncios.',
-        '› Saltos ilimitados.',
-        '› Descargas para escuchar sin conexión.',
-        '› Audio de alta calidad.',
-        '› Reproducción en cualquier dispositivo.'
+        '❯ 1 mes de duración (Garantía total).',
+        '❯ Música sin anuncios.',
+        '❯ Saltos ilimitados.',
+        '❯ Descargas para escuchar sin conexión.',
+        '❯ Audio de alta calidad.',
+        '❯ Reproducción en cualquier dispositivo.'
     ],
     'Spotify Premium – PLAN 3 MESES': [
-        '› 3 meses de duración (Garantía total).',
-        '› Todos los beneficios del plan mensual.',
-        '› Mejor precio por más tiempo.',
-        '› Escucha sin anuncios garantizada.',
-        '› Descargas ilimitadas.',
-        '› Acceso completo a Spotify Premium.',
-        '› Podcasts exclusivos.',
-        '› Audio de alta calidad.'
+        '❯ 3 meses de duración (Garantía total).',
+        '❯ Todos los beneficios del plan mensual.',
+        '❯ Mejor precio por más tiempo.',
+        '❯ Escucha sin anuncios garantizada.',
+        '❯ Descargas ilimitadas.',
+        '❯ Acceso completo a Spotify Premium.',
+        '❯ Podcasts exclusivos.',
+        '❯ Audio de alta calidad.'
     ],
     // Paramount+ Planes
     'Paramount+ 1 PERFIL – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso completo al catálogo Paramount+.',
-        '› 1 perfil exclusivo.',
-        '› Calidad HD / Full HD.',
-        '› Ideal para uso personal.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo al catálogo Paramount+.',
+        '❯ 1 perfil exclusivo.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Ideal para uso personal.'
     ],
     'Paramount+ CUENTA COMPLETA – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso total a series y películas.',
-        '› Compatible con Smart TV, Android, iOS, PC y consolas.',
-        '› Calidad HD / Full HD.',
-        '› Reproducción estable.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso total a series y películas.',
+        '❯ Compatible con Smart TV, Android, iOS, PC y consolas.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Reproducción estable.'
     ],
     'Paramount+ CUENTA COMPLETA – Anual': [
-        '› 12 meses de duración.',
-        '› Cuenta completa por 1 año.',
-        '› Mayor ahorro frente al plan mensual.',
-        '› Acceso total al catálogo Paramount+.',
-        '› Calidad HD / Full HD.',
-        '› Soporte durante todo el año.'
+        '❯ 12 meses de duración.',
+        '❯ Cuenta completa por 1 año.',
+        '❯ Mayor ahorro frente al plan mensual.',
+        '❯ Acceso total al catálogo Paramount+.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Soporte durante todo el año.'
     ],
     // Apple TV+ Planes
     'Apple TV+ PERFIL PRIVADO – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso completo al catálogo Apple TV+.',
-        '› Perfil privado (sujeto a disponibilidad).',
-        '› Calidad HD / 4K Ultra HD.',
-        '› Hasta 6 dispositivos simultáneos.',
-        '› Reproducción estable y sin anuncios.',
-        '› Ideal para uso personal.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo al catálogo Apple TV+.',
+        '❯ Perfil privado (sujeto a disponibilidad).',
+        '❯ Calidad HD / 4K Ultra HD.',
+        '❯ Hasta 6 dispositivos simultáneos.',
+        '❯ Reproducción estable y sin anuncios.',
+        '❯ Ideal para uso personal.'
     ],
     'Apple TV+ CUENTA COMPLETA – Mensual': [
-        '› 1 mes de duración.',
-        '› Cuenta completa sin restricciones.',
-        '› Acceso total a todas las series y películas.',
-        '› Calidad HD / 4K Ultra HD.',
-        '› 6 dispositivos en simultáneo.',
-        '› Compatible con Smart TV, iPhone, Android, PC y consolas.',
-        '› Sin anuncios.',
-        '› Garantía de activación.'
+        '❯ 1 mes de duración.',
+        '❯ Cuenta completa sin restricciones.',
+        '❯ Acceso total a todas las series y películas.',
+        '❯ Calidad HD / 4K Ultra HD.',
+        '❯ 6 dispositivos en simultáneo.',
+        '❯ Compatible con Smart TV, iPhone, Android, PC y consolas.',
+        '❯ Sin anuncios.',
+        '❯ Garantía de activación.'
     ],
     // Viki Rakuten Planes
     'Viki Rakuten PERFIL PRIVADO – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso al catálogo completo de Viki Rakuten.',
-        '› Calidad HD.',
-        '› 1 dispositivo simultáneo.',
-        '› Subtítulos en varios idiomas.',
-        '› Sin anuncios.',
-        '› Ideal para uso personal.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Viki Rakuten.',
+        '❯ Calidad HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Subtítulos en varios idiomas.',
+        '❯ Sin anuncios.',
+        '❯ Ideal para uso personal.'
     ],
     'Viki Rakuten CUENTA COMPLETA – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso total a Viki Rakuten Plus.',
-        '› Calidad HD.',
-        '› Varios dispositivos simultáneos.',
-        '› Descargas para ver sin conexión.',
-        '› Sin anuncios.',
-        '› K-dramas, C-dramas, J-dramas, películas y shows asiáticos.',
-        '› Subtítulos rápidos y precisos en múltiples idiomas.',
-        '› Compatible con Smart TV, móvil y PC.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso total a Viki Rakuten Plus.',
+        '❯ Calidad HD.',
+        '❯ Varios dispositivos simultáneos.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Sin anuncios.',
+        '❯ K-dramas, C-dramas, J-dramas, películas y shows asiáticos.',
+        '❯ Subtítulos rápidos y precisos en múltiples idiomas.',
+        '❯ Compatible con Smart TV, móvil y PC.'
     ],
     // Disney+ Planes
     'Disney+ PERFIL PRIVADO – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso al catálogo completo de Disney, Pixar, Marvel, Star Wars y National Geographic.',
-        '› Calidad Full HD.',
-        '› 1 dispositivo.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Disney, Pixar, Marvel, Star Wars y National Geographic.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo.',
+        '❯ Sin anuncios.'
     ],
     'Disney+ CUENTA COMPLETA – Mensual': [
-        '› 1er mes → $11 | Renovación → $10.',
-        '› Acceso total sin límites.',
-        '› Full HD.',
-        '› 4 dispositivos simultáneos.',
-        '› Descargas sin conexión.',
-        '› Contenido exclusivo y estrenos originales.',
-        '› Página web para códigos de inicio de sesión.',
-        '› Incluye: Hulu, ESPN, Marvel, Star Wars, Pixar, National Geographic.'
+        '❯ 1er mes → $11 | Renovación → $10.',
+        '❯ Acceso total sin límites.',
+        '❯ Full HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Contenido exclusivo y estrenos originales.',
+        '❯ Página web para códigos de inicio de sesión.',
+        '❯ Incluye: Hulu, ESPN, Marvel, Star Wars, Pixar, National Geographic.'
     ],
     // Prime Video Planes
     'Prime Video PERFIL PRIVADO – Mensual': [
-        '› 1 mes de duración.',
-        '› Acceso al catálogo completo de Prime Video.',
-        '› Calidad Full HD.',
-        '› 1 dispositivo simultáneo.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Prime Video.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Sin anuncios.'
     ],
     'Prime Video CUENTA COMPLETA – Mensual': [
-        '› 1 mes de duración.',
-        '› Full HD / 4K Ultra HD.',
-        '› 3 dispositivos simultáneos.',
-        '› Descargas para ver sin conexión.',
-        '› Acceso total a películas, series y Amazon Originals.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 3 dispositivos simultáneos.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Acceso total a películas, series y Amazon Originals.',
+        '❯ Sin anuncios.'
     ],
     'Prime Video 1 PERFIL – Anual': [
-        '› 12 meses de duración (Garantía en ticket).',
-        '› Todos los beneficios del plan mensual completo.',
-        '› Mejor precio anual.',
-        '› Acceso continuo a estrenos y contenido exclusivo.',
-        '› Mayor estabilidad y garantía prolongada.'
+        '❯ 12 meses de duración (Garantía en ticket).',
+        '❯ Todos los beneficios del plan mensual completo.',
+        '❯ Mejor precio anual.',
+        '❯ Acceso continuo a estrenos y contenido exclusivo.',
+        '❯ Mayor estabilidad y garantía prolongada.'
     ],
     // HBO Max Planes
     'HBO Max PERFIL PRIVADO – Mensual': [
-        '› 1 mes de duración.',
-        '› Full HD.',
-        '› 1 dispositivo simultáneo.',
-        '› Acceso a todo el catálogo.',
-        '› La cuenta puede ser Estándar o Platino.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Acceso a todo el catálogo.',
+        '❯ La cuenta puede ser Estándar o Platino.',
+        '❯ Sin anuncios.'
     ],
     'HBO Max CUENTA COMPLETA – Mensual': [
-        '› 1 mes de duración.',
-        '› Full HD / 4K Ultra HD.',
-        '› 2 dispositivos simultáneos.',
-        '› Descargas sin conexión.',
-        '› Acceso completo sin límites.',
-        '› La cuenta puede ser Estándar o Platino.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 2 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Acceso completo sin límites.',
+        '❯ La cuenta puede ser Estándar o Platino.',
+        '❯ Sin anuncios.'
     ],
     'HBO Max CUENTA COMPLETA – Anual': [
-        '› 12 meses de duración (Garantía de activación).',
-        '› Todos los beneficios del plan completo mensual.',
-        '› Mejor precio anual.',
-        '› Garantía y estabilidad prolongada.',
-        '› Acceso continuo a estrenos exclusivos.',
-        '› La cuenta puede ser Estándar o Platino.'
+        '❯ 12 meses de duración (Garantía de activación).',
+        '❯ Todos los beneficios del plan completo mensual.',
+        '❯ Mejor precio anual.',
+        '❯ Garantía y estabilidad prolongada.',
+        '❯ Acceso continuo a estrenos exclusivos.',
+        '❯ La cuenta puede ser Estándar o Platino.'
     ],
     // YouTube Premium Planes
     'YouTube Premium – PLAN 1 MES': [
-        '› 1 mes de duración.',
-        '› Sin anuncios en todos los videos.',
-        '› Reproducción en segundo plano.',
-        '› Descargas para ver sin conexión.',
-        '› Acceso a YouTube Music Premium.',
-        '› Calidad Full HD / 4K (según contenido).'
+        '❯ 1 mes de duración.',
+        '❯ Sin anuncios en todos los videos.',
+        '❯ Reproducción en segundo plano.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Acceso a YouTube Music Premium.',
+        '❯ Calidad Full HD / 4K (según contenido).'
     ],
     'YouTube Premium – PLAN 3 MESES': [
-        '› 3 meses de duración.',
-        '› Todos los beneficios del plan mensual.',
-        '› Mejor precio por más tiempo.',
-        '› Reproducción sin anuncios garantizada por 3 meses.',
-        '› Acceso completo a YouTube Premium + YouTube Music.'
+        '❯ 3 meses de duración.',
+        '❯ Todos los beneficios del plan mensual.',
+        '❯ Mejor precio por más tiempo.',
+        '❯ Reproducción sin anuncios garantizada por 3 meses.',
+        '❯ Acceso completo a YouTube Premium + YouTube Music.'
     ],
     // Fortnite Pavos
     '1.000 Pavos': [
-        '› 1.000 V-Bucks para tu cuenta.',
-        '› Entrega inmediata.',
-        '› Compra 100% segura.'
+        '❯ 1.000 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
     ],
     '2.800 Pavos': [
-        '› 2.800 V-Bucks para tu cuenta.',
-        '› Entrega inmediata.',
-        '› Compra 100% segura.'
+        '❯ 2.800 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
     ],
     '5.000 Pavos': [
-        '› 5.000 V-Bucks para tu cuenta.',
-        '› Entrega inmediata.',
-        '› Compra 100% segura.'
+        '❯ 5.000 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
     ],
     '13.500 Pavos': [
-        '› 13.500 V-Bucks para tu cuenta.',
-        '› Entrega inmediata.',
-        '› Compra 100% segura.'
+        '❯ 13.500 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
     ],
     'Fortnite Crew (Via Login)': [
-        '› Todos los pases + Crew Pack.',
-        '› Crew Styles + Rocket Pass.',
-        '› 1.000 V-Bucks incluidos.',
-        '› Entrega via login.'
+        '❯ Todos los pases + Crew Pack.',
+        '❯ Crew Styles + Rocket Pass.',
+        '❯ 1.000 V-Bucks incluidos.',
+        '❯ Entrega via login.'
     ],
     // Free Fire
     'Pase Elite': [
-        '› Pase Elite completo.',
-        '› Todas las recompensas.',
-        '› Entrega inmediata.'
+        '❯ Pase Elite completo.',
+        '❯ Todas las recompensas.',
+        '❯ Entrega inmediata.'
     ],
     // Otros - CapCut Pro
     'CapCut Pro – PLAN 1 MES': [
-        '› 1 mes de duración (Garantía total).',
-        '› Acceso a todas las funciones premium de CapCut Pro.',
-        '› Miles de plantillas premium y diseños exclusivos.',
-        '› Imágenes, íconos y elementos ilimitados.',
-        '› Exportación en alta resolución (4K) sin límites.',
-        '› Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
-        '› Almacenamiento en la nube y sincronización.',
-        '› Trabajo en equipo en tiempo real.',
-        '› Sin marcas de agua.',
-        '› Sin anuncios.'
+        '❯ 1 mes de duración (Garantía total).',
+        '❯ Acceso a todas las funciones premium de CapCut Pro.',
+        '❯ Miles de plantillas premium y diseños exclusivos.',
+        '❯ Imágenes, íconos y elementos ilimitados.',
+        '❯ Exportación en alta resolución (4K) sin límites.',
+        '❯ Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
+        '❯ Almacenamiento en la nube y sincronización.',
+        '❯ Trabajo en equipo en tiempo real.',
+        '❯ Sin marcas de agua.',
+        '❯ Sin anuncios.'
     ],
     // Otros - Canva Pro
     'Canva Pro PERMANENTE': [
-        '› Acceso permanente a Canva Pro.',
-        '› Miles de plantillas premium y diseños exclusivos.',
-        '› Imágenes, íconos y elementos ilimitados.',
-        '› Exportación en alta resolución (4K).',
-        '› Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
-        '› Almacenamiento en la nube y sincronización.',
-        '› Trabajo en equipo en tiempo real.',
-        '› Sin marcas de agua.',
-        '› Garantía total en la suscripción.'
+        '❯ Acceso permanente a Canva Pro.',
+        '❯ Miles de plantillas premium y diseños exclusivos.',
+        '❯ Imágenes, íconos y elementos ilimitados.',
+        '❯ Exportación en alta resolución (4K).',
+        '❯ Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
+        '❯ Almacenamiento en la nube y sincronización.',
+        '❯ Trabajo en equipo en tiempo real.',
+        '❯ Sin marcas de agua.',
+        '❯ Garantía total en la suscripción.'
     ],
     // Otros - OnlyFans
     'OnlyFans Cuenta $50 Saldo': [
-        '› Cuenta con $50 de saldo recargado.',
-        '› Duración: 12 – 24 horas.',
-        '› Suscríbete a cualquier cuenta.',
-        '› Descarga todo el contenido.',
-        '› Cuenta lista para usar.'
+        '❯ Cuenta con $50 de saldo recargado.',
+        '❯ Duración: 12 – 24 horas.',
+        '❯ Suscríbete a cualquier cuenta.',
+        '❯ Descarga todo el contenido.',
+        '❯ Cuenta lista para usar.'
     ],
     'OnlyFans Cuenta $100 Saldo': [
-        '› Cuenta con $100 de saldo recargado.',
-        '› Duración: 12 – 24 horas.',
-        '› Suscríbete a cualquier cuenta.',
-        '› Descarga todo el contenido.',
-        '› Cuenta lista para usar.'
+        '❯ Cuenta con $100 de saldo recargado.',
+        '❯ Duración: 12 – 24 horas.',
+        '❯ Suscríbete a cualquier cuenta.',
+        '❯ Descarga todo el contenido.',
+        '❯ Cuenta lista para usar.'
     ],
     // Otros - Brazzers
     'Brazzers – ANUAL': [
-        '› Acceso completo a la plataforma premium.',
-        '› Contenido exclusivo y actualizado.',
-        '› Experiencia fluida y optimizada.',
-        '› Funciones premium habilitadas.',
-        '› Sin restricciones de uso.'
+        '❯ Acceso completo a la plataforma premium.',
+        '❯ Contenido exclusivo y actualizado.',
+        '❯ Experiencia fluida y optimizada.',
+        '❯ Funciones premium habilitadas.',
+        '❯ Sin restricciones de uso.'
     ],
     // Otros - PornHub
     'PornHub Premium – ANUAL': [
-        '› Acceso a cuenta con PornHub Premium.',
-        '› Contenido Premium.',
-        '› Descarga el contenido.',
-        '› Sin límites de dispositivos.',
-        '› Sin anuncios y experiencia fluida.'
+        '❯ Acceso a cuenta con PornHub Premium.',
+        '❯ Contenido Premium.',
+        '❯ Descarga el contenido.',
+        '❯ Sin límites de dispositivos.',
+        '❯ Sin anuncios y experiencia fluida.'
+    ],
+    // Discord - Server Boost
+    'Discord Server Boost x1 - 1 Mes': [
+        '❯ Boosts de Discord para servidores por 1 mes.',
+        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
+        '❯ Destinados únicamente para mejorar servidores.',
+        '',
+        'Duración y validez:',
+        '❯ 25 – 30 días de duración esperada.',
+        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
+        '❯ Si un boost no se renueva después de 14 días, se considera expirado.',
+        '',
+        'Garantía y reemplazo:',
+        '❯ No se ofrece garantía a largo plazo.',
+        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
+        '❯ Compra solo si aceptas estas condiciones.',
+        '',
+        'Reglas de uso:',
+        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+    ],
+    'Discord Server Boost x1 - 3 Meses': [
+        '❯ Boosts de Discord para servidores por 3 meses.',
+        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
+        '❯ Destinados únicamente para mejorar servidores.',
+        '',
+        'Duración y validez:',
+        '❯ 75 – 90 días de duración esperada.',
+        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
+        '❯ Si un boost no se renueva después de 65 días, se considera expirado.',
+        '',
+        'Garantía y reemplazo:',
+        '❯ No se ofrece garantía a largo plazo.',
+        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
+        '❯ Compra solo si aceptas estas condiciones.',
+        '',
+        'Reglas de uso:',
+        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
     ]
 };
 
@@ -756,7 +777,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     '› Compra segura y confiable.'
                 ];
                 
-                // Convertir **texto** a negrita
+                // Convertir **texto** a negrita y mostrar cada item en su línea
                 featuresList.innerHTML = descripcion.map(item => {
                     return `<li>${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>`;
                 }).join('');
@@ -770,7 +791,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// CERRAR MODALES
+// CERRAR MODALES - Versión mejorada
 // ============================================
 const modalCloses = document.querySelectorAll('.modal-close');
 
@@ -778,13 +799,34 @@ modalCloses.forEach(closeBtn => {
     closeBtn.addEventListener('click', function() {
         this.closest('.modal').style.display = 'none';
         document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al cerrar modal
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
     });
 });
+
+// ============================================
+// BOTÓN DE COMPRA EN MODAL
+// ============================================
+const modalBtnComprar = document.querySelector('.modal-btn-comprar');
+if (modalBtnComprar) {
+    modalBtnComprar.addEventListener('click', function() {
+        // Abrir Discord en nueva pestaña
+        window.open('https://discord.gg/hqEP59ZYkV', '_blank');
+    });
+}
 
 window.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
         e.target.style.display = 'none';
         document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al cerrar modal
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
     }
 });
 
@@ -794,6 +836,11 @@ document.addEventListener('keydown', function(e) {
             modal.style.display = 'none';
         });
         document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al presionar ESC
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
     }
 });
 
@@ -807,29 +854,55 @@ function handlePurchase() {
 }
 
 // Función para filtrar productos por categoría
+// Función para filtrar productos por categoría
 function filterProducts(category, buttonElement) {
-    // Obtener todas las tarjetas de productos
-    const cards = document.querySelectorAll('.producto-card');
-    const buttons = document.querySelectorAll('.categoria-btn');
+    console.log('Filtrando categoría:', category);
     
-    // Remover clase active de todos los botones
-    buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // Agregar clase active al botón clickeado
-    buttonElement.classList.add('active');
-    
-    // Mostrar/ocultar productos según categoría
-    cards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        
-        if (category === 'all' || cardCategory === category) {
-            card.style.display = 'block';
-            // Animación de entrada
-            card.style.animation = 'fadeIn 0.5s ease-in';
-        } else {
-            card.style.display = 'none';
+    // PASO 1: Resetear TODOS los carruseles primero
+    const allCarouselImages = document.querySelectorAll('.carousel-img');
+    allCarouselImages.forEach(img => {
+        const imagesData = img.getAttribute('data-images');
+        if (imagesData) {
+            const firstImage = imagesData.split(',')[0].trim();
+            img.src = firstImage;
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+            img.style.display = 'block';
         }
     });
+    
+    // PASO 2: Limpiar todos los intervalos activos
+    if (window.resetAllCarousels) {
+        window.resetAllCarousels();
+    }
+    
+    // PASO 3: Continuar con el filtrado normal (con pequeño delay)
+    setTimeout(() => {
+        const cards = document.querySelectorAll('.producto-card');
+        const buttons = document.querySelectorAll('.categoria-btn');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        buttonElement.classList.add('active');
+        
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            const productInfo = card.querySelector('.producto-info');
+            
+            if (category !== 'all' && cardCategory !== category) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease-in';
+                // Remover cualquier display inline que pueda estar ocultando producto-info
+                if (productInfo) {
+                    productInfo.style.display = '';
+                    productInfo.style.visibility = 'visible';
+                    productInfo.style.opacity = '1';
+                    console.log('Mostrando producto-info para:', cardCategory);
+                }
+            }
+        });
+    }, 50);
 }
 
 // ============================================
@@ -1072,12 +1145,4 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
-
-
-
-
-
-
-
-
 
