@@ -121,6 +121,7 @@
     <div id="producto-modal" class="modal">
         <div class="modal-content modal-producto">
             <span class="modal-close">&times;</span>
+            
             <div class="producto-modal-container">
                 <div class="producto-modal-galeria">
                     <div class="producto-modal-thumbs">
@@ -132,14 +133,14 @@
                 </div>
                 <div class="producto-modal-info">
                     <h2 id="modal-producto-nombre">Nombre del Producto</h2>
-                    <div class="modal-producto-precio" id="modal-producto-precio">$0.00 USD</div>
+                    <div class="modal-producto-precio" id="modal-producto-precio"><strong>$0.00 USD</strong></div>
                     
                     <ul class="modal-producto-features">
-                        <li>› Minecraft Java & Bedrock permanente (29.99$).</li>
-                        <li>› Compra garantizada y segura.</li>
+                        <li>❯ Minecraft Java & Bedrock permanente (29.99$).</li>
+                        <li>❯ Compra garantizada y segura.</li>
                     </ul>
                     
-                    <button class="modal-btn-comprar">¡Compra en nuestras redes!</button>
+                    <button class="modal-btn-comprar">¡COMPRA EN TICKET!</button>
                     
                     <div class="modal-social-links">
                         <a href="https://www.instagram.com/ghostlystorex/" target="_blank" title="Instagram" class="modal-social-btn instagram"><i class="fab fa-instagram"></i></a>
@@ -268,9 +269,9 @@
         <h1>Best Seller</h1>
 
         <div class="product-section">
-            <div class="product-image">
-                <!-- La imagen está en la carpeta imagenes -->
-                <img src="imagenes/minecraft-imagen.png" alt="Minecraft Premium Method">
+            <div class="product-images-column">
+                <!-- Imágenes a la izquierda en columna vertical -->
+                <img src="imagenes/minecraft-imagen.png" alt="Minecraft Premium Method" class="product-img">
             </div>
 
             <div class="product-info">
@@ -315,14 +316,28 @@
                 <button class="categoria-btn" data-category="fortnite">Fortnite</button>
                 <button class="categoria-btn" data-category="freefire">Free Fire</button>
                 <button class="categoria-btn" data-category="feather">Feather</button>
+                <button class="categoria-btn" data-category="discord">Discord</button>
                 <button class="categoria-btn" data-category="otros">Otros</button>
             </div>
 
             <!-- Grid de Productos -->
             <div class="productos-grid">
+                <!-- Producto 3 - Minecraft (RANK VIP - Movido al inicio) -->
+                <div class="producto-card" data-category="minecraft">
+
+                    <div class="producto-imagen carousel-container">
+                        <img src="imagenes/Producto3-1.png" alt="Minecraft Bedrock" class="skin-img carousel-img active" data-images="imagenes/Producto3-1.png,imagenes/Producto3-2.png,imagenes/Producto3-3.png,imagenes/Producto3-4.png,imagenes/Producto3-5.png,imagenes/Producto3-6.png,imagenes/Producto3-7.png,imagenes/Producto3-8.png,imagenes/Producto3-9.png,imagenes/Producto3-10.png">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">MC STOCK | RANK VIP</div>
+                        <div class="producto-precio">$6.5 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
                 <!-- Producto 1 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto1-1.png" alt="Minecraft Account" class="skin-img carousel-img active" data-images="imagenes/Producto1-1.png,imagenes/Producto1-2.png,imagenes/Producto1-3.png,imagenes/Producto1-4.png,imagenes/Producto1-5.png,imagenes/Producto1-6.png,imagenes/Producto1-7.png,imagenes/Producto1-8.png,imagenes/Producto1-9.png,imagenes/Producto1-10.png">
                     </div>
@@ -335,7 +350,7 @@
 
                 <!-- Producto 2 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto2-1.png" alt="Minecraft Java" class="skin-img carousel-img active" data-images="imagenes/Producto2-1.png,imagenes/Producto2-2.png,imagenes/Producto2-3.png,imagenes/Producto2-4.png,imagenes/Producto2-5.png,imagenes/Producto2-6.png,imagenes/Producto2-7.png,imagenes/Producto2-8.png,imagenes/Producto2-9.png,imagenes/Producto2-10.png">
                     </div>
@@ -346,22 +361,9 @@
                     </div>
                 </div>
 
-                <!-- Producto 3 - Minecraft -->
-                <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
-                    <div class="producto-imagen carousel-container">
-                        <img src="imagenes/Producto3-1.png" alt="Minecraft Bedrock" class="skin-img carousel-img active" data-images="imagenes/Producto3-1.png,imagenes/Producto3-2.png,imagenes/Producto3-3.png,imagenes/Producto3-4.png,imagenes/Producto3-5.png,imagenes/Producto3-6.png,imagenes/Producto3-7.png,imagenes/Producto3-8.png,imagenes/Producto3-9.png,imagenes/Producto3-10.png">
-                    </div>
-                    <div class="producto-info">
-                        <div class="producto-nombre">MC STOCK | RANK VIP</div>
-                        <div class="producto-precio">$6.5 USD</div>
-                        <button class="btn-comprar">Comprar</button>
-                    </div>
-                </div>
-
                 <!-- Producto 4 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto4-1.png" alt="Minecraft Full Access" class="skin-img carousel-img active" data-images="imagenes/Producto4-1.png,imagenes/Producto4-2.png,imagenes/Producto4-3.png,imagenes/Producto4-4.png,imagenes/Producto4-5.png,imagenes/Producto4-6.png,imagenes/Producto4-7.png,imagenes/Producto4-8.png,imagenes/Producto4-9.png,imagenes/Producto4-10.png">
                     </div>
@@ -374,7 +376,7 @@
 
                 <!-- Producto 5 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto5-1.png" alt="Minecraft Hypixel" class="skin-img carousel-img active" data-images="imagenes/Producto5-1.png,imagenes/Producto5-2.png,imagenes/Producto5-3.png,imagenes/Producto5-4.png,imagenes/Producto5-5.png,imagenes/Producto5-6.png,imagenes/Producto5-7.png,imagenes/Producto5-8.png,imagenes/Producto5-9.png,imagenes/Producto5-10.png">
                     </div>
@@ -387,7 +389,7 @@
 
                 <!-- Producto 6 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto6-1.png" alt="Minecraft Cape" class="skin-img carousel-img active" data-images="imagenes/Producto6-1.png,imagenes/Producto6-2.png,imagenes/Producto6-3.png,imagenes/Producto6-4.png,imagenes/Producto6-5.png,imagenes/Producto6-6.png,imagenes/Producto6-7.png,imagenes/Producto6-8.png,imagenes/Producto6-9.png,imagenes/Producto6-10.png">
                     </div>
@@ -400,7 +402,7 @@
 
                 <!-- Producto 7 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto7-1.png" alt="Minecraft Optifine" class="skin-img carousel-img active" data-images="imagenes/Producto7-1.png,imagenes/Producto7-2.png,imagenes/Producto7-3.png,imagenes/Producto7-4.png,imagenes/Producto7-5.png,imagenes/Producto7-6.png,imagenes/Producto7-7.png,imagenes/Producto7-8.png,imagenes/Producto7-9.png,imagenes/Producto7-10.png">
                     </div>
@@ -413,7 +415,7 @@
 
                 <!-- Producto 8 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto8-1.png" alt="Minecraft NFA" class="skin-img carousel-img active" data-images="imagenes/Producto8-1.png,imagenes/Producto8-2.png,imagenes/Producto8-3.png,imagenes/Producto8-4.png,imagenes/Producto8-5.png,imagenes/Producto8-6.png,imagenes/Producto8-7.png,imagenes/Producto8-8.png,imagenes/Producto8-9.png,imagenes/Producto8-10.png">
                     </div>
@@ -426,7 +428,7 @@
 
                 <!-- Producto 9 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto9-1.png" alt="Minecraft SFA" class="skin-img carousel-img active" data-images="imagenes/Producto9-1.png,imagenes/Producto9-2.png,imagenes/Producto9-3.png,imagenes/Producto9-4.png,imagenes/Producto9-5.png,imagenes/Producto9-6.png,imagenes/Producto9-7.png,imagenes/Producto9-8.png,imagenes/Producto9-9.png,imagenes/Producto9-10.png">
                     </div>
@@ -439,7 +441,7 @@
 
                 <!-- Producto 10 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto10-1.png" alt="Minecraft Realms" class="skin-img carousel-img active" data-images="imagenes/Producto10-1.png,imagenes/Producto10-2.png,imagenes/Producto10-3.png,imagenes/Producto10-4.png,imagenes/Producto10-5.png,imagenes/Producto10-6.png,imagenes/Producto10-7.png,imagenes/Producto10-8.png,imagenes/Producto10-9.png,imagenes/Producto10-10.png">
                     </div>
@@ -452,7 +454,7 @@
 
                 <!-- Producto 11 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto11-1.png" alt="Minecraft Minecoins" class="skin-img carousel-img active" data-images="imagenes/Producto11-1.png,imagenes/Producto11-2.png,imagenes/Producto11-3.png,imagenes/Producto11-4.png,imagenes/Producto11-5.png,imagenes/Producto11-6.png,imagenes/Producto11-7.png,imagenes/Producto11-8.png,imagenes/Producto11-9.png,imagenes/Producto11-10.png">
                     </div>
@@ -465,7 +467,7 @@
 
                 <!-- Producto 12 - Minecraft -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto12-1.png" alt="Minecraft Bundle" class="skin-img carousel-img active" data-images="imagenes/Producto12-1.png,imagenes/Producto12-2.png,imagenes/Producto12-3.png,imagenes/Producto12-4.png,imagenes/Producto12-5.png,imagenes/Producto12-6.png,imagenes/Producto12-7.png,imagenes/Producto12-8.png,imagenes/Producto12-9.png,imagenes/Producto12-10.png">
                     </div>
@@ -478,7 +480,7 @@
 
                 <!-- Producto 13 - Minecraft Premium Method -->
                 <div class="producto-card" data-category="minecraft">
-                    <div class="producto-badge">Minecraft</div>
+
                     <div class="producto-imagen carousel-container">
                         <img src="imagenes/Producto13-1.png" alt="Minecraft Premium Method" class="skin-img carousel-img active" data-images="imagenes/Producto13-1.png,imagenes/Producto13-2.png,imagenes/Producto13-3.png,imagenes/Producto13-4.png,imagenes/Producto13-5.png,imagenes/Producto13-6.png,imagenes/Producto13-7.png,imagenes/Producto13-8.png,imagenes/Producto13-9.png,imagenes/Producto13-10.png">
                     </div>
@@ -491,7 +493,7 @@
 
                 <!-- Producto - Streaming: Crunchyroll Plan Mensual Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/crunchyroll.png" alt="Crunchyroll" class="skin-img">
                     </div>
@@ -504,7 +506,7 @@
 
                 <!-- Producto - Streaming: Crunchyroll Plan Mensual Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/crunchyroll.png" alt="Crunchyroll" class="skin-img">
                     </div>
@@ -517,7 +519,7 @@
 
                 <!-- Producto - Streaming: Crunchyroll Plan Anual Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/crunchyroll.png" alt="Crunchyroll" class="skin-img">
                     </div>
@@ -530,7 +532,7 @@
 
                 <!-- Producto - Streaming: Spotify Plan 1 Mes -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/spotify.png" alt="Spotify" class="skin-img">
                     </div>
@@ -543,7 +545,7 @@
 
                 <!-- Producto - Streaming: Spotify Plan 3 Meses -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/spotify.png" alt="Spotify" class="skin-img">
                     </div>
@@ -556,7 +558,7 @@
 
                 <!-- Producto - Streaming: Paramount+ 1 Perfil Mensual -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/paramount.png" alt="Paramount+" class="skin-img">
                     </div>
@@ -569,7 +571,7 @@
 
                 <!-- Producto - Streaming: Paramount+ Cuenta Completa Mensual -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/paramount.png" alt="Paramount+" class="skin-img">
                     </div>
@@ -582,7 +584,7 @@
 
                 <!-- Producto - Streaming: Paramount+ Cuenta Completa Anual -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/paramount.png" alt="Paramount+" class="skin-img">
                     </div>
@@ -595,7 +597,7 @@
 
                 <!-- Producto - Streaming: Apple TV+ Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/appletv.png" alt="Apple TV" class="skin-img">
                     </div>
@@ -608,7 +610,7 @@
 
                 <!-- Producto - Streaming: Apple TV+ Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/appletv.png" alt="Apple TV" class="skin-img">
                     </div>
@@ -621,7 +623,7 @@
 
                 <!-- Producto - Streaming: Viki Rakuten Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/viki.png" alt="Viki Rakuten" class="skin-img">
                     </div>
@@ -634,7 +636,7 @@
 
                 <!-- Producto - Streaming: Viki Rakuten Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/viki.png" alt="Viki Rakuten" class="skin-img">
                     </div>
@@ -647,7 +649,7 @@
 
                 <!-- Producto - Streaming: Disney+ Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/disney.png" alt="Disney+" class="skin-img">
                     </div>
@@ -660,7 +662,7 @@
 
                 <!-- Producto - Streaming: Disney+ Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/disney.png" alt="Disney+" class="skin-img">
                     </div>
@@ -673,7 +675,7 @@
 
                 <!-- Producto - Streaming: Prime Video Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/primevideo.png" alt="Prime Video" class="skin-img">
                     </div>
@@ -686,7 +688,7 @@
 
                 <!-- Producto - Streaming: Prime Video Cuenta Completa -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/primevideo.png" alt="Prime Video" class="skin-img">
                     </div>
@@ -699,7 +701,7 @@
 
                 <!-- Producto - Streaming: Prime Video Anual 1 Perfil -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/primevideo.png" alt="Prime Video" class="skin-img">
                     </div>
@@ -712,7 +714,7 @@
 
                 <!-- Producto - Streaming: HBO Max Perfil Privado -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/hbo.png" alt="HBO Max" class="skin-img">
                     </div>
@@ -725,7 +727,7 @@
 
                 <!-- Producto - Streaming: HBO Max Cuenta Completa Mensual -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/hbo.png" alt="HBO Max" class="skin-img">
                     </div>
@@ -738,7 +740,7 @@
 
                 <!-- Producto - Streaming: HBO Max Cuenta Completa Anual -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/hbo.png" alt="HBO Max" class="skin-img">
                     </div>
@@ -751,7 +753,7 @@
 
                 <!-- Producto - Streaming: YouTube Premium Plan 1 Mes -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/youtube.png" alt="YouTube Premium" class="skin-img">
                     </div>
@@ -764,7 +766,7 @@
 
                 <!-- Producto - Streaming: YouTube Premium Plan 3 Meses -->
                 <div class="producto-card" data-category="streaming" style="display: none;">
-                    <div class="producto-badge">Streaming</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/youtube.png" alt="YouTube Premium" class="skin-img">
                     </div>
@@ -777,7 +779,7 @@
 
                 <!-- Producto 19 - Fortnite -->
                 <div class="producto-card" data-category="fortnite" style="display: none;">
-                    <div class="producto-badge">Fortnite</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/fortnite1.png" alt="1000 Pavos" class="skin-img">
                     </div>
@@ -790,7 +792,7 @@
 
                 <!-- Producto 20 - Fortnite -->
                 <div class="producto-card" data-category="fortnite" style="display: none;">
-                    <div class="producto-badge">Fortnite</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/fortnite1.png" alt="2800 Pavos" class="skin-img">
                     </div>
@@ -803,7 +805,7 @@
 
                 <!-- Producto 21 - Fortnite -->
                 <div class="producto-card" data-category="fortnite" style="display: none;">
-                    <div class="producto-badge">Fortnite</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/fortnite1.png" alt="5000 Pavos" class="skin-img">
                     </div>
@@ -816,7 +818,7 @@
 
                 <!-- Producto 22 - Fortnite -->
                 <div class="producto-card" data-category="fortnite" style="display: none;">
-                    <div class="producto-badge">Fortnite</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/fortnite1.png" alt="13500 Pavos" class="skin-img">
                     </div>
@@ -829,7 +831,7 @@
 
                 <!-- Producto 24 - Fortnite -->
                 <div class="producto-card" data-category="fortnite" style="display: none;">
-                    <div class="producto-badge">Fortnite</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/fortnitecrew.png" alt="Fortnite Crew Login" class="skin-img">
                     </div>
@@ -842,7 +844,7 @@
 
                 <!-- Producto 26 - Free Fire -->
                 <div class="producto-card" data-category="freefire" style="display: none;">
-                    <div class="producto-badge">Free Fire</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/freefire1.png" alt="Free Fire Pase Elite" class="skin-img">
                     </div>
@@ -855,7 +857,7 @@
 
                 <!-- Producto - Otros: CapCut Pro -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/capcut.png" alt="CapCut Pro" class="skin-img">
                     </div>
@@ -868,7 +870,7 @@
 
                 <!-- Producto - Otros: Canva Pro -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/canva.png" alt="Canva Pro" class="skin-img">
                     </div>
@@ -881,7 +883,7 @@
 
                 <!-- Producto - Otros: OnlyFans 50$ -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/onlyfans.png" alt="OnlyFans" class="skin-img">
                     </div>
@@ -894,7 +896,7 @@
 
                 <!-- Producto - Otros: OnlyFans 100$ -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/onlyfans.png" alt="OnlyFans" class="skin-img">
                     </div>
@@ -907,7 +909,7 @@
 
                 <!-- Producto - Otros: Brazzers -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/brazzers.png" alt="Brazzers" class="skin-img">
                     </div>
@@ -920,7 +922,7 @@
 
                 <!-- Producto - Otros: PornHub -->
                 <div class="producto-card" data-category="otros" style="display: none;">
-                    <div class="producto-badge">Otros</div>
+
                     <div class="producto-imagen">
                         <img src="imagenes/pornhub.png" alt="PornHub Premium" class="skin-img">
                     </div>
@@ -951,6 +953,30 @@
                     </div>
                 </div>
 
+                <!-- Discord Server Boost 1 Mes -->
+                <div class="producto-card" data-category="discord" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/boost.png" alt="Discord Server Boost" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">Discord Server Boost x1 - 1 Mes</div>
+                        <div class="producto-precio">$5 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- Discord Server Boost 3 Meses -->
+                <div class="producto-card" data-category="discord" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/boost.png" alt="Discord Server Boost" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">Discord Server Boost x1 - 3 Meses</div>
+                        <div class="producto-precio">$10 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -959,12 +985,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
