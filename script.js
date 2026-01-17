@@ -269,33 +269,73 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de nombre disponible en 9 días.',
-        '❯ Contiene la capa Pan.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | FEATHER COSMETICS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Puntos en Feather Client (**489**).',
-        '❯ Contiene las capas Pan, Common & Menace.',
-        '❯ Cambio de nombre disponible en 14 días.',
-        '❯ Contiene Cosmeticos Feather Client.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 2': [
-        '❯ Contiene la capa Pan, Common, 15TH y Followers.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de nombre disponible en 25 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP': [
+    'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de nombre disponible en 17 días.',
-        '❯ Cosmetico Lunar Client School Backpack',
-        '❯ Contiene las capas Pan & Common.',
-        '❯ Contiene Rango VIP en Hypixel.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK CAPES 4': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 5': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 6': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 15 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 7': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 13 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE HOME': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Home.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK CAPES': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 13 días.',
+        '❯ Contiene Rango Master Global en MineFun.',
+        '❯ Contiene Rango VIP+ Global en Tilted.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE FOUNDER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Menace & **FOUNDER**.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -307,52 +347,6 @@ const descripcionesProductos = {
         '❯ Contiene las capas Pan & Common.',
         '❯ Garantía incluida.',
         '❯ Unban all'
-    ],
-    'MC STOCK | CAPE CHERRY': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de nombre disponible en 17 días.',
-        '❯ Contiene la capa Pan, Common & Cherry',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES GAMES': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Menace & Home',
-        '❯ Contiene capas en Feather Client Decoradas',
-        '❯ Contiene el juego: Deluxe Collection',
-        '❯ Cambio de nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | NFA Account': [
-        '❯ Cuenta NFA (No Full Access).',
-        '❯ Ideal para servidores.',
-        '❯ Precio económico.',
-        '❯ Garantía de funcionamiento.'
-    ],
-    'MC STOCK | SFA Account': [
-        '❯ Cuenta SFA (Semi Full Access).',
-        '❯ Cambio de skin disponible.',
-        '❯ Acceso estable.',
-        '❯ Garantía incluida.'
-    ],
-    'MC STOCK | Realms Plus': [
-        '❯ Cuenta con Realms Plus activo.',
-        '❯ Servidor privado incluido.',
-        '❯ Juega con hasta 10 amigos.',
-        '❯ Garantía incluida.'
-    ],
-    'MC STOCK | Minecoins 1000': [
-        '❯ 1000 Minecoins incluidos.',
-        '❯ Compra skins y mundos.',
-        '❯ Entrega inmediata.',
-        '❯ Garantía incluida.'
-    ],
-    'MC STOCK | Bundle Pack': [
-        '❯ Pack completo de cuentas.',
-        '❯ Incluye múltiples cuentas.',
-        '❯ Mejor precio por unidad.',
-        '❯ Garantía en todas.'
     ],
     // Minecraft Premium Method
     'Minecraft Premium Method': [
@@ -1145,4 +1139,3 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
-
