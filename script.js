@@ -348,18 +348,12 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    // Minecraft Premium Method
-    'Minecraft Premium Method': [
-        '❯ Ghostly Store | Minecraft Premium Method',
-        '❯ $10 USD',
-        '❯ Accede al método más rentable del mercado para obtener cuentas Minecraft Premium de forma constante.',
-        '',
-        '¿Qué incluye?',
-        '❯ Acceso mensual con MFAs nuevas todos los días',
-        '❯ Posibilidad de uso en grupo para aumentar ganancias',
-        '❯ Método activo y funcional en el mercado actual',
-        '❯ Revende tus cuentas y genera ingresos constantes',
-        '❯ Acceso a servidor privado exclusivo con espacio propio'
+    'MC STOCK | CAPE MIGRATOR': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Migrator.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
     ],
     // Crunchyroll Planes
     'PLAN MENSUAL MEGAFAN (Perfil privado)': [
@@ -1139,3 +1133,4 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
