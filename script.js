@@ -1,2417 +1,1174 @@
-/* ============================================
-   ESTILOS GENERALES
-============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// ============================================
+// CURSOR PERSONALIZADO (DESACTIVADO)
+// ============================================
+// Cursor personalizado desactivado - usando cursor normal del navegador
+
+// ============================================
+// CONTADOR ANIMADO DE ESTADÍSTICAS
+// ============================================
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
+// Observador para iniciar animación cuando sea visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
 
-/* Efecto de gradiente animado de fondo */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-    animation: gradientPulse 8s ease-in-out infinite;
-}
-
-@keyframes gradientPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-/* ============================================
-   CURSOR PERSONALIZADO
-============================================ */
-.custom-cursor {
-    display: none;
-}
-
-.cursor-follower {
-    display: none;
-}
-
-/* ============================================
-   PARTÍCULAS ANIMADAS
-============================================ */
-#particles-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    animation: floatParticle linear infinite;
-}
-
-.particle.purple {
-    background: #8b5cf6;
-    box-shadow: 0 0 6px #8b5cf6;
-}
-
-.particle.white {
-    background: #fff;
-    box-shadow: 0 0 4px #fff;
-}
-
-.particle.blue {
-    background: #60a5fa;
-    box-shadow: 0 0 5px #60a5fa;
-}
-
-@keyframes floatParticle {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) {
+        statsObserver.observe(heroStats);
     }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-@keyframes twinkle {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.5);
-    }
-}
-
-@keyframes drift {
-    0%, 100% {
-        transform: translateX(0) translateY(0);
-    }
-    25% {
-        transform: translateX(10px) translateY(-10px);
-    }
-    50% {
-        transform: translateX(-5px) translateY(-20px);
-    }
-    75% {
-        transform: translateX(-10px) translateY(-10px);
-    }
-}
-
-.star {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    animation: twinkle ease-in-out infinite;
-}
-
-.star.purple {
-    background: #8b5cf6;
-    box-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6;
-}
-
-.star.blue {
-    background: #60a5fa;
-    box-shadow: 0 0 8px #60a5fa, 0 0 16px #60a5fa;
-}
-
-/* ============================================
-   MODAL SOBRE NOSOTROS
-============================================ */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-    margin: 5% auto;
-    padding: 40px;
-    border: 2px solid #8b5cf6;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 700px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-    position: relative;
-    animation: slideIn 0.4s ease;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: #8b5cf6;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.modal-close:hover {
-    color: #fff;
-    transform: rotate(90deg);
-}
-
-.modal-content h2 {
-    color: #8b5cf6;
-    font-size: 28px;
-    margin-bottom: 25px;
-    text-align: center;
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-}
-
-.modal-content h3 {
-    color: #8b5cf6;
-    font-size: 20px;
-    margin: 25px 0 15px;
-}
-
-.modal-content p {
-    color: #e0e0e0;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    font-size: 15px;
-}
-
-.modal-content .intro {
-    font-size: 17px;
-    text-align: center;
-    color: #fff;
-}
-
-.modal-content strong {
-    color: #8b5cf6;
-}
-
-.services-list, .benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.services-list li {
-    padding: 12px 15px;
-    margin: 8px 0;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 10px;
-    border-left: 3px solid #8b5cf6;
-    color: #fff;
-    font-size: 15px;
-}
-
-.benefits-list li {
-    padding: 10px 0;
-    color: #e0e0e0;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.benefits-list li:last-child {
-    border-bottom: none;
-}
-
-.contact-text {
-    text-align: center;
-    margin-top: 25px;
-    padding: 20px;
-    background: rgba(139, 92, 246, 0.15);
-    border-radius: 15px;
-    color: #fff !important;
-    font-size: 16px !important;
-}
-
-/* ============================================
-   ABOUT ANIMATED STYLES
-============================================ */
-.about-animated {
-    overflow: hidden;
-}
-
-.about-title {
-    text-align: center;
-    font-size: 32px !important;
-    margin-bottom: 10px !important;
-    animation: glow-text 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow-text {
-    from { text-shadow: 0 0 10px rgba(139, 92, 246, 0.5); }
-    to { text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.4); }
-}
-
-.about-intro {
-    text-align: center;
-    font-size: 18px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    margin-bottom: 25px !important;
-}
-
-.about-section {
-    margin-bottom: 25px;
-}
-
-.about-section h3 {
-    margin-bottom: 12px;
-}
-
-.about-stats {
-    display: flex;
-    justify-content: space-around;
-    gap: 15px;
-    margin: 30px 0;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 20px;
-    background: rgba(139, 92, 246, 0.15);
-    border-radius: 15px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    flex: 1;
-    min-width: 100px;
-    transition: all 0.3s ease;
-}
-
-.stat-item:hover {
-    transform: translateY(-5px);
-    border-color: #8b5cf6;
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
-}
-
-.stat-number {
-    display: block;
-    font-size: 28px;
-    font-weight: bold;
-    color: #8b5cf6;
-    animation: count-up 1s ease-out;
-}
-
-.stat-label {
-    display: block;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 5px;
-}
-
-.about-features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.feature-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 10px;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: all 0.3s ease;
-    color: #ffffff;
-}
-
-.feature-item:hover {
-    background: rgba(139, 92, 246, 0.2);
-    transform: translateX(5px);
-}
-
-.feature-icon {
-    font-size: 24px;
-}
-
-.about-cta {
-    text-align: center;
-    font-size: 18px !important;
-    color: #8b5cf6 !important;
-    margin-top: 25px !important;
-    padding: 15px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 10px;
-}
-
-/* Animaciones fade-in */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ============================================
-   FAQ STYLES
-============================================ */
-.faq-text {
-    margin: 20px 0;
-}
-
-.faq-text h3 {
-    color: #8b5cf6;
-    font-size: 18px;
-    margin: 25px 0 10px 0;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: fadeInLeft 0.5s ease forwards;
-}
-
-.faq-text h3:nth-child(1) { animation-delay: 0.1s; }
-.faq-text h3:nth-child(3) { animation-delay: 0.3s; }
-.faq-text h3:nth-child(5) { animation-delay: 0.5s; }
-.faq-text h3:nth-child(7) { animation-delay: 0.7s; }
-
-.faq-text p {
-    color: #d0d0d0;
-    line-height: 1.7;
-    margin: 0 0 20px 0;
-    padding-left: 15px;
-    border-left: 3px solid rgba(139, 92, 246, 0.5);
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: fadeInLeft 0.5s ease forwards;
-}
-
-.faq-text p:nth-child(2) { animation-delay: 0.2s; }
-.faq-text p:nth-child(4) { animation-delay: 0.4s; }
-.faq-text p:nth-child(6) { animation-delay: 0.6s; }
-.faq-text p:nth-child(8) { animation-delay: 0.8s; }
-
-@keyframes fadeInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.faq-text h3:hover {
-    color: #a78bfa;
-    transform: translateX(5px);
-    transition: all 0.3s ease;
-}
-
-.faq-text p:hover {
-    border-left-color: #8b5cf6;
-    background: rgba(139, 92, 246, 0.05);
-    transition: all 0.3s ease;
-}
-
-/* ============================================
-   REVIEWS MODAL
-============================================ */
-.modal-reviews {
-    text-align: center;
-    padding: 50px 40px;
-}
-
-.reviews-question {
-    font-size: 20px;
-    color: #fff;
-    margin-top: 20px;
-    line-height: 1.6;
-}
-
-/* ============================================
-   MODAL PRODUCTO
-============================================ */
-.modal-producto {
-    max-width: 1400px;
-    padding: 0;
-    background: #fff;
-    border: none !important;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 3% auto !important;
-    width: 95% !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-    max-height: 90vh;
-}
-
-.modal-producto h2 {
-    text-align: left !important;
-}
-
-.modal-producto .modal-producto-precio {
-    text-align: left !important;
-}
-
-.modal-producto-header {
-    display: none;
-}
-
-.producto-modal-container {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    padding: 20px;
-    height: auto;
-}
-
-.producto-modal-galeria {
-    display: flex;
-    gap: 15px;
-    flex: 0 0 auto;
-    margin-right: 0;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 280px;
-}
-
-.producto-modal-thumbs {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.producto-modal-thumbs::-webkit-scrollbar {
-    width: 4px;
-}
-
-.producto-modal-thumbs::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-}
-
-.producto-modal-thumbs::-webkit-scrollbar-thumb {
-    background: #8b5cf6;
-    border-radius: 4px;
-}
-
-.thumb-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    border: 3px solid transparent;
-    transition: all 0.3s;
-    flex-shrink: 0;
-}
-
-.thumb-img:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    transform: scale(1.05);
-}
-
-.thumb-img.active {
-    border-color: #8b5cf6;
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
-}
-
-.producto-modal-imagen-principal {
-    flex: 1;
-    border-radius: 0;
-    overflow: hidden;
-    background: transparent;
-    width: 100%;
-    height: 280px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    border: none;
-    padding: 0;
-}
-
-.producto-modal-imagen-principal img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0;
-    background: transparent;
-    object-position: left top;
-}
-
-.producto-modal-info {
-    flex: 1;
-    padding: 0 20px 20px 0;
-}
-
-.producto-modal-info h2 {
-    color: #000;
-    font-size: 18px;
-    font-weight: 900;
-    margin: 0 0 5px 0;
-    text-transform: none;
-    letter-spacing: 0;
-}
-
-.modal-producto-precio {
-    color: #000;
-    font-size: 16px;
-    margin-bottom: 15px;
-    font-weight: 900;
-}
-
-.modal-producto-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.modal-producto-features li {
-    color: #000;
-    font-size: 14px;
-    padding: 0;
-    border-bottom: none;
-    line-height: 1.3;
-    display: block;
-    margin: 0 0 5px 0;
-}
-
-.modal-producto-features strong {
-    font-weight: 700;
-    color: #333;
-}
-
-.modal-btn-comprar {
-    width: 100%;
-    background: #000;
-    color: #fff;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 0;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-bottom: 15px;
-}
-
-.modal-btn-comprar:hover {
-    background: #333;
-}
-
-.modal-social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-.modal-social-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #666;
-    border: 2px solid #ddd;
-    transition: all 0.3s;
-    text-decoration: none;
-}
-
-.modal-social-btn:hover {
-    transform: translateY(-3px);
-}
-
-.modal-social-btn.whatsapp:hover {
-    color: #25d366;
-    border-color: #25d366;
-}
-
-.modal-social-btn.instagram:hover {
-    color: #e4405f;
-    border-color: #e4405f;
-}
-
-.modal-social-btn.discord:hover {
-    color: #5865f2;
-    border-color: #5865f2;
-}
-
-@media (max-width: 768px) {
-    .producto-modal-container {
-        flex-direction: column;
+});
+
+// ============================================
+// TYPEWRITER EFFECT
+// ============================================
+const typewriterPhrases = [
+    "Cuentas premium al mejor precio 👻",
+    "Juegos originales y garantizados 🎮",
+    "Entregas inmediatas 24/7 ⚡",
+    "Más de 500 clientes satisfechos ⭐",
+    "Tu tienda de confianza  ? ️"
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typewriterElement = null;
+
+function typeWriter() {
+    typewriterElement = document.getElementById('typewriter-text');
+    if (!typewriterElement) return;
+    
+    const currentPhrase = typewriterPhrases[phraseIndex];
+    
+    if (isDeleting) {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
     }
     
-    .producto-modal-galeria {
-        flex: none;
-        width: 100%;
+    let typeSpeed = isDeleting ? 30 : 80;
+    
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2000; // Pausa al terminar de escribir
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+        typeSpeed = 500; // Pausa antes de escribir nueva frase
     }
     
-    .modal-producto {
-        padding: 20px;
-        margin: 10px;
+    setTimeout(typeWriter, typeSpeed);
+}
+
+document.addEventListener('DOMContentLoaded', typeWriter);
+
+// ============================================
+// CARRUSEL DE IMÁGENES EN PRODUCTOS
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselImages = document.querySelectorAll('.carousel-img');
+    const carouselIntervals = new Map(); // Guardar intervalos por elemento
+    
+    carouselImages.forEach(img => {
+        const imagesData = img.getAttribute('data-images');
+        if (!imagesData) return;
+        
+        const allImages = imagesData.split(',').map(s => s.trim());
+        let validImages = [];
+        const container = img.parentElement;
+        let currentIndex = 0;
+        
+        // Verificar qué imágenes existen
+        let checkedCount = 0;
+        allImages.forEach((imgSrc, index) => {
+            const testImg = new Image();
+            testImg.onload = function() {
+                validImages.push({ src: imgSrc, index: index });
+                checkedCount++;
+                if (checkedCount === allImages.length) {
+                    validImages.sort((a, b) => a.index - b.index);
+                    setupCarousel();
+                }
+            };
+            testImg.onerror = function() {
+                checkedCount++;
+                if (checkedCount === allImages.length) {
+                    validImages.sort((a, b) => a.index - b.index);
+                    setupCarousel();
+                }
+            };
+            testImg.src = imgSrc;
+        });
+        
+        function setupCarousel() {
+            if (validImages.length <= 1) return;
+            
+            const images = validImages.map(v => v.src);
+            
+            function changeImage() {
+                img.style.opacity = '0';
+                img.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    img.src = images[currentIndex];
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1)';
+                }, 300);
+            }
+            
+            function resetImage() {
+                const interval = carouselIntervals.get(container);
+                if (interval) {
+                    clearInterval(interval);
+                    carouselIntervals.delete(container);
+                }
+                currentIndex = 0;
+                img.src = images[0];
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+            }
+            
+            container.addEventListener('mouseenter', () => {
+                // Limpiar intervalo anterior si existe
+                const oldInterval = carouselIntervals.get(container);
+                if (oldInterval) clearInterval(oldInterval);
+                
+                changeImage();
+                const newInterval = setInterval(changeImage, 1500);
+                carouselIntervals.set(container, newInterval);
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                resetImage();
+            });
+        }
+    });
+    
+    // Función global para resetear todos los carruseles
+    window.resetAllCarousels = function() {
+        carouselIntervals.forEach((interval, container) => {
+            clearInterval(interval);
+        });
+        carouselIntervals.clear();
+        
+        document.querySelectorAll('.carousel-img').forEach(img => {
+            const imagesData = img.getAttribute('data-images');
+            if (imagesData) {
+                const firstImage = imagesData.split(',')[0].trim();
+                img.src = firstImage;
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+                img.style.display = 'block';
+            }
+        });
+    };
+});
+
+// ============================================
+// MODAL SOBRE NOSOTROS
+// ============================================
+const aboutModal = document.getElementById('about-modal');
+const aboutLink = document.querySelector('a[href="#about"]');
+
+if (aboutLink) {
+    aboutLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        aboutModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// ============================================
+// MODAL FAQ
+// ============================================
+const faqModal = document.getElementById('faq-modal');
+const faqLink = document.querySelector('a[href="#faq"]');
+
+if (faqLink) {
+    faqLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        faqModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// ============================================
+// MODAL REVIEWS
+// ============================================
+const reviewsModal = document.getElementById('reviews-modal');
+const reviewsLink = document.querySelector('a[href="#reviews"]');
+
+if (reviewsLink) {
+    reviewsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        reviewsModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Cerrar todos los demás
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Abrir el actual si no estaba activo
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+});
+
+// ============================================
+// MODAL PRODUCTO
+// ============================================
+const productoModal = document.getElementById('producto-modal');
+
+// Descripciones personalizadas por producto
+const descripcionesProductos = {
+    // ========== MINECRAFT PRODUCTS ==========
+    'MC STOCK | CAPES': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 2': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 3': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK CAPES 4': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 5': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 6': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 15 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 7': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 13 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE HOME': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Home.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK CAPES': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 13 días.',
+        '❯ Contiene Rango Master Global en MineFun.',
+        '❯ Contiene Rango VIP+ Global en Tilted.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE FOUNDER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Menace & **FOUNDER**.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK GHOST': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango **GHOST** en SpookyBox SpookMC.',
+        '❯ Contiene Rango **VIP+** en ClashBox TilTed.',
+        '❯ Cambio de nombre disponible en 30 días.',
+        '❯ Contiene las capas Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE MIGRATOR': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Migrator.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    // Crunchyroll Planes
+    'PLAN MENSUAL MEGAFAN (Perfil privado)': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso ilimitado a todo el catálogo.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Sin anuncios.'
+    ],
+    'PLAN MENSUAL MEGAFAN – CUENTA COMPLETA': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo sin límites.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Sin anuncios.'
+    ],
+    'PLAN ANUAL MEGAFAN – CUENTA COMPLETA': [
+        '❯ 12 meses de duración (Garantía 3 meses).',
+        '❯ Todos los beneficios del plan mensual completo.',
+        '❯ Mejor precio anual.',
+        '❯ Mayor estabilidad y garantía prolongada.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Sin anuncios.'
+    ],
+    // Spotify Planes
+    'Spotify Premium – PLAN 1 MES': [
+        '❯ 1 mes de duración (Garantía total).',
+        '❯ Música sin anuncios.',
+        '❯ Saltos ilimitados.',
+        '❯ Descargas para escuchar sin conexión.',
+        '❯ Audio de alta calidad.',
+        '❯ Reproducción en cualquier dispositivo.'
+    ],
+    'Spotify Premium – PLAN 3 MESES': [
+        '❯ 3 meses de duración (Garantía total).',
+        '❯ Todos los beneficios del plan mensual.',
+        '❯ Mejor precio por más tiempo.',
+        '❯ Escucha sin anuncios garantizada.',
+        '❯ Descargas ilimitadas.',
+        '❯ Acceso completo a Spotify Premium.',
+        '❯ Podcasts exclusivos.',
+        '❯ Audio de alta calidad.'
+    ],
+    // Paramount+ Planes
+    'Paramount+ 1 PERFIL – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo al catálogo Paramount+.',
+        '❯ 1 perfil exclusivo.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Ideal para uso personal.'
+    ],
+    'Paramount+ CUENTA COMPLETA – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso total a series y películas.',
+        '❯ Compatible con Smart TV, Android, iOS, PC y consolas.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Reproducción estable.'
+    ],
+    'Paramount+ CUENTA COMPLETA – Anual': [
+        '❯ 12 meses de duración.',
+        '❯ Cuenta completa por 1 año.',
+        '❯ Mayor ahorro frente al plan mensual.',
+        '❯ Acceso total al catálogo Paramount+.',
+        '❯ Calidad HD / Full HD.',
+        '❯ Soporte durante todo el año.'
+    ],
+    // Apple TV+ Planes
+    'Apple TV+ PERFIL PRIVADO – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso completo al catálogo Apple TV+.',
+        '❯ Perfil privado (sujeto a disponibilidad).',
+        '❯ Calidad HD / 4K Ultra HD.',
+        '❯ Hasta 6 dispositivos simultáneos.',
+        '❯ Reproducción estable y sin anuncios.',
+        '❯ Ideal para uso personal.'
+    ],
+    'Apple TV+ CUENTA COMPLETA – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Cuenta completa sin restricciones.',
+        '❯ Acceso total a todas las series y películas.',
+        '❯ Calidad HD / 4K Ultra HD.',
+        '❯ 6 dispositivos en simultáneo.',
+        '❯ Compatible con Smart TV, iPhone, Android, PC y consolas.',
+        '❯ Sin anuncios.',
+        '❯ Garantía de activación.'
+    ],
+    // Viki Rakuten Planes
+    'Viki Rakuten PERFIL PRIVADO – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Viki Rakuten.',
+        '❯ Calidad HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Subtítulos en varios idiomas.',
+        '❯ Sin anuncios.',
+        '❯ Ideal para uso personal.'
+    ],
+    'Viki Rakuten CUENTA COMPLETA – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso total a Viki Rakuten Plus.',
+        '❯ Calidad HD.',
+        '❯ Varios dispositivos simultáneos.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Sin anuncios.',
+        '❯ K-dramas, C-dramas, J-dramas, películas y shows asiáticos.',
+        '❯ Subtítulos rápidos y precisos en múltiples idiomas.',
+        '❯ Compatible con Smart TV, móvil y PC.'
+    ],
+    // Disney+ Planes
+    'Disney+ PERFIL PRIVADO – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Disney, Pixar, Marvel, Star Wars y National Geographic.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo.',
+        '❯ Sin anuncios.'
+    ],
+    'Disney+ CUENTA COMPLETA – Mensual': [
+        '❯ 1er mes → $11 | Renovación → $10.',
+        '❯ Acceso total sin límites.',
+        '❯ Full HD.',
+        '❯ 4 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Contenido exclusivo y estrenos originales.',
+        '❯ Página web para códigos de inicio de sesión.',
+        '❯ Incluye: Hulu, ESPN, Marvel, Star Wars, Pixar, National Geographic.'
+    ],
+    // Prime Video Planes
+    'Prime Video PERFIL PRIVADO – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Acceso al catálogo completo de Prime Video.',
+        '❯ Calidad Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Sin anuncios.'
+    ],
+    'Prime Video CUENTA COMPLETA – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 3 dispositivos simultáneos.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Acceso total a películas, series y Amazon Originals.',
+        '❯ Sin anuncios.'
+    ],
+    'Prime Video 1 PERFIL – Anual': [
+        '❯ 12 meses de duración (Garantía en ticket).',
+        '❯ Todos los beneficios del plan mensual completo.',
+        '❯ Mejor precio anual.',
+        '❯ Acceso continuo a estrenos y contenido exclusivo.',
+        '❯ Mayor estabilidad y garantía prolongada.'
+    ],
+    // HBO Max Planes
+    'HBO Max PERFIL PRIVADO – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Full HD.',
+        '❯ 1 dispositivo simultáneo.',
+        '❯ Acceso a todo el catálogo.',
+        '❯ La cuenta puede ser Estándar o Platino.',
+        '❯ Sin anuncios.'
+    ],
+    'HBO Max CUENTA COMPLETA – Mensual': [
+        '❯ 1 mes de duración.',
+        '❯ Full HD / 4K Ultra HD.',
+        '❯ 2 dispositivos simultáneos.',
+        '❯ Descargas sin conexión.',
+        '❯ Acceso completo sin límites.',
+        '❯ La cuenta puede ser Estándar o Platino.',
+        '❯ Sin anuncios.'
+    ],
+    'HBO Max CUENTA COMPLETA – Anual': [
+        '❯ 12 meses de duración (Garantía de activación).',
+        '❯ Todos los beneficios del plan completo mensual.',
+        '❯ Mejor precio anual.',
+        '❯ Garantía y estabilidad prolongada.',
+        '❯ Acceso continuo a estrenos exclusivos.',
+        '❯ La cuenta puede ser Estándar o Platino.'
+    ],
+    // YouTube Premium Planes
+    'YouTube Premium – PLAN 1 MES': [
+        '❯ 1 mes de duración.',
+        '❯ Sin anuncios en todos los videos.',
+        '❯ Reproducción en segundo plano.',
+        '❯ Descargas para ver sin conexión.',
+        '❯ Acceso a YouTube Music Premium.',
+        '❯ Calidad Full HD / 4K (según contenido).'
+    ],
+    'YouTube Premium – PLAN 3 MESES': [
+        '❯ 3 meses de duración.',
+        '❯ Todos los beneficios del plan mensual.',
+        '❯ Mejor precio por más tiempo.',
+        '❯ Reproducción sin anuncios garantizada por 3 meses.',
+        '❯ Acceso completo a YouTube Premium + YouTube Music.'
+    ],
+    // Fortnite Pavos
+    '1.000 Pavos': [
+        '❯ 1.000 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    '2.800 Pavos': [
+        '❯ 2.800 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    '5.000 Pavos': [
+        '❯ 5.000 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    '13.500 Pavos': [
+        '❯ 13.500 V-Bucks para tu cuenta.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    'Fortnite Crew (Via Login)': [
+        '❯ Todos los pases + Crew Pack.',
+        '❯ Crew Styles + Rocket Pass.',
+        '❯ 1.000 V-Bucks incluidos.',
+        '❯ Entrega via login.'
+    ],
+    // Free Fire
+    'Pase Elite': [
+        '❯ Pase Elite completo.',
+        '❯ Todas las recompensas.',
+        '❯ Entrega inmediata.'
+    ],
+    // Otros - CapCut Pro
+    'CapCut Pro – PLAN 1 MES': [
+        '❯ 1 mes de duración (Garantía total).',
+        '❯ Acceso a todas las funciones premium de CapCut Pro.',
+        '❯ Miles de plantillas premium y diseños exclusivos.',
+        '❯ Imágenes, íconos y elementos ilimitados.',
+        '❯ Exportación en alta resolución (4K) sin límites.',
+        '❯ Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
+        '❯ Almacenamiento en la nube y sincronización.',
+        '❯ Trabajo en equipo en tiempo real.',
+        '❯ Sin marcas de agua.',
+        '❯ Sin anuncios.'
+    ],
+    // Otros - Canva Pro
+    'Canva Pro PERMANENTE': [
+        '❯ Acceso permanente a Canva Pro.',
+        '❯ Miles de plantillas premium y diseños exclusivos.',
+        '❯ Imágenes, íconos y elementos ilimitados.',
+        '❯ Exportación en alta resolución (4K).',
+        '❯ Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
+        '❯ Almacenamiento en la nube y sincronización.',
+        '❯ Trabajo en equipo en tiempo real.',
+        '❯ Sin marcas de agua.',
+        '❯ Garantía total en la suscripción.'
+    ],
+    // Otros - OnlyFans
+    'OnlyFans Cuenta $50 Saldo': [
+        '❯ Cuenta con $50 de saldo recargado.',
+        '❯ Duración: 12 – 24 horas.',
+        '❯ Suscríbete a cualquier cuenta.',
+        '❯ Descarga todo el contenido.',
+        '❯ Cuenta lista para usar.'
+    ],
+    'OnlyFans Cuenta $100 Saldo': [
+        '❯ Cuenta con $100 de saldo recargado.',
+        '❯ Duración: 12 – 24 horas.',
+        '❯ Suscríbete a cualquier cuenta.',
+        '❯ Descarga todo el contenido.',
+        '❯ Cuenta lista para usar.'
+    ],
+    // Otros - Brazzers
+    'Brazzers – ANUAL': [
+        '❯ Acceso completo a la plataforma premium.',
+        '❯ Contenido exclusivo y actualizado.',
+        '❯ Experiencia fluida y optimizada.',
+        '❯ Funciones premium habilitadas.',
+        '❯ Sin restricciones de uso.'
+    ],
+    // Otros - PornHub
+    'PornHub Premium – ANUAL': [
+        '❯ Acceso a cuenta con PornHub Premium.',
+        '❯ Contenido Premium.',
+        '❯ Descarga el contenido.',
+        '❯ Sin límites de dispositivos.',
+        '❯ Sin anuncios y experiencia fluida.'
+    ],
+    // Discord - Server Boost
+    'Discord Server Boost x14 - 1 Mes': [
+        '❯ Boosts de Discord para servidores por 1 mes.',
+        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
+        '❯ Destinados únicamente para mejorar servidores.',
+        '',
+        'Duración y validez:',
+        '❯ 25 – 30 días de duración esperada.',
+        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
+        '❯ Si un boost no se renueva después de 14 días, se considera expirado.',
+        '',
+        'Garantía y reemplazo:',
+        '❯ No se ofrece garantía a largo plazo.',
+        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
+        '❯ Compra solo si aceptas estas condiciones.',
+        '',
+        'Reglas de uso:',
+        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+    ],
+    'Discord Server Boost x14 - 3 Meses': [
+        '❯ Boosts de Discord para servidores por 3 meses.',
+        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
+        '❯ Destinados únicamente para mejorar servidores.',
+        '',
+        'Duración y validez:',
+        '❯ 75 – 90 días de duración esperada.',
+        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
+        '❯ Si un boost no se renueva después de 65 días, se considera expirado.',
+        '',
+        'Garantía y reemplazo:',
+        '❯ No se ofrece garantía a largo plazo.',
+        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
+        '❯ Compra solo si aceptas estas condiciones.',
+        '',
+        'Reglas de uso:',
+        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+    ],
+    'Promo Code Nitro 3 Meses': [
+        'IMPORTANTE',
+        '¡Debes contar con un método de pago oficial de Discord para activarlo!',
+        '¡Tu cuenta no debe de haber tenido nitro en 12 meses (Facturado)!',
+        '¡Debes tener como mínimo más de un mes en Discord!',
+        'El código solo dura 1 semana para reclamarlo.'
+    ],
+    '1k Members Online': [
+        '› 1,000 miembros en línea para tu servidor de Discord.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Mejora la actividad visible de tu servidor.'
+    ],
+    '4k Members Offline': [
+        '› 4,000 miembros sin conexión para tu servidor de Discord.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Aumenta el número total de miembros de tu servidor.'
+    ],
+    
+    // ========== ROBUX ==========
+    '1,000 Robux': [
+        '› 1,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ],
+    '5,000 Robux': [
+        '› 5,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ],
+    '10,000 Robux': [
+        '› 10,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ]
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener para botones de comprar
+    const botonesComprar = document.querySelectorAll('.btn-comprar');
+    
+    botonesComprar.forEach(boton => {
+        boton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const card = this.closest('.producto-card');
+            const nombre = card.querySelector('.producto-nombre').textContent;
+            const precio = card.querySelector('.producto-precio').textContent;
+            const imagen = card.querySelector('.skin-img').src;
+            
+            // Actualizar modal con info del producto
+            document.getElementById('modal-producto-nombre').textContent = nombre;
+            document.getElementById('modal-producto-precio').textContent = precio;
+            document.getElementById('modal-imagen-principal').src = imagen;
+            
+            // Actualizar thumbnail
+            const thumb = document.querySelector('.thumb-img');
+            if (thumb) {
+                thumb.src = imagen;
+            }
+            
+            // Verificar si tiene múltiples imágenes (carrusel)
+            const imgElement = card.querySelector('.skin-img');
+            const modalImg = document.getElementById('modal-imagen-principal');
+            const thumbsContainer = document.querySelector('.producto-modal-thumbs');
+            
+            // Obtener las imágenes del data-images
+            const imagesData = imgElement.getAttribute('data-images');
+            thumbsContainer.innerHTML = '';
+            
+            if (imagesData) {
+                const images = imagesData.split(',').map(s => s.trim()).filter(s => s);
+                let validImages = [];
+                let checkedCount = 0;
+                
+                images.forEach((imgSrc, index) => {
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        validImages.push({ src: imgSrc, index: index });
+                        checkedCount++;
+                        checkComplete();
+                    };
+                    testImg.onerror = function() {
+                        checkedCount++;
+                        checkComplete();
+                    };
+                    testImg.src = imgSrc;
+                });
+                
+                function checkComplete() {
+                    if (checkedCount === images.length) {
+                        validImages.sort((a, b) => a.index - b.index);
+                        
+                        if (validImages.length > 1) {
+                            validImages.forEach((img, i) => {
+                                const thumb = document.createElement('img');
+                                thumb.src = img.src;
+                                thumb.alt = 'Thumb ' + (i + 1);
+                                thumb.className = 'thumb-img' + (i === 0 ? ' active' : '');
+                                thumb.dataset.img = img.src;
+                                
+                                thumb.addEventListener('click', function() {
+                                    thumbsContainer.querySelectorAll('.thumb-img').forEach(th => th.classList.remove('active'));
+                                    this.classList.add('active');
+                                    modalImg.style.opacity = '0';
+                                    setTimeout(() => {
+                                        modalImg.src = this.dataset.img;
+                                        modalImg.style.opacity = '1';
+                                    }, 150);
+                                });
+                                
+                                thumbsContainer.appendChild(thumb);
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // Actualizar descripción según el producto
+            const featuresList = document.querySelector('.modal-producto-features');
+            if (featuresList) {
+                // Buscar descripción personalizada o usar default
+                const descripcion = descripcionesProductos[nombre] || [
+                    '› Producto de calidad garantizada.',
+                    '› Compra segura y confiable.'
+                ];
+                
+                // Convertir **texto** a negrita y mostrar cada item en su línea
+                featuresList.innerHTML = descripcion.map(item => {
+                    return `<li>${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>`;
+                }).join('');
+            }
+            
+            // Mostrar modal
+            productoModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+});
+
+// ============================================
+// CERRAR MODALES - Versión mejorada
+// ============================================
+const modalCloses = document.querySelectorAll('.modal-close');
+
+modalCloses.forEach(closeBtn => {
+    closeBtn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al cerrar modal
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
+    });
+});
+
+// ============================================
+// BOTÓN DE COMPRA EN MODAL
+// ============================================
+const modalBtnComprar = document.querySelector('.modal-btn-comprar');
+if (modalBtnComprar) {
+    modalBtnComprar.addEventListener('click', function() {
+        // Abrir Discord en nueva pestaña
+        window.open('https://discord.gg/hqEP59ZYkV', '_blank');
+    });
+}
+
+window.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al cerrar modal
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
     }
-}
+});
 
-/* ============================================
-   HEADER Y NAVEGACIÓN
-============================================ */
-header {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
-    backdrop-filter: blur(20px);
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 10px;
-    z-index: 100;
-    border: 2px solid rgba(139, 92, 246, 0.3);
-    border-radius: 50px;
-    box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(139, 92, 246, 0.2),
-        inset 0 0 30px rgba(139, 92, 246, 0.05);
-    margin: 10px 20px;
-    transition: all 0.3s ease;
-}
-
-header:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 
-        0 15px 50px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(139, 92, 246, 0.3),
-        inset 0 0 30px rgba(139, 92, 246, 0.1);
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 52px;
-    background: linear-gradient(135deg, #8b5cf6, #60a5fa, #8b5cf6);
-    background-size: 200% 200%;
-    animation: borderGlow 3s ease-in-out infinite;
-    opacity: 0.3;
-    z-index: -1;
-}
-
-@keyframes borderGlow {
-    0%, 100% { background-position: 0% 50%; opacity: 0.3; }
-    50% { background-position: 100% 50%; opacity: 0.5; }
-}
-
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-nav a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: all 0.3s;
-    font-weight: 600;
-    position: relative;
-    padding: 8px 0;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #8b5cf6, #c084fc);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* ============================================
-   HEADER SOCIAL LINKS
-============================================ */
-.header-social {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-left: auto;
-    position: relative;
-    z-index: 101;
-}
-
-.social-link {
-    padding: 10px 20px;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: white;
-    border: 2px solid rgba(139, 92, 246, 0.5);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.social-link:hover {
-    border-color: #8b5cf6;
-    background: rgba(139, 92, 246, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
-}
-
-.social-link.discord {
-    border-color: #5865f2;
-    color: #5865f2;
-}
-
-.social-link.discord:hover {
-    background: rgba(88, 101, 242, 0.2);
-    border-color: #5865f2;
-}
-
-.social-link.robux {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    color: #000;
-    border: none;
-    font-weight: 700;
-}
-
-.social-link.robux:hover {
-    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.auth-buttons a {
-    padding: 8px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.login {
-    color: white;
-    border: 2px solid white;
-}
-
-.login:hover {
-    background: white;
-    color: #000;
-    transform: translateY(-2px);
-}
-
-.register {
-    background: white;
-    color: #000;
-}
-
-.register:hover {
-    background: #8b5cf6;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.5);
-}
-
-/* ============================================
-   HERO SECTION
-============================================ */
-.hero-section {
-    text-align: center;
-    padding: 100px 20px 220px;
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%);
-}
-
-.hero-title {
-    font-size: 90px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 25%, #8b5cf6 50%, #60a5fa 75%, #8b5cf6 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    margin-bottom: 25px;
-    animation: gradientShift 5s ease-in-out infinite, titleFloat 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes titleFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.hero-title::after {
-    display: none;
-}
-
-.hero-subtitle {
-    font-size: 22px;
-    color: rgba(255, 255, 255, 0.9);
-    font-style: italic;
-    letter-spacing: 3px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-}
-
-.hero-subtitle .cursor {
-    color: #c084fc;
-    font-weight: bold;
-    animation: blink-cursor 0.7s step-end infinite;
-}
-
-@keyframes blink-cursor {
-    50% { opacity: 0; }
-}
-
-/* ============================================
-   WAVE MOUNTAINS DIVIDER
-============================================ */
-.wave-mountains {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-}
-
-.wave-mountains svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.wave-line {
-    stroke: url(#waveGradient);
-    animation: waveMove 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
-}
-
-@keyframes waveMove {
-    0%, 100% { 
-        d: path("M0,180 Q360,80 720,120 T1440,100");
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.style.display = 'none';
+        });
+        document.body.style.overflow = 'auto';
+        
+        // RESETEAR carruseles al presionar ESC
+        if (window.resetAllCarousels) {
+            window.resetAllCarousels();
+        }
     }
-    50% { 
-        d: path("M0,160 Q360,60 720,100 T1440,80");
-    }
+});
+
+// ============================================
+// FUNCIONES PRINCIPALES
+// ============================================
+
+// Función para manejar la compra
+function handlePurchase() {
+    alert('¡Gracias por tu interés! Contacta con nosotros en nuestras redes sociales.');
 }
 
-/* ============================================
-   WAVE DIVIDER (Divisor curvo entre secciones)
-============================================ */
-.wave-divider {
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, white 100%);
-    position: relative;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-}
-
-.wave-divider svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-/* ============================================
-   LÍNEAS DE NEÓN
-============================================ */
-.neon-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.neon-line {
-    position: absolute;
-    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
-    height: 2px;
-    animation: neonMove 8s linear infinite;
-}
-
-.line-1 {
-    top: 20%;
-    width: 200px;
-    animation-delay: 0s;
-}
-
-.line-2 {
-    top: 50%;
-    width: 300px;
-    animation-delay: 2s;
-}
-
-.line-3 {
-    top: 80%;
-    width: 150px;
-    animation-delay: 4s;
-}
-
-@keyframes neonMove {
-    0% { left: -300px; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { left: 100%; opacity: 0; }
-}
-
-/* ============================================
-   LOGO GIRANDO
-============================================ */
-.spinning-logo-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 30px;
-}
-
-.logo-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
-    border: 2px solid transparent;
-    border-top-color: #8b5cf6;
-    border-right-color: #60a5fa;
-    border-radius: 50%;
-    animation: ringRotate 3s linear infinite;
-}
-
-.logo-ring.ring-2 {
-    width: 200px;
-    height: 200px;
-    border-top-color: #60a5fa;
-    border-right-color: #8b5cf6;
-    animation: ringRotate 4s linear infinite reverse;
-}
-
-@keyframes ringRotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.spinning-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: spinLogo 8s linear infinite, floatLogo 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8));
-    position: relative;
-    z-index: 2;
-}
-
-.logo-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: pulseGlow 2s ease-in-out infinite;
-    z-index: 1;
-}
-
-@keyframes spinLogo {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-}
-
-@keyframes floatLogo {
-    0%, 100% { margin-top: 0; }
-    50% { margin-top: -15px; }
-}
-
-@keyframes pulseGlow {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
-}
-
-/* ============================================
-   EFECTO GLITCH EN TÍTULO
-============================================ */
-.glitch {
-    position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-}
-
-.glitch::before {
-    left: 2px;
-    text-shadow: -2px 0 #ff00ff;
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-    left: -2px;
-    text-shadow: -2px 0 #00ffff;
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim-2 2s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim-1 {
-    0% { clip: rect(20px, 9999px, 40px, 0); }
-    20% { clip: rect(60px, 9999px, 80px, 0); }
-    40% { clip: rect(10px, 9999px, 30px, 0); }
-    60% { clip: rect(70px, 9999px, 90px, 0); }
-    80% { clip: rect(40px, 9999px, 60px, 0); }
-    100% { clip: rect(30px, 9999px, 50px, 0); }
-}
-
-@keyframes glitch-anim-2 {
-    0% { clip: rect(65px, 9999px, 85px, 0); }
-    20% { clip: rect(25px, 9999px, 45px, 0); }
-    40% { clip: rect(75px, 9999px, 95px, 0); }
-    60% { clip: rect(35px, 9999px, 55px, 0); }
-    80% { clip: rect(5px, 9999px, 25px, 0); }
-    100% { clip: rect(55px, 9999px, 75px, 0); }
-}
-
-/* ============================================
-   ESTADÍSTICAS HERO
-============================================ */
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-}
-
-.stat-box {
-    text-align: center;
-    padding: 20px 30px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.stat-box:hover {
-    transform: translateY(-5px);
-    border-color: #8b5cf6;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
-}
-
-.stat-number {
-    font-size: 48px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #8b5cf6, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.stat-plus {
-    font-size: 32px;
-    font-weight: 700;
-    color: #c084fc;
-}
-
-.stat-label {
-    display: block;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 5px;
-}
-
-.stat-divider {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.5), transparent);
-}
-
-/* ============================================
-   BOTONES CTA HERO
-============================================ */
-.hero-cta {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.cta-btn {
-    padding: 16px 35px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-btn.primary {
-    background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
-    color: white;
-    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
-}
-
-.cta-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(88, 101, 242, 0.5);
-}
-
-.cta-btn.secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(139, 92, 246, 0.5);
-}
-
-.cta-btn.secondary:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: #8b5cf6;
-    transform: translateY(-3px);
-}
-
-.cta-btn.secondary i {
-    transition: transform 0.3s ease;
-}
-
-.cta-btn.secondary:hover i {
-    transform: translateX(5px);
-}
-
-/* ============================================
-   SCROLL INDICATOR
-============================================ */
-.scroll-indicator {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    animation: bounce 2s infinite;
-    z-index: 10;
-}
-
-.mouse {
-    width: 26px;
-    height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    position: relative;
-}
-
-.wheel {
-    width: 4px;
-    height: 8px;
-    background: #8b5cf6;
-    border-radius: 2px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-    0% { opacity: 1; top: 8px; }
-    100% { opacity: 0; top: 20px; }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
-}
-
-.scroll-indicator span {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* ============================================
-   GLOBOS/BURBUJAS FLOTANTES
-============================================ */
-.floating-bubbles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.bubble {
-    position: absolute;
-    bottom: -100px;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(96, 165, 250, 0.2) 100%);
-    border-radius: 50%;
-    animation: floatBubble linear infinite;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        inset 0 0 20px rgba(255, 255, 255, 0.1),
-        0 0 20px rgba(139, 92, 246, 0.3);
-}
-
-.bubble:nth-child(1) { left: 5%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 0s; }
-.bubble:nth-child(2) { left: 15%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 2s; }
-.bubble:nth-child(3) { left: 25%; width: 50px; height: 50px; animation-duration: 14s; animation-delay: 1s; }
-.bubble:nth-child(4) { left: 40%; width: 30px; height: 30px; animation-duration: 11s; animation-delay: 3s; }
-.bubble:nth-child(5) { left: 55%; width: 45px; height: 45px; animation-duration: 13s; animation-delay: 0.5s; }
-.bubble:nth-child(6) { left: 65%; width: 20px; height: 20px; animation-duration: 9s; animation-delay: 4s; }
-.bubble:nth-child(7) { left: 75%; width: 35px; height: 35px; animation-duration: 12s; animation-delay: 2.5s; }
-.bubble:nth-child(8) { left: 85%; width: 55px; height: 55px; animation-duration: 15s; animation-delay: 1.5s; }
-.bubble:nth-child(9) { left: 92%; width: 28px; height: 28px; animation-duration: 10s; animation-delay: 3.5s; }
-.bubble:nth-child(10) { left: 35%; width: 38px; height: 38px; animation-duration: 11s; animation-delay: 0.8s; }
-
-@keyframes floatBubble {
-    0% {
-        transform: translateY(0) rotate(0deg) scale(1);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-800px) rotate(720deg) scale(0.5);
-        opacity: 0;
-    }
-}
-
-/* ============================================
-   ICONOS FLOTANTES
-============================================ */
-.floating-icons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.float-icon {
-    position: absolute;
-    font-size: 30px;
-    animation: floatIcon 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
-}
-
-.float-icon:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
-.float-icon:nth-child(2) { top: 25%; right: 15%; animation-delay: 1s; }
-.float-icon:nth-child(3) { top: 60%; left: 8%; animation-delay: 2s; }
-.float-icon:nth-child(4) { top: 70%; right: 10%; animation-delay: 0.5s; }
-.float-icon:nth-child(5) { top: 40%; left: 5%; animation-delay: 1.5s; }
-.float-icon:nth-child(6) { top: 50%; right: 8%; animation-delay: 2.5s; }
-
-@keyframes floatIcon {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-15px) rotate(10deg);
-    }
-    50% {
-        transform: translateY(0) rotate(0deg);
-    }
-    75% {
-        transform: translateY(-10px) rotate(-10deg);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 40px;
-        letter-spacing: 4px;
+// Función para filtrar productos por categoría
+// Función para filtrar productos por categoría
+function filterProducts(category, buttonElement) {
+    console.log('Filtrando categoría:', category);
+    
+    // PASO 1: Resetear TODOS los carruseles primero
+    const allCarouselImages = document.querySelectorAll('.carousel-img');
+    allCarouselImages.forEach(img => {
+        const imagesData = img.getAttribute('data-images');
+        if (imagesData) {
+            const firstImage = imagesData.split(',')[0].trim();
+            img.src = firstImage;
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+            img.style.display = 'block';
+        }
+    });
+    
+    // PASO 2: Limpiar todos los intervalos activos
+    if (window.resetAllCarousels) {
+        window.resetAllCarousels();
     }
     
-    .hero-subtitle {
-        font-size: 16px;
+    // PASO 3: Continuar con el filtrado normal (con pequeño delay)
+    setTimeout(() => {
+        const cards = document.querySelectorAll('.producto-card');
+        const buttons = document.querySelectorAll('.categoria-btn');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        buttonElement.classList.add('active');
+        
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            const productInfo = card.querySelector('.producto-info');
+            
+            if (category !== 'all' && cardCategory !== category) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease-in';
+                // Remover cualquier display inline que pueda estar ocultando producto-info
+                if (productInfo) {
+                    productInfo.style.display = '';
+                    productInfo.style.visibility = 'visible';
+                    productInfo.style.opacity = '1';
+                    console.log('Mostrando producto-info para:', cardCategory);
+                }
+            }
+        });
+    }, 50);
+}
+
+// ============================================
+// SMOOTH SCROLL PARA NAVEGACIÓN
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ============================================
+// ANIMACIÓN AL HACER SCROLL
+// ============================================
+window.addEventListener('scroll', () => {
+    const productSection = document.querySelector('.product-section');
+    const productosSection = document.querySelector('.productos-section');
+    
+    // Animación para la sección Best Seller
+    if (productSection) {
+        const rect = productSection.getBoundingClientRect();
+        
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            productSection.style.opacity = '1';
+            productSection.style.transform = 'translateY(0)';
+        }
     }
     
-    .wave-mountains {
-        height: 80px;
+    // Animación para la sección Productos
+    if (productosSection) {
+        const rect = productosSection.getBoundingClientRect();
+        
+        if (rect.top < window.innerHeight - 100) {
+            productosSection.style.opacity = '1';
+            productosSection.style.transform = 'translateY(0)';
+        }
+    }
+});
+
+// ============================================
+// EVENT LISTENERS PARA BOTONES DE CATEGORÍA
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Agregar event listeners a los botones de categoría
+    const categoryButtons = document.querySelectorAll('.categoria-btn');
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            filterProducts(category, this);
+        });
+    });
+    
+    // Event listener para el botón de compra
+    const buyButton = document.querySelector('.buy-button');
+    if (buyButton) {
+        buyButton.addEventListener('click', handlePurchase);
     }
     
-    .spinning-logo-container {
-        width: 100px;
-        height: 100px;
+    // Event listeners para las redes sociales
+    const socialLinks = document.querySelectorAll('.social-links a');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const social = this.getAttribute('title');
+            alert(`Redirigiendo a ${social}...`);
+            // Aquí puedes agregar los links reales de tus redes sociales
+        });
+    });
+});
+
+// ============================================
+// ANIMACIÓN PARA LAS TARJETAS DE PRODUCTOS
+// ============================================
+const productCards = document.querySelectorAll('.producto-card');
+
+productCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// ============================================
+// EFECTO PARALLAX SUAVE EN EL HEADER
+// ============================================
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const header = document.querySelector('header');
+    
+    if (scrolled > 50) {
+        header.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.5)';
+    } else {
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+    }
+});
+
+// ============================================
+// EFECTO HOVER EN IMAGEN MINECRAFT2
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const hoverImages = document.querySelectorAll('img[data-hover]');
+    
+    hoverImages.forEach(img => {
+        // Añadir transición CSS
+        img.style.transition = 'opacity 0.3s ease';
+        
+        img.addEventListener('mouseenter', function() {
+            this.style.opacity = '0';
+            setTimeout(() => {
+                this.src = this.dataset.hover;
+                this.style.opacity = '1';
+            }, 150);
+        });
+        
+        img.addEventListener('mouseleave', function() {
+            this.style.opacity = '0';
+            setTimeout(() => {
+                this.src = this.dataset.original;
+                this.style.opacity = '1';
+            }, 150);
+        });
+    });
+});
+
+// ============================================
+// CONSOLE LOG DE BIENVENIDA
+// ============================================
+console.log('%c¡Bienvenido a GhostlyStore! 👻', 'color: #b794f6; font-size: 20px; font-weight: bold;');
+console.log('%cSitio web desarrollado con HTML, CSS y JavaScript', 'color: #667eea; font-size: 14px;');
+
+// ============================================
+// PARTÍCULAS ANIMADAS
+// ============================================
+function createParticles() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+    
+    const particleCount = 150;
+    const colors = ['white', 'purple', 'blue'];
+    
+    // Crear estrellas fijas que parpadean
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star ' + colors[Math.floor(Math.random() * colors.length)];
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = (Math.random() * 3 + 1) + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(star);
     }
     
-    .float-icon {
-        font-size: 20px;
+    // Crear partículas flotantes
+    function createFloatingParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle ' + colors[Math.floor(Math.random() * colors.length)];
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = (Math.random() * 4 + 2) + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        
+        container.appendChild(particle);
+        
+        // Eliminar partícula después de la animación
+        setTimeout(() => {
+            particle.remove();
+        }, parseFloat(particle.style.animationDuration) * 1000);
     }
-}
-
-/* ============================================
-   CONTENEDOR PRINCIPAL
-============================================ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    position: relative;
-}
-
-h1 {
-    text-align: center;
-    color: white;
-    font-size: 40px;
-    margin-bottom: 50px;
-    text-shadow: none;
-    position: relative;
-    font-weight: 600;
-}
-
-h1::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: white;
-    margin: 15px auto 0;
-}
-
-/* ============================================
-   SECCIÓN DE PRODUCTO BEST SELLER
-============================================ */
-.product-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    background: transparent;
-    padding: 40px;
-    border-radius: 0;
-    box-shadow: none;
-    margin-bottom: 60px;
-    border: none;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.product-images-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex: 0 0 auto;
-    width: 300px;
-    height: 250px;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.product-img:hover {
-    transform: scale(1.05);
-    border-color: #8b5cf6;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
-}
-
-.product-image {
-    flex: 0 0 300px;
-    max-width: 300px;
-    margin-right: 20px;
-    margin-left: 0;
-    position: relative;
-    overflow: visible;
-}
-
-.product-image img {
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    transition: transform 0.3s;
-    border: none;
-    transform: none;
-    background: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 1;
-}
-
-.product-image img:hover {
-    transform: scale(1.02);
-}
-
-/* ============================================
-   ANIMACIÓN DE PARTÍCULAS
-============================================ */
-@keyframes particleFloat {
-    0%, 100% {
-        background-position: 0% 0%, 10% 10%, 20% 20%, 30% 30%, 40% 40%, 50% 50%, 60% 60%, 70% 70%, 80% 80%, 90% 90%, 15% 15%, 25% 25%, 35% 35%, 45% 45%, 55% 55%, 65% 65%, 75% 75%, 85% 85%, 95% 95%, 5% 5%, 12% 12%, 22% 22%, 32% 32%, 42% 42%, 52% 52%, 62% 62%, 72% 72%, 82% 82%, 92% 92%, 8% 8%, 18% 18%, 28% 28%, 38% 38%, 48% 48%, 58% 58%, 68% 68%, 78% 78%, 88% 88%, 98% 98%, 3% 3%, 13% 13%, 23% 23%, 33% 33%, 43% 43%;
+    
+    // Crear partículas iniciales
+    for (let i = 0; i < 30; i++) {
+        setTimeout(() => createFloatingParticle(), i * 200);
     }
-    50% {
-        background-position: 5% 5%, 15% 15%, 25% 25%, 35% 35%, 45% 45%, 55% 55%, 65% 65%, 75% 75%, 85% 85%, 95% 95%, 20% 20%, 30% 30%, 40% 40%, 50% 50%, 60% 60%, 70% 70%, 80% 80%, 90% 90%, 0% 0%, 10% 10%, 17% 17%, 27% 27%, 37% 37%, 47% 47%, 57% 57%, 67% 67%, 77% 77%, 87% 87%, 97% 97%, 13% 13%, 23% 23%, 33% 33%, 43% 43%, 53% 53%, 63% 63%, 73% 73%, 83% 83%, 93% 93%, 8% 8%, 18% 18%, 28% 28%, 38% 38%, 48% 48%;
+    
+    // Crear nuevas partículas continuamente
+    setInterval(createFloatingParticle, 500);
+}
+
+// PARTÍCULAS PARA SECCIÓN DE PRODUCTOS
+// ============================================
+function createProductosParticles() {
+    const container = document.getElementById('particles-productos');
+    if (!container) return;
+    
+    const colors = ['white', 'purple', 'blue', 'violet'];
+    
+    // Crear muchas estrellas fijas que parpadean
+    for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.className = 'star ' + colors[Math.floor(Math.random() * colors.length)];
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = (Math.random() * 3 + 1) + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(star);
     }
-}
-
-@keyframes backgroundParticles {
-    0%, 100% {
-        background-position: 0% 0%, 5% 5%, 10% 10%, 15% 15%, 20% 20%, 25% 25%, 30% 30%, 35% 35%, 40% 40%, 45% 45%, 50% 50%, 55% 55%, 60% 60%, 65% 65%, 70% 70%, 75% 75%, 80% 80%, 85% 85%, 90% 90%, 95% 95%, 12% 12%, 17% 17%, 22% 22%, 27% 27%, 32% 32%, 37% 37%, 42% 42%, 47% 47%, 52% 52%, 57% 57%, 62% 62%, 67% 67%, 72% 72%, 77% 77%, 82% 82%, 87% 87%, 92% 92%, 97% 97%, 3% 3%, 8% 8%, 13% 13%, 18% 18%, 23% 23%, 28% 28%, 33% 33%, 38% 38%, 43% 43%, 48% 48%;
+    
+    // Crear partículas flotantes
+    function createFloatingParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle ' + colors[Math.floor(Math.random() * colors.length)];
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = (Math.random() * 5 + 2) + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, parseFloat(particle.style.animationDuration) * 1000);
     }
-    50% {
-        background-position: 3% 3%, 8% 8%, 13% 13%, 18% 18%, 23% 23%, 28% 28%, 33% 33%, 38% 38%, 43% 43%, 48% 48%, 53% 53%, 58% 58%, 63% 63%, 68% 68%, 73% 73%, 78% 78%, 83% 83%, 88% 88%, 93% 93%, 98% 98%, 15% 15%, 20% 20%, 25% 25%, 30% 30%, 35% 35%, 40% 40%, 45% 45%, 50% 50%, 55% 55%, 60% 60%, 65% 65%, 70% 70%, 75% 75%, 80% 80%, 85% 85%, 90% 90%, 95% 95%, 0% 0%, 6% 6%, 11% 11%, 16% 16%, 21% 21%, 26% 26%, 31% 31%, 36% 36%, 41% 41%, 46% 46%;
+    
+    // Crear muchas partículas iniciales
+    for (let i = 0; i < 50; i++) {
+        setTimeout(() => createFloatingParticle(), i * 100);
     }
-}
-
-@keyframes globalParticles {
-    0%, 100% {
-        background-position: 0% 0%, 5% 5%, 10% 10%, 15% 15%, 20% 20%, 25% 25%, 30% 30%, 35% 35%, 40% 40%, 45% 45%, 50% 50%, 55% 55%, 60% 60%, 65% 65%, 70% 70%, 75% 75%, 80% 80%, 85% 85%, 90% 90%, 95% 95%, 12% 12%, 17% 17%, 22% 22%, 27% 27%, 32% 32%, 37% 37%, 42% 42%, 47% 47%, 52% 52%, 57% 57%, 62% 62%, 67% 67%, 72% 72%, 77% 77%, 82% 82%, 87% 87%, 92% 92%, 97% 97%, 3% 3%, 8% 8%, 13% 13%, 18% 18%, 23% 23%, 28% 28%, 33% 33%, 38% 38%, 43% 43%, 48% 48%;
-    }
-    50% {
-        background-position: 4% 4%, 9% 9%, 14% 14%, 19% 19%, 24% 24%, 29% 29%, 34% 34%, 39% 39%, 44% 44%, 49% 49%, 54% 54%, 59% 59%, 64% 64%, 69% 69%, 74% 74%, 79% 79%, 84% 84%, 89% 89%, 94% 94%, 99% 99%, 16% 16%, 21% 21%, 26% 26%, 31% 31%, 36% 36%, 41% 41%, 46% 46%, 51% 51%, 56% 56%, 61% 61%, 66% 66%, 71% 71%, 76% 76%, 81% 81%, 86% 86%, 91% 91%, 96% 96%, 1% 1%, 7% 7%, 12% 12%, 17% 17%, 22% 22%, 27% 27%, 32% 32%, 37% 37%, 42% 42%, 47% 47%;
-    }
-}
-
-/* ============================================
-   INFORMACIÓN DEL PRODUCTO
-============================================ */
-.product-info {
-    flex: 1;
-}
-
-.product-info h2 {
-    color: white;
-    font-size: 24px;
-    white-space: nowrap;
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-
-.price {
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    background: transparent;
-    display: inline-block;
-    padding: 0;
-    border-radius: 0;
-    border: none;
-}
-
-.price-period {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 400;
-}
-
-.method-intro {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 16px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.cupos-badge {
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    text-align: center;
-    animation: pulse-badge 2s infinite;
-}
-
-@keyframes pulse-badge {
-    0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.4); }
-    50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.7); }
-}
-
-.section-title {
-    color: #8b5cf6;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.method-warning {
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 25px;
-}
-
-.method-warning p {
-    color: rgba(255, 255, 255, 0.85);
-    margin: 8px 0;
-    font-size: 14px;
-}
-
-.features {
-    list-style: none;
-    margin-bottom: 30px;
-    padding: 0;
-    line-height: 1.3;
-}
-
-.features li {
-    padding: 2px 0;
-    color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 0;
-}
-
-.features li::before {
-    content: '›';
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* ============================================
-   BOTÓN DE COMPRA
-============================================ */
-.buy-button {
-    background: #000;
-    color: white;
-    padding: 14px 0;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.buy-button:hover {
-    background: #1a1a1a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================================
-   REDES SOCIALES EN PRODUCTO
-============================================ */
-.social-links-product {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.social-links-product a {
-    color: white;
-    font-size: 32px;
-    transition: all 0.3s;
-    background: transparent;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid white;
-    animation: pulse-glow 2s infinite;
-}
-
-.social-links-product a:nth-child(1) { animation-delay: 0s; }
-.social-links-product a:nth-child(2) { animation-delay: 0.3s; }
-.social-links-product a:nth-child(3) { animation-delay: 0.6s; }
-
-.social-links-product a:hover {
-    background: white;
-    color: black;
-    transform: translateY(-5px) scale(1.1);
-    border-color: white;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-    animation: none;
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        transform: scale(1.05);
-    }
-}
-
-/* ============================================
-   REDES SOCIALES
-============================================ */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 60px;
-}
-
-.social-links a {
-    color: #4a5568;
-    font-size: 32px;
-    transition: all 0.3s;
-    background: transparent;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid #4a5568;
-    animation: bounce-social 2s infinite;
-}
-
-.social-links a:nth-child(1) { animation-delay: 0s; }
-.social-links a:nth-child(2) { animation-delay: 0.2s; }
-.social-links a:nth-child(3) { animation-delay: 0.4s; }
-
-.social-links a:hover {
-    background: #8b5cf6;
-    color: white;
-    transform: translateY(-8px) rotate(360deg);
-    border-color: #8b5cf6;
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-    animation: none;
-}
-
-@keyframes bounce-social {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* ============================================
-   SECCIÓN DE PRODUCTOS
-============================================ */
-.productos-section {
-    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
-    padding: 100px 20px;
-    margin-top: 100px;
-    position: relative;
-    overflow: hidden;
-}
-
-.productos-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(ellipse at 30% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
-    z-index: 0;
-    animation: bgPulse 10s ease-in-out infinite;
-}
-
-@keyframes bgPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
-
-.productos-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
-}
-
-#particles-productos {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.productos-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.productos-section h2 {
-    text-align: center;
-    font-size: 52px;
-    margin-bottom: 20px;
-    font-weight: 900;
-    position: relative;
-    background: linear-gradient(135deg, #fff 0%, #c084fc 50%, #8b5cf6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
-
-.productos-section h2::before {
-    content: '✨';
-    position: absolute;
-    left: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    -webkit-text-fill-color: initial;
-    animation: sparkle 2s ease-in-out infinite;
-}
-
-.productos-section h2::after {
-    content: '✨';
-    position: absolute;
-    right: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    -webkit-text-fill-color: initial;
-    animation: sparkle 2s ease-in-out infinite 0.5s;
-}
-
-@keyframes sparkle {
-    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
-    50% { opacity: 0.5; transform: translateY(-50%) scale(1.2); }
-}
-
-.productos-subtitle {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 18px;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
-/* ============================================
-   CATEGORÍAS / FILTROS
-============================================ */
-.categorias {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: visible !important;
-}
-
-.categoria-btn {
-    padding: 14px 30px;
-    border-radius: 25px;
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.categoria-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 25px;
-    z-index: -1;
-}
-
-.categoria-btn:hover {
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.categoria-btn:hover::before {
-    opacity: 0.3;
-}
-
-.categoria-btn.active {
-    color: #fff;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    box-shadow: 0 5px 25px rgba(139, 92, 246, 0.5);
-}
-
-.categoria-btn.active {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 5px 25px rgba(139, 92, 246, 0.5);
-}
-
-/* Botón Robux especial */
-.robux-btn {
-    background: #ffd700 !important;
-    color: #000 !important;
-    font-weight: 900 !important;
-    padding: 14px 30px !important;
-    border-radius: 25px !important;
-    border: 2px solid #ffd700 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 5px !important;
-}
-
-/* ============================================
-   GRID DE PRODUCTOS
-============================================ */
-.productos-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.producto-card {
-    background: linear-gradient(145deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
-    border-radius: 20px;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s ease;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: 400px;
-}
-
-.producto-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: none;
-    z-index: 10;
-    pointer-events: none;
-    border-radius: 20px;
-}
-
-.producto-card:hover::before {
-    left: 100%;
-    transition: left 0.7s ease;
-}
-
-.producto-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
-}
-
-/* Badge de categoría */
-.producto-badge {
-    display: none;
-}
-
-/* Icono de favorito */
-.producto-card .favorite-icon {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 36px;
-    height: 36px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 16px;
-    z-index: 5;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.producto-card .favorite-icon:hover {
-    background: #ff4757;
-    transform: scale(1.1);
-}
-
-.producto-imagen {
-    width: 100%;
-    height: 200px;
-    max-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f5af7a 0%, #d4878a 100%);
-    border-radius: 0;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
-    /* AGREGA ESTA LÍNEA PARA EL EFECTO DIAGONAL */
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-}
-
-.carousel-container {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-
-.carousel-img {
-    transition: opacity 0.3s ease, transform 0.6s ease;
-}
-
-.producto-card:hover .carousel-img {
-    transform: scale(1.1);
-}
-
-.skin-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 0;
-    color: transparent;
-    background: #000;
-}
-
-.skin-img::before {
-    content: '';
-    display: block;
-}
-
-.skin-img[alt]:after {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
-    content: '';
-}
-
-img:not([src]), img[src=""] {
-    visibility: hidden;
-}
-
-.producto-imagen img {
-    background: transparent;
-}
-
-.producto-info {
-    text-align: center;
-    color: #fff;
-    padding: 20px 20px 25px;
-    background: transparent;
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 180px;
-}
-
-.producto-nombre {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.3;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.producto-precio {
-    font-size: 24px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #8b5cf6, #c084fc, #60a5fa);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding: 0;
-    border-radius: 0;
-    display: block;
-    animation: priceGlow 3s ease-in-out infinite;
-    margin-bottom: 15px;
-}
-
-@keyframes priceGlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-.producto-card .btn-comprar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    color: #fff;
-    padding: 14px 35px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.producto-card .btn-comprar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.6s;
-}
-
-.producto-card .btn-comprar::after {
-    content: '→';
-    font-size: 16px;
-    transition: transform 0.3s ease;
-}
-
-.producto-card .btn-comprar:hover::before {
-    left: 100%;
-}
-
-.producto-card .btn-comprar:hover {
-    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-}
-
-.producto-card .btn-comprar:hover::after {
-    transform: translateX(5px);
-}
-
-/* ============================================
-   FEATHER POINTS STYLES
-============================================ */
-.feather-card {
-    grid-column: 1 / -1;
-    max-width: 500px;
-    margin: 0 auto;
-    background: #1a1a2e !important;
-    border: 1px solid rgba(139, 92, 246, 0.3) !important;
-    border-radius: 15px !important;
-}
-
-.feather-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3) !important;
-}
-
-.feather-text-content {
-    padding: 25px;
-}
-
-.feather-line {
-    color: #ffffff;
-    font-size: 15px;
-    margin: 10px 0;
-    line-height: 1.6;
-    opacity: 0;
-    transform: translateY(15px);
-    animation: fadeInLine 0.5s ease forwards;
-}
-
-.feather-line:nth-child(1) { animation-delay: 0.1s; }
-.feather-line:nth-child(2) { animation-delay: 0.2s; }
-.feather-line:nth-child(3) { animation-delay: 0.3s; }
-.feather-line:nth-child(4) { animation-delay: 0.4s; }
-.feather-line:nth-child(5) { animation-delay: 0.5s; }
-.feather-line:nth-child(6) { animation-delay: 0.6s; }
-.feather-line:nth-child(7) { animation-delay: 0.7s; }
-.feather-line:nth-child(8) { animation-delay: 0.8s; }
-.feather-line:nth-child(9) { animation-delay: 0.9s; }
-.feather-line:nth-child(10) { animation-delay: 1s; }
-.feather-line:nth-child(11) { animation-delay: 1.1s; }
-.feather-line:nth-child(12) { animation-delay: 1.2s; }
-
-@keyframes fadeInLine {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.feather-line.title {
-    color: #f59e0b;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    animation: fadeInLine 0.5s ease forwards, glow-orange 2s ease-in-out infinite alternate;
-    animation-delay: 0.1s;
-}
-
-@keyframes glow-orange {
-    from { text-shadow: 0 0 5px rgba(245, 158, 11, 0.3); }
-    to { text-shadow: 0 0 15px rgba(245, 158, 11, 0.5); }
-}
-
-.feather-line.subtitle {
-    color: #8b5cf6;
-    font-size: 17px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.feather-line.price {
-    color: #e0e0e0;
-    margin: 12px 0;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    display: block;
-}
-
-.feather-line.price:hover {
-    color: #f59e0b;
-    transform: translateX(10px);
-}
-
-.feather-line.warning {
-    color: #f59e0b;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-/* ============================================
-   RESPONSIVE DESIGN
-============================================ */
-@media (max-width: 768px) {
-    .product-section {
-        flex-direction: column;
-    }
-
-    header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    nav {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    .product-info h2 {
-        font-size: 24px;
-    }
-
-    .productos-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .productos-section h2 {
-        font-size: 32px;
-    }
-}
-
-@media (max-width: 768px) {
-    .productos-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .productos-grid {
-        grid-template-columns: 1fr;
-    }
-}
+    
+    // Crear nuevas partículas continuamente (más frecuente)
+    setInterval(createFloatingParticle, 300);
+}
+
+// Iniciar partículas cuando cargue la página
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    createProductosParticles();
+});
