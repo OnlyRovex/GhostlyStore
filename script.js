@@ -637,7 +637,7 @@ const descripcionesProductos = {
         '❯ Sin anuncios y experiencia fluida.'
     ],
     // Discord - Server Boost
-    'Discord Server Boost x1 - 1 Mes': [
+    'Discord Server Boost x14 - 1 Mes': [
         '❯ Boosts de Discord para servidores por 1 mes.',
         '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
         '❯ Destinados únicamente para mejorar servidores.',
@@ -655,7 +655,7 @@ const descripcionesProductos = {
         'Reglas de uso:',
         '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
     ],
-    'Discord Server Boost x1 - 3 Meses': [
+    'Discord Server Boost x14 - 3 Meses': [
         '❯ Boosts de Discord para servidores por 3 meses.',
         '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
         '❯ Destinados únicamente para mejorar servidores.',
@@ -672,6 +672,45 @@ const descripcionesProductos = {
         '',
         'Reglas de uso:',
         '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+    ],
+    'Promo Code Nitro 3 Meses': [
+        'IMPORTANTE',
+        '¡Debes contar con un método de pago oficial de Discord para activarlo!',
+        '¡Tu cuenta no debe de haber tenido nitro en 12 meses (Facturado)!',
+        '¡Debes tener como mínimo más de un mes en Discord!',
+        'El código solo dura 1 semana para reclamarlo.'
+    ],
+    '1k Members Online': [
+        '› 1,000 miembros en línea para tu servidor de Discord.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Mejora la actividad visible de tu servidor.'
+    ],
+    '4k Members Offline': [
+        '› 4,000 miembros sin conexión para tu servidor de Discord.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Aumenta el número total de miembros de tu servidor.'
+    ],
+    
+    // ========== ROBUX ==========
+    '1,000 Robux': [
+        '› 1,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ],
+    '5,000 Robux': [
+        '› 5,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ],
+    '10,000 Robux': [
+        '› 10,000 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
     ]
 };
 
@@ -1133,4 +1172,3 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
-
