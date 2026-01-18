@@ -161,6 +161,11 @@
             <a href="#reviews">Reviews</a>
             <a href="#faq">FAQ</a>
         </nav>
+        <div class="header-social">
+            <a href="https://discord.gg/hqEP59ZYkV" target="_blank" class="social-link discord" title="Discord">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+        </div>
     </header>
 
     <!-- ============================================
@@ -252,14 +257,21 @@
             </div>
             <span>Scroll</span>
         </div>
-        
+
         <!-- Divisor de ondas elegante -->
         <div class="wave-mountains">
             <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-                <!-- Solo la línea de la onda con animación -->
-                <path d="M0,100 C200,140 350,40 500,80 C650,120 750,60 900,90 C1050,120 1150,50 1300,80 C1380,100 1420,70 1440,85" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3" class="wave-line"/>
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.3" />
+                    </linearGradient>
+                </defs>
+                <!-- Línea curva que sube hacia arriba -->
+                <path d="M0,180 Q360,80 720,120 T1440,100" fill="none" stroke="url(#waveGradient)" stroke-width="4" stroke-linecap="round" class="wave-line"/>
             </svg>
         </div>
+
     </section>
 
     <!-- ============================================
@@ -317,6 +329,7 @@
                 <button class="categoria-btn" data-category="freefire">Free Fire</button>
                 <button class="categoria-btn" data-category="feather">Feather</button>
                 <button class="categoria-btn" data-category="discord">Discord</button>
+                <button class="categoria-btn" data-category="robux">Robux</button>
                 <button class="categoria-btn" data-category="otros">Otros</button>
             </div>
 
@@ -946,7 +959,7 @@
                         <img src="imagenes/boost.png" alt="Discord Server Boost" class="skin-img">
                     </div>
                     <div class="producto-info">
-                        <div class="producto-nombre">Discord Server Boost x1 - 1 Mes</div>
+                        <div class="producto-nombre">Discord Server Boost x14 - 1 Mes</div>
                         <div class="producto-precio">$5 USD</div>
                         <button class="btn-comprar">Comprar</button>
                     </div>
@@ -958,11 +971,85 @@
                         <img src="imagenes/boost.png" alt="Discord Server Boost" class="skin-img">
                     </div>
                     <div class="producto-info">
-                        <div class="producto-nombre">Discord Server Boost x1 - 3 Meses</div>
+                        <div class="producto-nombre">Discord Server Boost x14 - 3 Meses</div>
                         <div class="producto-precio">$10 USD</div>
                         <button class="btn-comprar">Comprar</button>
                     </div>
                 </div>
+
+                <!-- Promo Code Nitro 3 Meses -->
+                <div class="producto-card" data-category="discord" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/promocode.png" alt="Promo Code Nitro" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">Promo Code Nitro 3 Meses</div>
+                        <div class="producto-precio">$15 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- 1k Members Online -->
+                <div class="producto-card" data-category="discord" style="display: none;">
+                    <div class="producto-imagen carousel-container">
+                        <img src="imagenes/miembrosdc.png" alt="1k Members Online" class="skin-img carousel-img active" data-images="imagenes/miembrosdc.png,imagenes/offline.png">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">1k Members Online</div>
+                        <div class="producto-precio">$4.4 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- 4k Members Offline -->
+                <div class="producto-card" data-category="discord" style="display: none;">
+                    <div class="producto-imagen carousel-container">
+                        <img src="imagenes/offline.png" alt="4k Members Offline" class="skin-img carousel-img active" data-images="imagenes/miembrosdc.png,imagenes/offline.png">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">4k Members Offline</div>
+                        <div class="producto-precio">$2.2 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- ========== ROBUX PRODUCTS ========== -->
+                <!-- Producto Robux 1 -->
+                <div class="producto-card" data-category="robux" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/robux.png" alt="1000 Robux" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">1,000 Robux</div>
+                        <div class="producto-precio">$8 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- Producto Robux 2 -->
+                <div class="producto-card" data-category="robux" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/robux.png" alt="5000 Robux" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">5,000 Robux</div>
+                        <div class="producto-precio">$40 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+
+                <!-- Producto Robux 3 -->
+                <div class="producto-card" data-category="robux" style="display: none;">
+                    <div class="producto-imagen">
+                        <img src="imagenes/robux.png" alt="10000 Robux" class="skin-img">
+                    </div>
+                    <div class="producto-info">
+                        <div class="producto-nombre">10,000 Robux</div>
+                        <div class="producto-precio">$80 USD</div>
+                        <button class="btn-comprar">Comprar</button>
+                    </div>
+                </div>
+                <!-- ========== FIN ROBUX ========== -->
 
             </div>
         </div>
@@ -972,9 +1059,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
