@@ -685,8 +685,8 @@ const descripcionesProductos = {
         '› Compra 100% segura.',
         '› Mejora la actividad visible de tu servidor.'
     ],
-    '4k Members Offline': [
-        '› 4,000 miembros sin conexión para tu servidor de Discord.',
+    '1k Members Offline': [
+        '› 1,000 miembros sin conexión para tu servidor de Discord.',
         '› Entrega inmediata.',
         '› Compra 100% segura.',
         '› Aumenta el número total de miembros de tu servidor.'
@@ -1171,4 +1171,5 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
