@@ -1173,5 +1173,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
+// ============================================
+// SISTEMA DE PRODUCTOS VENDIDOS
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Buscar todos los productos con el atributo data-vendido="true"
+    const productosVendidos = document.querySelectorAll('.producto-card[data-vendido="true"]');
+    
+    productosVendidos.forEach(producto => {
+        // Agregar clase vendido
+        producto.classList.add('vendido');
+        
+        // Crear y agregar el badge de VENDIDO
+        const badge = document.createElement('div');
+        badge.className = 'producto-vendido';
+        badge.textContent = '✕ VENDIDO';
+        
+        // Insertar el badge al inicio de la tarjeta
+        producto.insertBefore(badge, producto.firstChild);
+        
+        // Desactivar el botón de comprar
+        const btnComprar = producto.querySelector('.btn-comprar');
+        if (btnComprar) {
+            btnComprar.disabled = true;
+            btnComprar.textContent = 'AGOTADO';
+        }
+    });
+});
