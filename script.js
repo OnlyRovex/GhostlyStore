@@ -269,8 +269,8 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 5 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -283,15 +283,15 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 22 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | RANK CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 17 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -304,8 +304,8 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 6': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 3 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -318,39 +318,38 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 8': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 26 días.',
+        '❯ Cambio de Nombre disponible en 21 días.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE MENACE': [
+    'MC STOCK | CAPES 9': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Menace.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | +5 CAPES ': [
+    'MC STOCK | RANK VIP': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Vanilla, Copper, Zombie Horse, Pan & Common.',
-        '❯ Cambio de Nombre disponible en 3 días.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | RANK GHOST': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango **GHOST** en SpookyBox SpookMC.',
-        '❯ Contiene Rango **VIP+** en ClashBox TilTed.',
-        '❯ Cambio de nombre disponible en 30 días.',
-        '❯ Contiene las capas Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | COSMETICS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client.',
-        '❯ Cambio de Nombre disponible en 6 días.',
+        '❯ Contiene el Rango Vip en Hypixel - Global.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | COSMETICS FEATHER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Followers.',
+        '❯ Contiene cosmeticos en Feather Client.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE YEARN & MENACE': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Yearn & Menace.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1171,5 +1170,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
