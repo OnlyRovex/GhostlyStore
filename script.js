@@ -342,6 +342,7 @@ const descripcionesProductos = {
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene la capa Pan, Common & Followers.',
         '❯ Contiene cosmeticos en Feather Client.',
+        '❯ Contiene rango MASTER en MineFun.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1170,6 +1171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createProductosParticles();
 });
+
 
 
 
