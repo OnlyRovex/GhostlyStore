@@ -687,6 +687,30 @@ const descripcionesProductos = {
         '› Compra 100% segura.',
         '› Aumenta el número total de miembros de tu servidor.'
     ],
+    'RANDOM DECO': [
+        '[+] 🎨 Random Deco',
+        '[+] 🎁 Giftlink original',
+        '[+] 🆕 Enlace creado al momento',
+        '[+] ✅ 100% legal y pagado',
+        '[+] 🔒 Sin auto-claim',
+        '[+] ♻️ No revocado',
+        '[+] 💎 Limpio y seguro',
+        '[+] ℹ️ Información',
+        '[+] El giftlink se entrega sin reclamar',
+        '[+] El uso posterior es responsabilidad del comprador',
+        '[+] Compra solo si estás de acuerdo'
+    ],
+    'NITRO BOOST 1 MES': [
+        '❯ Gift links frescos de Discord Nitro Boost.',
+        '',
+        '❯ Aseguramiento de calidad: Nitros de baja calidad.',
+        '',
+        '❯ Garantía de revocación: ❌ SIN GARANTÍA. En la mayoría de los casos funcionan durante 30 días.',
+        '',
+        '❯ Documentación de la compra: Graba siempre todo el proceso de compra (desde el pago en la billetera hasta la recepción de los enlaces y su verificación) como prueba en caso de cualquier problema.',
+        '',
+        '❯ Condiciones de canje: No hay garantía de auto-claim. Todos los enlaces están asegurados y verificados dos veces.'
+    ],
     
     // ========== ROBUX ==========
     '1,000 Robux': [
@@ -1196,5 +1220,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
