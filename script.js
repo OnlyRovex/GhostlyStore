@@ -283,8 +283,8 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 6 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -297,56 +297,63 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 5': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 24 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 6': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 16 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 7': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 8': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 9': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 15 días.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 10': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPE CHERRY & 15TH': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, 15th & Cherry.',
         '❯ Cambio de Nick disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE FOUNDER': [
+    'MC STOCK | RANKS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Followers & Founder.',
+        '❯ Contiene rango MASTER Global en Minefun.',
+        '❯ Contiene rango VOLT Global en ElectroMC.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES CHERRY': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Cherry.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | 1600 MINECOINS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Cambio de Nombre disponible en 30 días.',
+        '❯ Contiene 1600 MineCoins Usables en Minecraft BD.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | FEATHER POINTS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene 465 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE FEATHER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Contiene Cosmeticos en Feather Client.',
+        '❯ Cambio de Nick disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | COSMETICS FEATHER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Cosmeticos en Feather Client.',
+        '❯ Contiene 365 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nick disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1220,3 +1227,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
