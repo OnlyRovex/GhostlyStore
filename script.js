@@ -290,51 +290,53 @@ const descripcionesProductos = {
     ],
     'MC STOCK | COSMETIC CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 18 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE MENACE': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 25 días.',
+        '❯ Contiene la capa Pan, Common & Menace.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES YEARN & 15TH': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Yearn & 15TH.',
         '❯ Cambio de Nick disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 5': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 24 días.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES 6': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nick disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | RANKS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene rango MASTER Global en Minefun.',
-        '❯ Contiene rango VOLT Global en ElectroMC.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES CHERRY': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Cherry.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | 1600 MINECOINS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 30 días.',
         '❯ Contiene 1600 MineCoins Usables en Minecraft BD.',
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 6 días.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | FEATHER POINTS': [
+    'MC STOCK | CAPE MENACE & YEARN': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 465 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene la capa Pan, Common, Menace & Yearn.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK VIP+': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango **VIP+** Global en Hypixel.',
+        '❯ Contiene la capa Pan, Common & 15TH.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | FEATHER COSMETICS & POINTS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene 1020 MineCoins Usables en Minecraft BD.',
+        '❯ Contiene 635 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene Capas Custom en Feather Client.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
@@ -342,9 +344,12 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPE FEATHER': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene 480 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene 1600 MineCoins Usables en Minecraft BD.',
+        '❯ Contiene Sombrero Custom en Feather Client.',
+        '❯ Contiene Capas Custom en Feather Client.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Contiene Cosmeticos en Feather Client.',
-        '❯ Cambio de Nick disponible.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1227,5 +1232,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
