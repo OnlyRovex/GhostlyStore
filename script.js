@@ -288,38 +288,45 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETIC CAPES 4': [
+    'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 18 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES 5': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 5 días.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Garantía incluida.',
         '❯ Unban all'
+
     ],
-    'MC STOCK | CAPE MENACE': [
+    'MC STOCK | CAPES 6': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 25 días.',
-        '❯ Contiene la capa Pan, Common & Menace.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPES YEARN & 15TH': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Yearn & 15TH.',
-        '❯ Cambio de Nick disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | 1600 MINECOINS': [
-        '❯ Contiene 1600 MineCoins Usables en Minecraft BD.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 6 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE MENACE & YEARN': [
+    'MC STOCK | 3 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Menace & Yearn.',
+        '❯ Contiene la capa Pan, Common & Vanilla.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE CHERRY': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Cherry Blossom.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE MIGRATOR': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Migrator.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -327,16 +334,6 @@ const descripcionesProductos = {
     'MC STOCK | +7 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene la capa Pan, Common, Copper, Mojang Office, Menace, Home & Yearn.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | FEATHER COSMETICS & POINTS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 1020 MineCoins Usables en Minecraft BD.',
-        '❯ Contiene 635 Puntos en la Tienda de Feather Client.',
-        '❯ Contiene Capas Custom en Feather Client.',
-        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1229,6 +1226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
