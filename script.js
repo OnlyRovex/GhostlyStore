@@ -283,8 +283,8 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 14 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -324,10 +324,9 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+': [
+    'MC STOCK | +7 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango **VIP+** Global en Hypixel.',
-        '❯ Contiene la capa Pan, Common & 15TH.',
+        '❯ Contiene la capa Pan, Common, Copper, Mojang Office, Menace, Home & Yearn.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -353,12 +352,10 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS FEATHER': [
+    'MC STOCK | CAPE FOUNDER': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client.',
-        '❯ Contiene 365 Puntos en la Tienda de Feather Client.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nick disponible.',
+        '❯ Contiene la capa Pan, Common, Followers & Founder.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1232,6 +1229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
