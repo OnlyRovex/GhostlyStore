@@ -297,8 +297,8 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 5': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 5 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
@@ -310,48 +310,49 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | 3 CAPES': [
+    'MC STOCK | CAPES 7': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Vanilla.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPE CHERRY': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Cherry Blossom.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPE MIGRATOR': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Migrator.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | +7 CAPES': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Copper, Mojang Office, Menace, Home & Yearn.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | CAPE FEATHER': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 480 Puntos en la Tienda de Feather Client.',
-        '❯ Contiene 1600 MineCoins Usables en Minecraft BD.',
-        '❯ Contiene Sombrero Custom en Feather Client.',
-        '❯ Contiene Capas Custom en Feather Client.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE FOUNDER': [
+    'MC STOCK | 3 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Followers & Founder.',
+        '❯ Contiene la capa Pan, Common & Zombie Hourse.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK VIP': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango Vip Global en Hypixel.net.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | FEATHER POINTS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene 570 Feather Points disponibles.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | COSMETICS FEATHER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Capa Custom en Feather Client.',
+        '❯ Contiene Guadaña Custom en Feather Client.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPES FEAHTER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene 911 Puntos en la Tienda de Feather Client.',
+        '❯ Contiene Capas Custom en Feather Client.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1226,6 +1227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
