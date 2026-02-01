@@ -582,6 +582,50 @@ const descripcionesProductos = {
         '❯ Todas las recompensas.',
         '❯ Entrega inmediata.'
     ],
+    // Brawl Stars
+    'PASE NORMAL': [
+        '❯ Pase Normal de Brawl Stars.',
+        '❯ Acceso a todas las recompensas del pase.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    'PASE PLUS': [
+        '❯ Pase Plus de Brawl Stars.',
+        '❯ Acceso a todas las recompensas premium del pase.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
+    // Free Fire Diamantes
+    '310 DIAMANTES': [
+        '❯ 310 Diamantes para tu cuenta de Free Fire.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.',
+        '❯ Compatible con PC, móvil y consolas.'
+    ],
+    '1240 DIAMANTES': [
+        '❯ 1240 Diamantes para tu cuenta de Free Fire.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.',
+        '❯ Compatible con PC, móvil y consolas.'
+    ],
+    '1860 DIAMANTES': [
+        '❯ 1860 Diamantes para tu cuenta de Free Fire.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.',
+        '❯ Compatible con PC, móvil y consolas.'
+    ],
+    '3100 DIAMANTES': [
+        '❯ 3100 Diamantes para tu cuenta de Free Fire.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.',
+        '❯ Compatible con PC, móvil y consolas.'
+    ],
+    '2390 DIAMANTES': [
+        '❯ 2390 Diamantes para tu cuenta de Free Fire.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.',
+        '❯ Compatible con PC, móvil y consolas.'
+    ],
     // Otros - CapCut Pro
     'CapCut Pro – PLAN 1 MES': [
         '❯ 1 mes de duración (Garantía total).',
@@ -640,40 +684,26 @@ const descripcionesProductos = {
     ],
     // Discord - Server Boost
     'Discord Server Boost x14 - 1 Mes': [
-        '❯ Boosts de Discord para servidores por 1 mes.',
-        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
-        '❯ Destinados únicamente para mejorar servidores.',
+        'Hola chicos, vengo a informar sobre los x14 boost y sus terminos, la garantia será igual que la de siempre pero con estos terminos:',
         '',
-        'Duración y validez:',
-        '❯ 25 – 30 días de duración esperada.',
-        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
-        '❯ Si un boost no se renueva después de 14 días, se considera expirado.',
+        'BOOSTS | TERMINOS',
         '',
-        'Garantía y reemplazo:',
-        '❯ No se ofrece garantía a largo plazo.',
-        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
-        '❯ Compra solo si aceptas estas condiciones.',
+        '❯ Si expulsas cuentas que están impulsando, las eliminas manualmente o tu bot anti-raid/de seguridad las elimina, no se proporcionará ningún reemplazo.',
         '',
-        'Reglas de uso:',
-        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+        '❯ Si Discord elimina mejoras o cancela cuentas, no nos hacemos responsables.',
+        '',
+        '❯ ¿Cómo puedo identificar si pasa eso? La garantia solo es cuando, los bots dejan de mejorara, pero ellos siguen el servidor, es como que por ejemplo yo siga aqui pero dejo de mejorar este servidor o se le acabe el nitro antes de tiempo, ahi recien es la garantía.'
     ],
     'Discord Server Boost x14 - 3 Meses': [
-        '❯ Boosts de Discord para servidores por 3 meses.',
-        '❯ Los boosts se aplican mediante cuentas basadas en tokens, no con cuentas personales.',
-        '❯ Destinados únicamente para mejorar servidores.',
+        'Hola chicos, vengo a informar sobre los x14 boost y sus terminos, la garantia será igual que la de siempre pero con estos terminos:',
         '',
-        'Duración y validez:',
-        '❯ 75 – 90 días de duración esperada.',
-        '❯ Algunos boosts provienen de fuentes de Nitro de prueba.',
-        '❯ Si un boost no se renueva después de 65 días, se considera expirado.',
+        'BOOSTS | TERMINOS',
         '',
-        'Garantía y reemplazo:',
-        '❯ No se ofrece garantía a largo plazo.',
-        '❯ Los boosts que expiren después de 14 días no son elegibles para reemplazo.',
-        '❯ Compra solo si aceptas estas condiciones.',
+        '❯ Si expulsas cuentas que están impulsando, las eliminas manualmente o tu bot anti-raid/de seguridad las elimina, no se proporcionará ningún reemplazo.',
         '',
-        'Reglas de uso:',
-        '❯ La responsabilidad del uso después de la entrega recae en el comprador.'
+        '❯ Si Discord elimina mejoras o cancela cuentas, no nos hacemos responsables.',
+        '',
+        '❯ ¿Cómo puedo identificar si pasa eso? La garantia solo es cuando, los bots dejan de mejorara, pero ellos siguen el servidor, es como que por ejemplo yo siga aqui pero dejo de mejorar este servidor o se le acabe el nitro antes de tiempo, ahi recien es la garantía.'
     ],
     'Promo Code Nitro 3 Meses': [
         'IMPORTANTE',
@@ -1227,9 +1257,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
-
-
-
-
