@@ -295,38 +295,24 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 5': [
+    'MC STOCK | CAPES ZOMBIE HOURSE': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
+        '❯ Contiene la capa Pan, Common & Zombie Hourse .',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CAPES 6': [
+    'MC STOCK | CAPE MENACE': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
+        '❯ Contiene la capa Pan, Common & Menace.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 7': [
+    'MC STOCK | 1600 MINECOINS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | 3 CAPES': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Zombie Hourse.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | RANK VIP': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip Global en Hypixel.net.',
+        '❯ Contiene **1600** Minecoins par usar en BD.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
@@ -334,26 +320,42 @@ const descripcionesProductos = {
     ],
     'MC STOCK | FEATHER POINTS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 570 Feather Points disponibles.',
+        '❯ Contiene la capa Pan, Common & Copper.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS FEATHER': [
+    'MC STOCK | RANK VIP+': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Capa Custom en Feather Client.',
-        '❯ Contiene Guadaña Custom en Feather Client.',
+        '❯ Contiene Rango Vip+ Global en Hypixel.net.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES FEAHTER': [
+    'MC STOCK | FEATHER POINTS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 911 Puntos en la Tienda de Feather Client.',
-        '❯ Contiene Capas Custom en Feather Client.',
-        '❯ Contiene la capa Pan & Common.',
+        '❯ Contiene 795 Feather Points disponibles.',
         '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | MVP+ + LUNAR COSMETICS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Cosmeticos custom en Lunar Client.',
+        '❯ Contiene Rango MVP+ Global en Hypixel.net.',
+        '❯ Bloqueado temporalmente de Hypixel por 13 días'
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible en 23 días.',
+        '❯ Garantía incluida.',
+    ],
+    'MC STOCK | RANK ZEUS & CABEZA WILLY': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango Zeus Global en DiosesMC.',
+        '❯ Contiene homes en survival de dioses OP (Bonitos).',
+        '❯ Contiene la cabeza de TheWyllirex en DiosesMC.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible en 18 días.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1257,3 +1259,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
