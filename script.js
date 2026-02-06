@@ -333,7 +333,7 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | FEATHER POINTS': [
+    'MC STOCK | FEATHER POINTS 2': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene 795 Feather Points disponibles.',
         '❯ Cambio de Nombre disponible.',
@@ -344,7 +344,7 @@ const descripcionesProductos = {
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene Cosmeticos custom en Lunar Client.',
         '❯ Contiene Rango MVP+ Global en Hypixel.net.',
-        '❯ Bloqueado temporalmente de Hypixel por 13 días'
+        '❯ Bloqueado temporalmente de Hypixel por 13 días',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible en 23 días.',
         '❯ Garantía incluida.',
@@ -1259,4 +1259,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
