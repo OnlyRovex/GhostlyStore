@@ -295,47 +295,50 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES ZOMBIE HOURSE': [
+    'MC STOCK | CAPES VANILLA': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Zombie Hourse .',
+        '❯ Contiene la capa Pan, Common & Vanilla .',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CAPE MENACE': [
+    'MC STOCK | CAPES & COSMETICS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Menace.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | 1600 MINECOINS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene **1600** Minecoins par usar en BD.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | FEATHER POINTS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Cosmeticos en Feather Client (Mochila).',
         '❯ Contiene la capa Pan, Common & Copper.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+': [
+    'MC STOCK | COSMETICS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip+ Global en Hypixel.net.',
+        '❯ Contiene Cosmeticos en Feather Client (Guadaña & Mascara).',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | FEATHER POINTS 2': [
+    'MC STOCK | +6 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene 795 Feather Points disponibles.',
+        '❯ Contiene la capa Pan, Common, Copper, Menace, Purple Hearth & Home.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | COSMETICS + CAPES + RANK VIP+': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Cosmeticos en Feather Client (Puños & Mascara).',
+        '❯ Contiene Rango Vip+ Global en Tilted.lol.',
+        '❯ Contiene la capa Pan, Common, Menace & Home.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | +6 CAPES & VIP+': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango Vip+ Global en Hypixel.net.',
+        '❯ Contiene la capa Pan, Common, Vanilla, Home, MCC 15TH & Migrator',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1259,5 +1262,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
