@@ -269,8 +269,8 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 28 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -291,22 +291,22 @@ const descripcionesProductos = {
     'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
+        '❯ Cambio de Nombre disponible en 26 días.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES VANILLA': [
+    'MC STOCK | RANK VIP+': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Vanilla .',
+        '❯ Contiene Rango Vip+ Global en Tilted.lol.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CAPES & COSMETICS': [
+    'MC STOCK | CAPE PURPLE HEARTH': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Mochila).',
-        '❯ Contiene la capa Pan, Common & Copper.',
+        '❯ Contiene la capa Pan, Common & Purple Hearth.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -319,26 +319,23 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
+    'MC STOCK | CAPES CHERRY & 15TH': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common, Cherry Blossom & 15TH.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE MIGRATOR': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Migrator.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
     'MC STOCK | +6 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Copper, Menace, Purple Hearth & Home.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | COSMETICS + CAPES + RANK VIP+': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Puños & Mascara).',
-        '❯ Contiene Rango Vip+ Global en Tilted.lol.',
-        '❯ Contiene la capa Pan, Common, Menace & Home.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | +6 CAPES & VIP+': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip+ Global en Hypixel.net.',
-        '❯ Contiene la capa Pan, Common, Vanilla, Home, MCC 15TH & Migrator',
+        '❯ Contiene la capa Pan, Common, Copper, Cherry Blossom, Menace & Home',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1262,6 +1259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
