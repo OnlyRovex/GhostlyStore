@@ -2132,6 +2132,111 @@ h1::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Badge REVISANDO PAGO */
+.producto-revisando-pago {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    animation: revisandoPagoPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes revisandoPagoPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* Tarjeta revisando pago */
+.producto-card.revisando-pago {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.producto-card.revisando-pago .btn-comprar {
+    background: #ffd700;
+    color: #000;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.producto-card.revisando-pago .btn-comprar:hover {
+    background: #ffb700;
+    transform: none;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.producto-card.revisando-pago:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjeta esperando pago */
+.producto-card.esperando-pago {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.producto-card.esperando-pago .btn-comprar {
+    background: #ffa500;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.producto-card.esperando-pago .btn-comprar:hover {
+    background: #ff8c00;
+    transform: none;
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+}
+
+.producto-card.esperando-pago:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Badge esperando pago */
+.producto-esperando-pago {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    animation: esperandoPagoPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes esperandoPagoPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 165, 0, 0.6);
+    }
+}
+
 /* Icono de favorito */
 .producto-card .favorite-icon {
     position: absolute;
@@ -2466,4 +2571,28 @@ img:not([src]), img[src=""] {
     .productos-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Badge PAGO PENDIENTE (morado) */
+.producto-pendiente {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    z-index: 10;
+    animation: pulsePendiente 2s ease-in-out infinite;
+}
+
+@keyframes pulsePendiente {
+    0%, 100% { box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(139, 92, 246, 0.6); }
 }
