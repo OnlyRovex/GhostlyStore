@@ -269,8 +269,8 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 28 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -283,71 +283,68 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 16 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible en 26 días.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+': [
+    'MC STOCK | CAPES 5': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip+ Global en Tilted.lol.',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CAPE PURPLE HEARTH': [
+    'MC STOCK | CAPES 6': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Purple Hearth.',
+        '❯ Cambio de Nombre disponible en 13 días.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | CAPE COPPER': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Common & Copper.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS': [
+    'MC STOCK | CAPE 15TH': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Guadaña & Mascara).',
+        '❯ Contiene la capa Pan, Common & 15TH.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | FEATHER POINTS': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Puntos en Feather Client (520).',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES CHERRY & 15TH': [
+    'MC STOCK | +4 CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Cherry Blossom & 15TH.',
+        '❯ Contiene la capa Pan, Common, Copper & Zombie Horse',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE MIGRATOR': [
+    'MC STOCK | +6 CAPES + MCC 15TH': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Migrator.',
-        '❯ Cambio de Nombre disponible.',
+        '❯ Cambio de Nombre disponible en 28 días.',
+        '❯ Contiene la capa Pan, Common, Followers, Purple Hearth, 15TH, MCC 15TH.',
         '❯ Garantía incluida.',
         '❯ Unban all'
-    ],
-    'MC STOCK | +6 CAPES': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Copper, Cherry Blossom, Menace & Home',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | MVP+ + LUNAR COSMETICS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos custom en Lunar Client.',
-        '❯ Contiene Rango MVP+ Global en Hypixel.net.',
-        '❯ Bloqueado temporalmente de Hypixel por 13 días',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible en 23 días.',
-        '❯ Garantía incluida.'
     ],
     'MC STOCK | MVP+ + LUNAR COSMETICS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
@@ -1258,6 +1255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
