@@ -347,17 +347,16 @@ const descripcionesProductos = {
         '❯ Bloqueado temporalmente de Hypixel por 13 días',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible en 23 días.',
-        '❯ Garantía incluida.',
+        '❯ Garantía incluida.'
     ],
-    'MC STOCK | RANK ZEUS & CABEZA WILLY': [
+    'MC STOCK | MVP+ + LUNAR COSMETICS': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Zeus Global en DiosesMC.',
-        '❯ Contiene homes en survival de dioses OP (Bonitos).',
-        '❯ Contiene la cabeza de TheWyllirex en DiosesMC.',
+        '❯ Contiene Cosmeticos custom en Lunar Client.',
+        '❯ Contiene Rango MVP+ Global en Hypixel.net.',
+        '❯ Bloqueado temporalmente de Hypixel por 13 días',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible en 18 días.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
+        '❯ Cambio de Nombre disponible en 23 días.',
+        '❯ Garantía incluida.'
     ],
     // Crunchyroll Planes
     'PLAN MENSUAL MEGAFAN (Perfil privado)': [
@@ -1259,6 +1258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
