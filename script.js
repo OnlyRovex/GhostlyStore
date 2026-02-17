@@ -291,74 +291,66 @@ const descripcionesProductos = {
     'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
+        '❯ Cambio de Nombre disponible en 17 días.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES VANILLA': [
+    'MC STOCK | CAPES 5': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Vanilla .',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CAPES & COSMETICS': [
+    'MC STOCK | CAPES 6': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Mochila).',
-        '❯ Contiene la capa Pan, Common & Copper.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | COSMETICS': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Guadaña & Mascara).',
         '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | +6 CAPES': [
+    'MC STOCK | CAPES 7': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common, Copper, Menace, Purple Hearth & Home.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS + CAPES + RANK VIP+': [
+    'MC STOCK | CAPES COPPER & ZOMBIE HORSE': [
+        '❯ Contiene la capa Pan, Common, Copper & Zombie Horse.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos en Feather Client (Puños & Mascara).',
-        '❯ Contiene Rango Vip+ Global en Tilted.lol.',
-        '❯ Contiene la capa Pan, Common, Menace & Home.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | +6 CAPES & VIP+': [
+    'MC STOCK | FEATHER COSMETICS': [
+        '❯ Contiene Cosmeticos en Feather Client (Mascota).',
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | RANK VIP+ & MIGRATOR': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene Rango Vip+ Global en Hypixel.net.',
-        '❯ Contiene la capa Pan, Common, Vanilla, Home, MCC 15TH & Migrator',
+        '❯ Contiene la capa Pan, Common & Migrator',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | MVP+ + LUNAR COSMETICS': [
+    'MC STOCK | +11 CAPES': [
+        '❯ Contiene la capa Copper, Menace, Purple Hearth, Home, Pan, Mojang Office, Yearn, Common, 15TH, MCC 15TH & Followers.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmeticos custom en Lunar Client.',
-        '❯ Contiene Rango MVP+ Global en Hypixel.net.',
-        '❯ Bloqueado temporalmente de Hypixel por 13 días',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible en 23 días.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
     ],
-    'MC STOCK | RANK ZEUS & CABEZA WILLY': [
+    'MC STOCK | RANK ELECTRO+': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Zeus Global en DiosesMC.',
-        '❯ Contiene homes en survival de dioses OP (Bonitos).',
-        '❯ Contiene la cabeza de TheWyllirex en DiosesMC.',
+        '❯ Contiene Rango Electro+ Global en ElectroMC.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible en 18 días.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -1290,3 +1282,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
