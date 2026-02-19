@@ -332,9 +332,9 @@ const descripcionesProductos = {
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+ & MIGRATOR': [
+    'MC STOCK | RANK VIP + MIGRATOR': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip+ Global en Hypixel.net.',
+        '❯ Contiene Rango Vip Global en Hypixel.net.',
         '❯ Contiene la capa Pan, Common & Migrator',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
@@ -346,10 +346,9 @@ const descripcionesProductos = {
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
     ],
-    'MC STOCK | RANK ELECTRO+': [
+    'MC STOCK | CAPE FOUNDER': [
+        '❯ Contiene la capa Pan & Common, Cherry, Zombie Horse & **Founder**.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Electro+ Global en ElectroMC.',
-        '❯ Contiene la capa Pan & Common.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1282,4 +1281,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
