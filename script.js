@@ -335,7 +335,7 @@ const descripcionesProductos = {
         '❯ Contiene la capa Copper, Menace, Purple Hearth, Home, Pan, Mojang Office, Yearn, Common, 15TH, MCC 15TH & Followers.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Cambio de Nombre disponible en 20 días.',
-        '❯ Garantía incluida.'
+        '❯ Garantía incluida.',
     ],
     'MC STOCK | RANK GHOST + CAPES': [
         '❯ Contiene la capa Purple Hearth, Pan, Common, 15TH & Followers.',
@@ -344,7 +344,7 @@ const descripcionesProductos = {
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Contiene Cosmetico de Medal en Feather.',
         '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.'
+        '❯ Garantía incluida.',
     ],
     'MC STOCK | RANK TILTED': [
         '❯ Contiene Rango **TILTED** en el ClashBox de Tilted, con **Comprrobante**.',
@@ -1282,8 +1282,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
-
-
-
