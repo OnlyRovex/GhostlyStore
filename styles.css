@@ -470,13 +470,21 @@ body::before {
 ============================================ */
 .modal-reviews {
     text-align: center;
-    padding: 50px 40px;
+    padding: 30px 40px;
+    max-width: 1000px;
+}
+
+.modal-reviews h2 {
+    color: #8b5cf6;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 .reviews-question {
-    font-size: 20px;
-    color: #fff;
-    margin-top: 20px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    margin-bottom: 20px;
     line-height: 1.6;
 }
 
@@ -716,51 +724,29 @@ body::before {
    HEADER Y NAVEGACIÓN
 ============================================ */
 header {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
-    padding: 20px 50px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 10px;
+    top: 0;
     z-index: 100;
-    border: 2px solid rgba(139, 92, 246, 0.3);
-    border-radius: 50px;
-    box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(139, 92, 246, 0.2),
-        inset 0 0 30px rgba(139, 92, 246, 0.05);
-    margin: 10px 20px;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin: 0;
     transition: all 0.3s ease;
 }
 
 header:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 
-        0 15px 50px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(139, 92, 246, 0.3),
-        inset 0 0 30px rgba(139, 92, 246, 0.1);
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 header::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 52px;
-    background: linear-gradient(135deg, #8b5cf6, #60a5fa, #8b5cf6);
-    background-size: 200% 200%;
-    animation: borderGlow 3s ease-in-out infinite;
-    opacity: 0.3;
-    z-index: -1;
-}
-
-@keyframes borderGlow {
-    0%, 100% { background-position: 0% 50%; opacity: 0.3; }
-    50% { background-position: 100% 50%; opacity: 0.5; }
+    display: none;
 }
 
 .logo {
@@ -783,10 +769,12 @@ header::before {
 
 nav {
     display: flex;
-    gap: 30px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    gap: 40px;
+    position: relative;
+    left: auto;
+    transform: none;
+    margin-left: auto;
+    margin-right: 40px;
 }
 
 nav a {
@@ -826,20 +814,20 @@ nav a:hover::after {
     display: flex;
     gap: 15px;
     align-items: center;
-    margin-left: auto;
+    margin-left: 0;
     position: relative;
     z-index: 101;
 }
 
 .social-link {
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 12px 25px;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     color: white;
-    border: 2px solid rgba(139, 92, 246, 0.5);
+    border: 2px solid #5865f2;
     transition: all 0.3s ease;
     text-decoration: none;
     font-size: 14px;
@@ -848,10 +836,10 @@ nav a:hover::after {
 }
 
 .social-link:hover {
-    border-color: #8b5cf6;
-    background: rgba(139, 92, 246, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    border-color: #5865f2;
+    background: rgba(88, 101, 242, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3);
 }
 
 .social-link.discord {
@@ -926,16 +914,13 @@ nav a:hover::after {
 .hero-title {
     font-size: 90px;
     font-weight: 900;
-    background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 25%, #8b5cf6 50%, #60a5fa 75%, #8b5cf6 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #8b5cf6;
     text-transform: uppercase;
     letter-spacing: 10px;
     margin-bottom: 25px;
-    animation: gradientShift 5s ease-in-out infinite, titleFloat 3s ease-in-out infinite;
+    animation: titleFloat 3s ease-in-out infinite;
     filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
 }
 
 @keyframes gradientShift {
@@ -1204,54 +1189,60 @@ nav a:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 15px;
     margin: 40px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .stat-box {
     text-align: center;
-    padding: 20px 30px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
-    border-color: #8b5cf6;
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .stat-number {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 800;
     background: linear-gradient(135deg, #8b5cf6, #c084fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline;
 }
 
 .stat-plus {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     color: #c084fc;
+    display: inline;
 }
 
 .stat-label {
-    display: block;
+    display: inline;
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 5px;
+    margin-top: 0;
+    margin-left: 5px;
 }
 
 .stat-divider {
-    width: 1px;
-    height: 60px;
+    width: 2px;
+    height: 30px;
     background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.5), transparent);
 }
 
@@ -1319,7 +1310,7 @@ nav a:hover::after {
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -1491,7 +1482,7 @@ nav a:hover::after {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 10px 20px 0 20px;
     position: relative;
 }
 
@@ -1522,10 +1513,10 @@ h1::after {
     align-items: flex-start;
     gap: 40px;
     background: transparent;
-    padding: 40px;
+    padding: 0 40px 0 40px;
     border-radius: 0;
     box-shadow: none;
-    margin-bottom: 60px;
+    margin-bottom: 0;
     border: none;
     max-width: 1200px;
     margin-left: auto;
@@ -1747,7 +1738,9 @@ h1::after {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .social-links-product a {
@@ -2595,4 +2588,89 @@ img:not([src]), img[src=""] {
 @keyframes pulsePendiente {
     0%, 100% { box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); }
     50% { box-shadow: 0 4px 25px rgba(139, 92, 246, 0.6); }
+}
+
+
+/* ============================================
+   REVIEWS GRID
+============================================ */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
+}
+
+.reviews-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reviews-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 10px;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb:hover {
+    background: #a78bfa;
+}
+
+.review-card {
+    background: linear-gradient(145deg, rgba(139, 92, 246, 0.1), rgba(96, 165, 250, 0.05));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: #8b5cf6;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #8b5cf6;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.review-name {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.95rem;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+.review-comment {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.review-stars {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
 }
