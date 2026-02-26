@@ -269,64 +269,77 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 8 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 2': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 26 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 3': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 14 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Cambio de Nombre disponible en 28 días.',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES 5': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 11 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
 
     ],
-    'MC STOCK | CHERRY & FOLLOWERS ': [
-        '❯ Contiene la capa Pan, Common, Cherry & Followers.',
+    'MC STOCK | CAPE MIGRATOR ': [
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene la capa Pan, Commom & Migrator.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | COSMETICS + RANKS': [
+        '❯ Contiene Cosmeticos en Feather Client (Puños & Mascara).',
+        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango **NOVA** Global en Minebosh.',
+        '❯ Contiene Rango **VIP+** Global en Tilted.',
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Garantía incluida.',
+        '❯ Unban all'
+    ],
+    'MC STOCK | MIGRATOR + HOME': [
+        '❯ Contiene la capa Pan, Commom, Migrator & Home.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE MIGRATOR': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Migrator.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | +6 CAPES': [
-        '❯ Contiene la capa Copper, Menace, Zombie Horse, Pan, Common & 15TH.',
+    'MC STOCK | FEATHER COSMETICS': [
+        '❯ Contiene Cosmeticos en Feather Client (Capa, Auras & Mochilas).',
+        '❯ Contiene la capa Pan, Common & Cherry Blossom.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE FOUNDER': [
-        '❯ Contiene la capa Pan & Common, Cherry, Zombie Horse & **Founder**.',
+    'MC STOCK | COSMETICS FEATHER + VIP': [
+        '❯ Contiene Cosmeticos en Feather Client (Medal, Guadaña, Alas de Esqueleto & Capa).',
+        '❯ Contiene la capa Pan, Common, Home, Zombie Horse & Menace.',
         '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Contiene Rango Vip Global en Hypixel.net.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -337,18 +350,9 @@ const descripcionesProductos = {
         '❯ Cambio de Nombre disponible en 20 días.',
         '❯ Garantía incluida.',
     ],
-    'MC STOCK | RANK GHOST + CAPES': [
-        '❯ Contiene la capa Purple Hearth, Pan, Common, 15TH & Followers.',
-        '❯ Contiene Rango Ghost en el WorldBox de Minebosh.net.',
-        '❯ Contiene Kits OP en el WorldBox de Minebosh.net.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Cosmetico de Medal en Feather.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
-    ],
-    'MC STOCK | RANK TILTED': [
-        '❯ Contiene Rango **TILTED** en el ClashBox de Tilted, con **Comprrobante**.',
-        '❯ Contiene la capa Pan, Common, Copper & Menace.',
+    'MC STOCK | CAPE EXPERIENCE + 9 CAPES': [
+        '❯ Contiene la capa Copper, Menace, Zombie Horse, Purple Hearth, Home, Pan, **Experience** & Common',
+        '❯ Contiene Cosmeticos en Feather Client (Capas).',
         '❯ Acceso completo a Java & Bedrock Permanente.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
@@ -1282,3 +1286,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
