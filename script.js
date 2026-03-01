@@ -269,8 +269,8 @@ const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 8 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
@@ -290,14 +290,14 @@ const descripcionesProductos = {
     ],
     'MC STOCK | CAPES 4': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 28 días.',
         '❯ Contiene la capa Pan & Common.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 5': [
+    'MC STOCK | CAPE ZOMBIE HORSE': [
         '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
+        '❯ Contiene la capa Pan, Common & Zombie Horse.',
         '❯ Cambio de Nombre disponible.',
         '❯ Garantía incluida.',
         '❯ Unban all'
@@ -1286,4 +1286,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
