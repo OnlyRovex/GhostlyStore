@@ -94,106 +94,98 @@ document.addEventListener('DOMContentLoaded', typeWriter);
 
 // ============================================
 // CARRUSEL DE IMÁGENES EN PRODUCTOS
+// Soporta rutas de archivo Y base64 (del admin).
+// Usa MutationObserver para detectar cards nuevas.
 // ============================================
-document.addEventListener('DOMContentLoaded', function() {
-    const carouselImages = document.querySelectorAll('.carousel-img');
-    const carouselIntervals = new Map(); // Guardar intervalos por elemento
-    
-    carouselImages.forEach(img => {
-        const imagesData = img.getAttribute('data-images');
-        if (!imagesData) return;
-        
-        const allImages = imagesData.split(',').map(s => s.trim());
-        let validImages = [];
-        const container = img.parentElement;
-        let currentIndex = 0;
-        
-        // Verificar qué imágenes existen
-        let checkedCount = 0;
-        allImages.forEach((imgSrc, index) => {
-            const testImg = new Image();
-            testImg.onload = function() {
-                validImages.push({ src: imgSrc, index: index });
-                checkedCount++;
-                if (checkedCount === allImages.length) {
-                    validImages.sort((a, b) => a.index - b.index);
-                    setupCarousel();
-                }
-            };
-            testImg.onerror = function() {
-                checkedCount++;
-                if (checkedCount === allImages.length) {
-                    validImages.sort((a, b) => a.index - b.index);
-                    setupCarousel();
-                }
-            };
-            testImg.src = imgSrc;
+(function () {
+    const carouselMap = new Map();
+
+    function getImages(card) {
+        const stored = card.getAttribute('data-all-images');
+        if (stored) {
+            try {
+                const arr = JSON.parse(stored).filter(Boolean);
+                if (arr.length) return arr;
+            } catch(e) {}
+        }
+        const img = card.querySelector('.skin-img');
+        if (!img) return [];
+        const raw = img.getAttribute('data-images') || '';
+        if (raw) return raw.split(',').map(s => s.trim()).filter(Boolean);
+        return img.src ? [img.src] : [];
+    }
+
+    function changeImage(state) {
+        const img = state.container.querySelector('.skin-img');
+        if (!img || state.images.length <= 1) return;
+        img.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        img.style.opacity    = '0';
+        img.style.transform  = 'scale(0.93)';
+        setTimeout(() => {
+            state.currentIndex = (state.currentIndex + 1) % state.images.length;
+            img.src            = state.images[state.currentIndex];
+            img.style.opacity  = '1';
+            img.style.transform = 'scale(1)';
+        }, 300);
+    }
+
+    function resetImage(state) {
+        clearInterval(state.interval);
+        state.interval     = null;
+        state.currentIndex = 0;
+        const img = state.container.querySelector('.skin-img');
+        if (!img) return;
+        img.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        img.style.opacity    = '1';
+        img.style.transform  = 'scale(1)';
+        img.src = state.images[0];
+    }
+
+    function initCard(card) {
+        const container = card.querySelector('.producto-imagen');
+        if (!container || carouselMap.has(container)) return;
+        const images = getImages(card);
+        if (images.length <= 1) return;
+
+        const state = { container, images, currentIndex: 0, interval: null };
+        carouselMap.set(container, state);
+
+        container.addEventListener('mouseenter', () => {
+            if (state.interval) clearInterval(state.interval);
+            changeImage(state);
+            state.interval = setInterval(() => changeImage(state), 1500);
         });
-        
-        function setupCarousel() {
-            if (validImages.length <= 1) return;
-            
-            const images = validImages.map(v => v.src);
-            
-            function changeImage() {
-                img.style.opacity = '0';
-                img.style.transform = 'scale(0.95)';
-                
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    img.src = images[currentIndex];
-                    img.style.opacity = '1';
-                    img.style.transform = 'scale(1)';
-                }, 300);
-            }
-            
-            function resetImage() {
-                const interval = carouselIntervals.get(container);
-                if (interval) {
-                    clearInterval(interval);
-                    carouselIntervals.delete(container);
-                }
-                currentIndex = 0;
-                img.src = images[0];
-                img.style.opacity = '1';
-                img.style.transform = 'scale(1)';
-            }
-            
-            container.addEventListener('mouseenter', () => {
-                // Limpiar intervalo anterior si existe
-                const oldInterval = carouselIntervals.get(container);
-                if (oldInterval) clearInterval(oldInterval);
-                
-                changeImage();
-                const newInterval = setInterval(changeImage, 1500);
-                carouselIntervals.set(container, newInterval);
-            });
-            
-            container.addEventListener('mouseleave', () => {
-                resetImage();
-            });
+        container.addEventListener('mouseleave', () => resetImage(state));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.producto-card').forEach(initCard);
+        const grid = document.querySelector('.productos-grid');
+        if (grid) {
+            new MutationObserver(mutations => {
+                mutations.forEach(m => m.addedNodes.forEach(node => {
+                    if (node.nodeType === 1 && node.classList?.contains('producto-card')) {
+                        setTimeout(() => initCard(node), 60);
+                    }
+                }));
+            }).observe(grid, { childList: true });
         }
     });
-    
-    // Función global para resetear todos los carruseles
-    window.resetAllCarousels = function() {
-        carouselIntervals.forEach((interval, container) => {
-            clearInterval(interval);
-        });
-        carouselIntervals.clear();
-        
-        document.querySelectorAll('.carousel-img').forEach(img => {
-            const imagesData = img.getAttribute('data-images');
-            if (imagesData) {
-                const firstImage = imagesData.split(',')[0].trim();
-                img.src = firstImage;
-                img.style.opacity = '1';
-                img.style.transform = 'scale(1)';
-                img.style.display = 'block';
-            }
-        });
+
+    window.resetAllCarousels = function () {
+        carouselMap.forEach(state => resetImage(state));
     };
-});
+
+    window.reinitCarousel = function (card) {
+        const container = card.querySelector('.producto-imagen');
+        if (container && carouselMap.has(container)) {
+            clearInterval(carouselMap.get(container).interval);
+            carouselMap.delete(container);
+        }
+        const images = getImages(card);
+        if (images.length > 1) initCard(card);
+    };
+}());
 
 // ============================================
 // MODAL SOBRE NOSOTROS
@@ -640,17 +632,10 @@ const descripcionesProductos = {
         '❯ Sin marcas de agua.',
         '❯ Sin anuncios.'
     ],
-    // Otros - Canva Pro
-    'Canva Pro PERMANENTE': [
-        '❯ Acceso permanente a Canva Pro.',
-        '❯ Miles de plantillas premium y diseños exclusivos.',
-        '❯ Imágenes, íconos y elementos ilimitados.',
-        '❯ Exportación en alta resolución (4K).',
-        '❯ Herramientas avanzadas (filtros, fondos, eliminación de fondo).',
-        '❯ Almacenamiento en la nube y sincronización.',
-        '❯ Trabajo en equipo en tiempo real.',
-        '❯ Sin marcas de agua.',
-        '❯ Garantía total en la suscripción.'
+    // Otros - NordVPN
+    'NordVPN – 1 AÑO': [
+        '❯ 1 año de duración.',
+        '❯ Garantía de activación.',
     ],
     // Otros - OnlyFans
     'OnlyFans Cuenta $50 Saldo': [
@@ -751,6 +736,12 @@ const descripcionesProductos = {
     ],
     
     // ========== ROBUX ==========
+    '500 Robux': [
+        '› 500 Robux para tu cuenta de Roblox.',
+        '› Entrega inmediata.',
+        '› Compra 100% segura.',
+        '› Compatible con PC, móvil y consolas.'
+    ],
     '1,000 Robux': [
         '› 1,000 Robux para tu cuenta de Roblox.',
         '› Entrega inmediata.',
@@ -772,107 +763,82 @@ const descripcionesProductos = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Event listener para botones de comprar
-    const botonesComprar = document.querySelectorAll('.btn-comprar');
-    
-    botonesComprar.forEach(boton => {
-        boton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            const card = this.closest('.producto-card');
-            const nombre = card.querySelector('.producto-nombre').textContent;
-            const precio = card.querySelector('.producto-precio').textContent;
-            const imagen = card.querySelector('.skin-img').src;
-            
-            // Actualizar modal con info del producto
-            document.getElementById('modal-producto-nombre').textContent = nombre;
-            document.getElementById('modal-producto-precio').textContent = precio;
-            document.getElementById('modal-imagen-principal').src = imagen;
-            
-            // Actualizar thumbnail
-            const thumb = document.querySelector('.thumb-img');
-            if (thumb) {
-                thumb.src = imagen;
-            }
-            
-            // Verificar si tiene múltiples imágenes (carrusel)
-            const imgElement = card.querySelector('.skin-img');
-            const modalImg = document.getElementById('modal-imagen-principal');
-            const thumbsContainer = document.querySelector('.producto-modal-thumbs');
-            
-            // Obtener las imágenes del data-images
-            const imagesData = imgElement.getAttribute('data-images');
-            thumbsContainer.innerHTML = '';
-            
-            if (imagesData) {
-                const images = imagesData.split(',').map(s => s.trim()).filter(s => s);
-                let validImages = [];
-                let checkedCount = 0;
-                
-                images.forEach((imgSrc, index) => {
-                    const testImg = new Image();
-                    testImg.onload = function() {
-                        validImages.push({ src: imgSrc, index: index });
-                        checkedCount++;
-                        checkComplete();
-                    };
-                    testImg.onerror = function() {
-                        checkedCount++;
-                        checkComplete();
-                    };
-                    testImg.src = imgSrc;
-                });
-                
-                function checkComplete() {
-                    if (checkedCount === images.length) {
-                        validImages.sort((a, b) => a.index - b.index);
-                        
-                        if (validImages.length > 1) {
-                            validImages.forEach((img, i) => {
-                                const thumb = document.createElement('img');
-                                thumb.src = img.src;
-                                thumb.alt = 'Thumb ' + (i + 1);
-                                thumb.className = 'thumb-img' + (i === 0 ? ' active' : '');
-                                thumb.dataset.img = img.src;
-                                
-                                thumb.addEventListener('click', function() {
-                                    thumbsContainer.querySelectorAll('.thumb-img').forEach(th => th.classList.remove('active'));
-                                    this.classList.add('active');
-                                    modalImg.style.opacity = '0';
-                                    setTimeout(() => {
-                                        modalImg.src = this.dataset.img;
-                                        modalImg.style.opacity = '1';
-                                    }, 150);
-                                });
-                                
-                                thumbsContainer.appendChild(thumb);
-                            });
-                        }
-                    }
-                }
-            }
-            
-            // Actualizar descripción según el producto
-            const featuresList = document.querySelector('.modal-producto-features');
-            if (featuresList) {
-                // Buscar descripción personalizada o usar default
-                const descripcion = descripcionesProductos[nombre] || [
-                    '› Producto de calidad garantizada.',
-                    '› Compra segura y confiable.'
-                ];
-                
-                // Convertir **texto** a negrita y mostrar cada item en su línea
-                featuresList.innerHTML = descripcion.map(item => {
-                    return `<li>${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>`;
-                }).join('');
-            }
-            
-            // Mostrar modal
-            productoModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
+    // Event delegation — funciona para cards del HTML Y cards agregadas desde el admin
+    document.querySelector('.productos-grid')?.addEventListener('click', function(e) {
+        const boton = e.target.closest('.btn-comprar');
+        if (!boton) return;
+        e.stopPropagation();
+        abrirModalProducto(boton.closest('.producto-card'));
     });
 });
+
+function abrirModalProducto(card) {
+    if (!card) return;
+
+    const nombre = card.querySelector('.producto-nombre').textContent.trim();
+    const precio = card.querySelector('.producto-precio').textContent.trim();
+
+    // Obtener imágenes: priorizar data-all-images (admin/base64), luego data-images, luego src
+    let images = [];
+    const storedAll = card.getAttribute('data-all-images');
+    if (storedAll) {
+        try { images = JSON.parse(storedAll).filter(Boolean); } catch(e) {}
+    }
+    if (!images.length) {
+        const imgEl = card.querySelector('.skin-img');
+        const raw   = imgEl?.getAttribute('data-images') || imgEl?.src || '';
+        images = raw.split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    const modalImg        = document.getElementById('modal-imagen-principal');
+    const thumbsContainer = document.querySelector('.producto-modal-thumbs');
+
+    document.getElementById('modal-producto-nombre').textContent = nombre;
+    document.getElementById('modal-producto-precio').textContent = precio;
+    modalImg.src = images[0] || '';
+
+    // Thumbnails
+    thumbsContainer.innerHTML = '';
+    if (images.length > 1) {
+        images.forEach((src, i) => {
+            const thumb = document.createElement('img');
+            thumb.src       = src;
+            thumb.alt       = 'Thumb ' + (i + 1);
+            thumb.className = 'thumb-img' + (i === 0 ? ' active' : '');
+            thumb.dataset.img = src;
+            thumb.style.cssText = 'cursor:pointer;object-fit:cover;border-radius:6px;border:2px solid ' + (i === 0 ? '#7c3aed' : 'transparent') + ';transition:border-color .2s,transform .2s;';
+            thumb.addEventListener('mouseenter', function() { this.style.transform='scale(1.08)'; });
+            thumb.addEventListener('mouseleave', function() { this.style.transform='scale(1)'; });
+            thumb.addEventListener('click', function() {
+                thumbsContainer.querySelectorAll('.thumb-img').forEach(th => {
+                    th.classList.remove('active'); th.style.borderColor='transparent';
+                });
+                this.classList.add('active'); this.style.borderColor='#7c3aed';
+                modalImg.style.opacity='0';
+                setTimeout(() => { modalImg.src=this.dataset.img; modalImg.style.opacity='1'; }, 150);
+            });
+            thumbsContainer.appendChild(thumb);
+        });
+    } else {
+        const thumb = document.createElement('img');
+        thumb.src = images[0] || '';
+        thumb.className = 'thumb-img active';
+        thumb.style.cssText = 'cursor:default;object-fit:cover;border-radius:6px;border:2px solid #7c3aed;';
+        thumbsContainer.appendChild(thumb);
+    }
+
+    // Descripción
+    const featuresList = document.querySelector('.modal-producto-features');
+    if (featuresList) {
+        const descripcion = (typeof descripcionesProductos !== 'undefined' && descripcionesProductos[nombre])
+            || ['› Producto de calidad garantizada.', '› Compra segura y confiable.'];
+        featuresList.innerHTML = descripcion.map(item =>
+            '<li>' + item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') + '</li>'
+        ).join('');
+    }
+
+    if (productoModal) { productoModal.style.display='block'; document.body.style.overflow='hidden'; }
+}
 
 // ============================================
 // CERRAR MODALES - Versión mejorada
@@ -1286,5 +1252,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
