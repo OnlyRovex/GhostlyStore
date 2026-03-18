@@ -268,94 +268,70 @@ const productoModal = document.getElementById('producto-modal');
 const descripcionesProductos = {
     // ========== MINECRAFT PRODUCTS ==========
     'MC STOCK | CAPES': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+        '❯ Compra garantizada y segura.'
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 2': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | CAPE YEARN': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Yearn EXCLUSIVA.',
+        '❯ Compra garantizada y segura.'
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 3': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | CAPES CHERRY': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Cherry EXCLUSIVA.',
+        '❯ Compra garantizada y segura.'
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES 4': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan & Common.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | CAPE CHERRY': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Cherry EXCLUSIVA.',
+        '❯ Compra garantizada y segura.'
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE ZOMBIE HORSE': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Common & Zombie Horse.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | CAPE CHERRY + VANILLA': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Cherry & Vanilla EXCLUSIVAS.',
+        '❯ Compra garantizada y segura.'
         '❯ Unban all'
-
     ],
     'MC STOCK | CAPE MIGRATOR ': [
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene la capa Pan, Commom & Migrator.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene la capa Migrator EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS + RANKS': [
-        '❯ Contiene Cosmeticos en Feather Client (Puños & Mascara).',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango **NOVA** Global en Minebosh.',
-        '❯ Contiene Rango **VIP+** Global en Tilted.',
-        '❯ Contiene la capa Pan & Common.',
+    'MC STOCK | CAPE PURPLE HEARTH': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene la capa Purple Hearth EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | MIGRATOR + HOME': [
-        '❯ Contiene la capa Pan, Commom, Migrator & Home.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
+    'MC STOCK | 1600 MINECOINS': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene 1600 MINECOINS para gastar en BD.',
         '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
         '❯ Unban all'
     ],
-    'MC STOCK | FEATHER COSMETICS': [
-        '❯ Contiene Cosmeticos en Feather Client (Capa, Auras & Mochilas).',
-        '❯ Contiene la capa Pan, Common & Cherry Blossom.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | COSMETICS': [
+        '❯ Contiene Cosmeticos en Feather Client (Puños & Mochilas).',
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS FEATHER + VIP': [
-        '❯ Contiene Cosmeticos en Feather Client (Medal, Guadaña, Alas de Esqueleto & Capa).',
-        '❯ Contiene la capa Pan, Common, Home, Zombie Horse & Menace.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Contiene Rango Vip Global en Hypixel.net.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | +6 CAPAS': [
+        '❯ Contiene la capa Menace & Yearn EXCLUSIVAS + 4 Capas.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
         '❯ Unban all'
     ],
-    'MC STOCK | +11 CAPES': [
-        '❯ Contiene la capa Copper, Menace, Purple Hearth, Home, Pan, Mojang Office, Yearn, Common, 15TH, MCC 15TH & Followers.',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible en 20 días.',
-        '❯ Garantía incluida.',
+    'MC STOCK | CAPE FOUNDER': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene la capa Founder ULTRA EXXCLUSIVA',
     ],
-    'MC STOCK | CAPE EXPERIENCE + 9 CAPES': [
-        '❯ Contiene la capa Copper, Menace, Zombie Horse, Purple Hearth, Home, Pan, **Experience** & Common',
-        '❯ Contiene Cosmeticos en Feather Client (Capas).',
-        '❯ Acceso completo a Java & Bedrock Permanente.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Garantía incluida.',
+    'MC STOCK | RANK MASTER': [
+        '❯ Contiene Rango Master en el Pokebox de SpookMC',
+        '❯ Minecraft Java & Bedrock permanente (29.99$.',
         '❯ Unban all'
     ],
     // Crunchyroll Planes
