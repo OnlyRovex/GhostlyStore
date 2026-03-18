@@ -270,31 +270,31 @@ const descripcionesProductos = {
     'MC STOCK | CAPES': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.'
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPE YEARN': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Yearn EXCLUSIVA.',
-        '❯ Compra garantizada y segura.'
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPES CHERRY': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Cherry EXCLUSIVA.',
-        '❯ Compra garantizada y segura.'
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPE CHERRY': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Cherry EXCLUSIVA.',
-        '❯ Compra garantizada y segura.'
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPE CHERRY + VANILLA': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Cherry & Vanilla EXCLUSIVAS.',
-        '❯ Compra garantizada y segura.'
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPE MIGRATOR ': [
