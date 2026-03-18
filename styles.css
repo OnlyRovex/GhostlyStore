@@ -1,3 +1,4 @@
+
 /* ============================================
    ESTILOS GENERALES
 ============================================ */
@@ -2673,40 +2674,4 @@ img:not([src]), img[src=""] {
 .review-stars {
     font-size: 0.9rem;
     letter-spacing: 2px;
-}
-
-/* ============================================
-   PANEL ADMIN — ESTILOS
-============================================ */
-
-.logo, .logo-img, .spinning-logo {
-    cursor: pointer;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-#admin-password-modal .modal-content {
-    border: 2px solid #7c3aed;
-    background: linear-gradient(135deg, #1a0f3a, #0d0820);
-}
-
-#admin-password-input:focus {
-    border-color: #7c3aed !important;
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
-}
-
-#admin-panel::-webkit-scrollbar { width: 8px; }
-#admin-panel::-webkit-scrollbar-track { background: #0d0820; }
-#admin-panel::-webkit-scrollbar-thumb { background: #4a3080; border-radius: 4px; }
-
-#admin-edit-modal::-webkit-scrollbar { width: 8px; }
-#admin-edit-modal::-webkit-scrollbar-track { background: rgba(0,0,0,0.5); }
-#admin-edit-modal::-webkit-scrollbar-thumb { background: #4a3080; border-radius: 4px; }
-
-#admin-products-list > div:hover {
-    border-color: #7c3aed !important;
-    transition: border-color 0.2s;
 }
