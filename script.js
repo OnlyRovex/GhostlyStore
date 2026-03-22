@@ -273,64 +273,68 @@ const descripcionesProductos = {
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE YEARN': [
+    'MC STOCK | CAPES 2': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Yearn EXCLUSIVA.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPES CHERRY': [
+    'MC STOCK | CAPES 3': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Cherry EXCLUSIVA.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE CHERRY': [
+    'MC STOCK | CAPES 4': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Cherry EXCLUSIVA.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE CHERRY + VANILLA': [
+    'MC STOCK | CAPES 5': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Cherry & Vanilla EXCLUSIVAS.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE MIGRATOR ': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene la capa Migrator EXCLUSIVA.',
+    'MC STOCK | CAPE FOLLOWERS ': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Followers EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE PURPLE HEARTH': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene la capa Purple Hearth EXCLUSIVA.',
+    'MC STOCK | CAPE VANILLA': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Vanilla EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | 1600 MINECOINS': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene 1600 MINECOINS para gastar en BD.',
+    'MC STOCK | MOJANG OFFICE': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Mojang Office EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETICS': [
-        '❯ Contiene Cosmeticos en Feather Client (Puños & Mochilas).',
+    'MC STOCK | RANK VIP+ TILTED': [
         '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene Rango VIP+ Global en Tilted.lol.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | +6 CAPAS': [
-        '❯ Contiene la capa Menace & Yearn EXCLUSIVAS + 4 Capas.',
+    'MC STOCK | RANK VIP+ TILTED 2': [
         '❯ Minecraft Java & Bedrock permanente (29.99$.',
+        '❯ Contiene Rango VIP+ Global en Tilted.lol.',
+        '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
     'MC STOCK | CAPE FOUNDER': [
         '❯ Minecraft Java & Bedrock permanente (29.99$.',
         '❯ Contiene la capa Founder ULTRA EXXCLUSIVA',
+        '❯ No Contiene la capa Followers'
     ],
-    'MC STOCK | RANK MASTER': [
-        '❯ Contiene Rango Master en el Pokebox de SpookMC',
+    'MC STOCK | COSMETIC + CAPES': [
+        '❯ Contiene el Cosmetico (Puños de Fuego) en Feather Client.',
+        '❯ Contiene la capa Menace & Home ULTRA EXXCLUSIVAS',
         '❯ Minecraft Java & Bedrock permanente (29.99$.',
         '❯ Unban all'
     ],
