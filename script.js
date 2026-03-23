@@ -563,7 +563,13 @@ const descripcionesProductos = {
         '❯ Todas las recompensas.',
         '❯ Entrega inmediata.'
     ],
-    // Brawl Stars
+    // Supercell
+    'PASE DE CLASH ROYALE': [
+        '❯ Pase de Clash Royale.',
+        '❯ Acceso a todas las recompensas del pase.',
+        '❯ Entrega inmediata.',
+        '❯ Compra 100% segura.'
+    ],
     'PASE NORMAL': [
         '❯ Pase Normal de Brawl Stars.',
         '❯ Acceso a todas las recompensas del pase.',
@@ -1259,4 +1265,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
