@@ -297,45 +297,47 @@ const descripcionesProductos = {
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE FOLLOWERS ': [
+    'MC STOCK | RANK MASTER ': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Followers EXCLUSIVA.',
+        '❯ Contiene el Rango MASTER Global en MineFun.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE VANILLA': [
+    'MC STOCK | COSMETIC': [
+        '❯ Contiene un Cosmetico en Feather (Mascara de Zorro).',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Vanilla EXCLUSIVA.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | MOJANG OFFICE': [
+    'MC STOCK | VOLT & NOVA': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Mojang Office EXCLUSIVA.',
+        '❯ Contiene el Rango Volt Global en ElectroMC.',
+        '❯ Contiene el Rango Nova Global en MineBosh.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+ TILTED': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene Rango VIP+ Global en Tilted.lol.',
+    'MC STOCK | COSMETIC 2': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene un Cosmetico en Feather (Corona).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK VIP+ TILTED 2': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene Rango VIP+ Global en Tilted.lol.',
+    'MC STOCK | +5 CAPES': [
+        '❯ Contiene las capas: Purple Heart, Followers, 15TH EXCLUSIVAS.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | CAPE FOUNDER': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
-        '❯ Contiene la capa Founder ULTRA EXXCLUSIVA',
-        '❯ No Contiene la capa Followers'
+    'MC STOCK | RANK KILLER': [
+        '❯ Contiene Rango Killer en FnafBox en Infection.fun.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Unban all'
     ],
-    'MC STOCK | COSMETIC + CAPES': [
-        '❯ Contiene el Cosmetico (Puños de Fuego) en Feather Client.',
-        '❯ Contiene la capa Menace & Home ULTRA EXXCLUSIVAS',
-        '❯ Minecraft Java & Bedrock permanente (29.99$.',
+    'MC STOCK | RANK BOOM': [
+        '❯ Contiene Rango Boom en FnafBox en Minebom.org.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
     // Crunchyroll Planes
