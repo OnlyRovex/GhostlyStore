@@ -329,13 +329,13 @@ const descripcionesProductos = {
         '❯ Unban all'
     ],
     'MC STOCK | RANK KILLER': [
-        '❯ Contiene Rango Killer en FnafBox en Infection.fun.',
+        '❯ Contiene Rango Killer en FnafBox en Infection.fun (11$).',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
     'MC STOCK | RANK BOOM': [
-        '❯ Contiene Rango Boom en FnafBox en Minebom.org.',
+        '❯ Contiene Rango Boom en FnafBox en Minebom.org (22.99$).',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
