@@ -297,7 +297,7 @@ const descripcionesProductos = {
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK MASTER ': [
+    'MC STOCK | RANK MASTER': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene el Rango MASTER Global en MineFun.',
         '❯ Cambio de Nombre disponible.',
