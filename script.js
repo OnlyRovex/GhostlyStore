@@ -315,7 +315,7 @@ const descripcionesProductos = {
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | 4 RANK + 4 CAPES': [
+    'MC STOCK | 4 RANKS + 4 CAPES': [
         '❯ Contiene las capas: Zombie Horse & Menace EXCLUSIVAS.',
         '❯ Contiene el Rango Volt Global en ElectroMC.net.',
         '❯ Contiene el Rango Master Global en MineFun.net.',
