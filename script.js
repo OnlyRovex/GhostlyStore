@@ -297,27 +297,30 @@ const descripcionesProductos = {
         '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.'
     ],
-    'MC STOCK | COSMETIC': [
-        '❯ Contiene un Cosmetico en Feather (Mascara de Zorro).',
+    'MC STOCK | PURPLE HEART': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Cambio de Nombre disponible.',
+        '❯ Contiene la capa Purple Heart EXCLUSIVA.',
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | VOLT & NOVA': [
+    'MC STOCK | MASTER + MENACE': [
+        '❯ Contiene el Rango Master Global en MineFun.net.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene el Rango Volt Global en ElectroMC.',
-        '❯ Contiene el Rango Nova Global en MineBosh.',
-        '❯ Cambio de Nombre disponible.',
+        '❯ Contiene la capa Menace EXCLUSIVA.',
+        '❯ Compra garantizada y segura.'
+    ],
+    'MC STOCK | CAPE MIGRATOR': [
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene la capa Migrator EXCLUSIVA.',
+        '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | COSMETIC 2': [
-        '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene un Cosmetico en Feather (Corona).',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | +5 CAPES': [
-        '❯ Contiene las capas: Purple Heart, Followers, 15TH EXCLUSIVAS.',
+    'MC STOCK | 4 RANK + 4 CAPES': [
+        '❯ Contiene las capas: Zombie Horse & Menace EXCLUSIVAS.',
+        '❯ Contiene el Rango Volt Global en ElectroMC.net.',
+        '❯ Contiene el Rango Master Global en MineFun.net.',
+        '❯ Contiene el Rango Nova Global en MineBosh.net.',
+        '❯ Contiene el Rango Vip+ Global en Tilted.lol.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
