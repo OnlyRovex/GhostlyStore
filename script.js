@@ -270,38 +270,32 @@ const descripcionesProductos = {
     'MC STOCK | CAPES': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
+        '❯ Compra garantizada y segura.'
     ],
     'MC STOCK | CAPES 2': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
+        '❯ Compra garantizada y segura.'
     ],
     'MC STOCK | CAPES 3': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
+        '❯ Compra garantizada y segura.'
     ],
     'MC STOCK | CAPES 4': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
+        '❯ Compra garantizada y segura.'
     ],
     'MC STOCK | CAPES 5': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Contiene la capa Pan & Common.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
+        '❯ Compra garantizada y segura.'
     ],
-    'MC STOCK | RANK MASTER': [
+    'MC STOCK | CAPES 6': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene el Rango MASTER Global en MineFun.',
-        '❯ Cambio de Nombre disponible.',
-        '❯ Unban all'
+        '❯ Contiene la capa Pan & Common.',
+        '❯ Compra garantizada y segura.'
     ],
     'MC STOCK | COSMETIC': [
         '❯ Contiene un Cosmetico en Feather (Mascara de Zorro).',
