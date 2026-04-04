@@ -331,9 +331,12 @@ const descripcionesProductos = {
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | RANK BOOM': [
-        '❯ Contiene Rango Boom en FnafBox en Minebom.org (22.99$).',
+    'MC STOCK | +7 CAPAS & +2 COSMETICS + 3 RANKS': [
+        '❯ Contiene las capas: Copper, Menace, Pan, Common, 15TG & Followers EXCLUSIVAS.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Contiene Rango Master Global en MineFun.',
+        '❯ Contiene Rango Volt Global en ElectroMC.',
+        '❯ Contiene Rango Vip+ Global en Tilted.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
