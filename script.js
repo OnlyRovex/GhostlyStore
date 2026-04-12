@@ -325,8 +325,8 @@ const descripcionesProductos = {
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | +8 CAPES': [
-        '❯ Contiene las capas: Copper, Cherry, Purple Heart, Mojang Office, 15TH & Followers EXCLUSIVAS.',
+    'MC STOCK | 10 CAPAS EXCLUSIVAS': [
+        '❯ Contiene las capas: Copper, Menace, Purple Heart, Home, Zombie Horse, Pan, Yearn, Common, 15th Anniversary & Followers EXCLUSIVAS.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
