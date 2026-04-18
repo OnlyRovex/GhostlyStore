@@ -325,18 +325,16 @@ const descripcionesProductos = {
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | 10 CAPAS EXCLUSIVAS': [
-        '❯ Contiene las capas: Copper, Menace, Purple Heart, Home, Zombie Horse, Pan, Yearn, Common, 15th Anniversary & Followers EXCLUSIVAS.',
+    'MC STOCK | COSMETICS + VIP+': [
+        '❯ Contiene 5 Cosmeticos Exclusivos en Feather Client.',
+        '❯ Contiene el Rango Vip+ Global en Tilted.lol.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
-    'MC STOCK | +7 CAPAS & +2 COSMETICS + 3 RANKS': [
-        '❯ Contiene las capas: Copper, Menace, Pan, Common, 15TG & Followers EXCLUSIVAS.',
+    'MC STOCK | COSMETICS': [
+        '❯ Contiene 6 Cosmeticos Exclusivos en Feather Client.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene Rango Master Global en MineFun.',
-        '❯ Contiene Rango Volt Global en ElectroMC.',
-        '❯ Contiene Rango Vip+ Global en Tilted.',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
     ],
