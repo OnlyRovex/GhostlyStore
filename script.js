@@ -297,17 +297,16 @@ const descripcionesProductos = {
         '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.'
     ],
-    'MC STOCK | PURPLE HEART': [
+    'MC STOCK | CAPES 7': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Purple Heart EXCLUSIVA.',
-        '❯ Compra garantizada y segura.',
-        '❯ Unban all'
-    ],
-    'MC STOCK | MASTER + MENACE': [
-        '❯ Contiene el Rango Master Global en MineFun.net.',
-        '❯ Minecraft Java & Bedrock permanente (29.99$).',
-        '❯ Contiene la capa Menace EXCLUSIVA.',
+        '❯ Contiene la capa Pan & Common.',
         '❯ Compra garantizada y segura.'
+    ],
+    'MC STOCK | MASCARA': [
+        '❯ Contiene una Mascara con diseño de payazo Exclusiva en Feather Client.',
+        '❯ Minecraft Java & Bedrock permanente (29.99$).',
+        '❯ Cambio de Nombre disponible.',
+        '❯ Unban all'
     ],
     'MC STOCK | CAPE MIGRATOR': [
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
@@ -315,12 +314,8 @@ const descripcionesProductos = {
         '❯ Compra garantizada y segura.',
         '❯ Unban all'
     ],
-    'MC STOCK | 4 RANKS + 4 CAPES': [
-        '❯ Contiene las capas: Zombie Horse & Menace EXCLUSIVAS.',
-        '❯ Contiene el Rango Volt Global en ElectroMC.net.',
-        '❯ Contiene el Rango Master Global en MineFun.net.',
-        '❯ Contiene el Rango Nova Global en MineBosh.net.',
-        '❯ Contiene el Rango Vip+ Global en Tilted.lol.',
+    'MC STOCK | CAPE MACE': [
+        '❯ Contiene una Capa con diseño de un Mazo Exclusiva en Feather Client.',
         '❯ Minecraft Java & Bedrock permanente (29.99$).',
         '❯ Cambio de Nombre disponible.',
         '❯ Unban all'
